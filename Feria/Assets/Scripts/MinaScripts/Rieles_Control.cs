@@ -11,7 +11,7 @@ public class Rieles_Control : MonoBehaviour
     public List<GameObject> rielesA = new List<GameObject>();
     public List<GameObject> rielesB = new List<GameObject>();
     public List<GameObject> rielesC = new List<GameObject>();
-
+    public GameObject spawnzona_prefab;
     public Transform[] posiciones;
     public int cantidad;
     // Use this for initialization
@@ -20,6 +20,11 @@ public class Rieles_Control : MonoBehaviour
     Vector3 posicionPrevia;
 
     public int cantRielesSpawn;
+
+   public List<GameObject> rielesUsando = new List<GameObject>();
+
+    int ladoDer, ladoIzq;
+
 	void Start ()
     {
         _rieles = this;
@@ -66,38 +71,62 @@ public class Rieles_Control : MonoBehaviour
             inicio = false;
         }
     }
-    void ActivarTramo()
+    public void ActivarTramo()
     {
-        for (int i = 0; i < cantidad-1; i++)
+        DestruccionDeTramo();
+        for (int i = 0; i < 15; i++)
         {
             ActivarRiel();
+            if(i == 3)
+            {
+                GameObject sz = Instantiate(spawnzona_prefab, posicionPrevia, Quaternion.identity) as GameObject;
+            }
         }
     }
     public void ActivarRiel()
     {
-        GameObject riel = SeleccionRiel();
+
+            GameObject riel = SeleccionRiel();
+
+
+            if (!nuevoRiel)
+            {
+                riel.transform.position = new Vector3(0.0f, -1.07f, 6.0f);
+                nuevoRiel = true;
+                posicionPrevia = riel.transform.position;
+
+            }
+            if (cantRielesSpawn >= 20.0f)
+            {
+                riel.transform.position = ElegirPos();
+                posicionPrevia = riel.transform.position;
+            }
+            else
+            {
+                posicionPrevia.z += 5.0f;
+                riel.transform.position = posicionPrevia;
+                posicionPrevia = riel.transform.position;
+            }
+
+            riel.SetActive(true);
+            
+            rielesUsando.Add(riel);
+            cantRielesSpawn++;
         
-       
-        if(!nuevoRiel)
-        {
-            riel.transform.position = new Vector3(0.0f, -1.07f, 6.0f);
-            nuevoRiel = true;
-            posicionPrevia = riel.transform.position;
+        
 
-        }if(cantRielesSpawn >= 20.0f)
+    }
+    public void DestruccionDeTramo()
+    {
+        //comienza la desactivacion los rieles del tramo actual
+        foreach(GameObject r in rielesUsando)
         {
-            riel.transform.position = ElegirPos();
-            posicionPrevia = riel.transform.position;
+            if (r.activeInHierarchy)
+            {
+                r.GetComponent<Riel_Control>().Activado();
+                
+            }
         }
-        else
-        {
-            posicionPrevia.z += 5.0f;
-            riel.transform.position = posicionPrevia;
-            posicionPrevia = riel.transform.position;
-        }
-
-        riel.SetActive(true);
-        cantRielesSpawn++;
 
     }
 
@@ -114,7 +143,10 @@ public class Rieles_Control : MonoBehaviour
                 if (ri.activeInHierarchy == false)
                 {
                     riel = ri;
+                   // ri.GetComponent<Riel_Control>().pasado = false;
+                    //StopCoroutine(ri.GetComponent<Riel_Control>().Reseteo());
                     
+
                 }
             }
         }
@@ -122,10 +154,11 @@ public class Rieles_Control : MonoBehaviour
         {
             foreach (GameObject ri in rielesB)
             {
-                if (ri.activeInHierarchy == false)
+                if (ri.activeInHierarchy == false )
                 {
                     riel = ri;
-                    
+                  //  ri.GetComponent<Riel_Control>().pasado = false;
+                   // StopCoroutine(ri.GetComponent<Riel_Control>().Reseteo());
                 }
             }
         }
@@ -133,10 +166,12 @@ public class Rieles_Control : MonoBehaviour
         {
             foreach (GameObject ri in rielesC)
             {
-                if (ri.activeInHierarchy == false)
+                if (ri.activeInHierarchy == false || ri.GetComponent<Riel_Control>().pasado)
                 {
                     riel = ri;
-                    
+                   // ri.GetComponent<Riel_Control>().pasado = false;
+                   // StopCoroutine(ri.GetComponent<Riel_Control>().Reseteo());
+
                 }
             }
         }
@@ -144,12 +179,36 @@ public class Rieles_Control : MonoBehaviour
 
         return riel;
     }
+
     Vector3 ElegirPos()
     {
         int rand = Random.Range(0,3);
 
         Vector3 pos = posiciones[rand].position;
+        pos.y = -1.07f;
         pos.z = posicionPrevia.z + 5.0f;
+
+        /*if(rand != 0)
+        {
+            if (ladoDer == 0)
+            {
+                pos.z -= 5.0f;
+                ladoDer++;
+            }
+
+            if (ladoIzq == 0)
+            {
+                pos.z -= 5.0f;
+                ladoIzq++;
+            }
+        }if(rand == 0)
+        {
+            if (ladoDer != 0)
+                ladoDer = 0;
+            if (ladoIzq != 0)
+                ladoIzq = 0;
+        }*/
+
         return pos;
     }
 }

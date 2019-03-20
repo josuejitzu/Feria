@@ -6,16 +6,23 @@ public class Riel_Control : MonoBehaviour
 {
 
     // Use this for initialization
+    public bool pasado;
+
     void Start()
     {
 
     }
 
+    public void Activado()
+    {
+        StartCoroutine(Reseteo(10.0f));
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "carro")
         {
-            Rieles_Control._rieles.ActivarRiel();
+            //Rieles_Control._rieles.ActivarRiel();
+            StartCoroutine(Reseteo(5.0f));
         }
 
     }
@@ -25,14 +32,20 @@ public class Riel_Control : MonoBehaviour
 
         if (other.transform.tag == "carro")
         {
-            Invoke("Reseteo", 5.0f);
+           // Rieles_Control._rieles.ActivarRiel();
+            pasado = true;
+          
         }
 
     }
 
-    void Reseteo()
+    public IEnumerator Reseteo(float t)
     {
+
+        yield return new WaitForSeconds(t);
         this.gameObject.SetActive(false);
+        pasado = true;
+
     }
 
 }

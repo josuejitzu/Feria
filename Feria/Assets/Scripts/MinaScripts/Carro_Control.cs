@@ -110,6 +110,13 @@ public class Carro_Control : MonoBehaviour
 
 
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == "spawnZona")
+        {
+            Rieles_Control._rieles.ActivarTramo();
+        }
+    }
 
-    
+
 }
