@@ -7,38 +7,193 @@ public class Rieles_Control : MonoBehaviour
 {
     public static Rieles_Control _rieles;
 
+    [Header("Rieles")]
     public GameObject[] rieles_prefab;
     public List<GameObject> rielesA = new List<GameObject>();
     public List<GameObject> rielesB = new List<GameObject>();
     public List<GameObject> rielesC = new List<GameObject>();
-    public GameObject spawnzona_prefab;
-    public Transform[] posiciones;
+    public List<GameObject> rielesD = new List<GameObject>();
+    public List<GameObject> rielesE = new List<GameObject>();
+    public List<GameObject> rielesF = new List<GameObject>();
+    public List<GameObject> rielesG = new List<GameObject>();
+    public List<GameObject> rielesH = new List<GameObject>();
+    public List<GameObject> rielesI = new List<GameObject>();
+    
+    int enPos  = 0;
     public int cantidad;
-    // Use this for initialization
+    public List<GameObject> rielesUsando = new List<GameObject>();
+    public int cantRielesSpawn;
     bool inicio = true;
-    bool nuevoRiel;
+    bool nuevoRiel = true;
     Vector3 posicionPrevia;
 
-    public int cantRielesSpawn;
+    [Space(10)]
+    [Header("Paredes")]
+    public GameObject[] paredes_prefab;
+    public GameObject posParedes;
+    public List<GameObject> paredesA = new List<GameObject>();
+    public List<GameObject> paredesB = new List<GameObject>();
+    public List<GameObject> paredesC = new List<GameObject>();
+    public List<GameObject> paredesD = new List<GameObject>();
+    public List<GameObject> paredesE = new List<GameObject>();
+    public List<GameObject> paredesF = new List<GameObject>();
+    public int cantidadParedes;
+    Vector3 posParedNueva;
+    Vector3 posParedvieja;
+    bool nuevaPared = true;
 
-   public List<GameObject> rielesUsando = new List<GameObject>();
+    [Space(10)]
+    [Header("Pisos")]
+    public GameObject[] pisos_prefab;
+    public List<GameObject>pisosA = new List<GameObject>();
+    public List<GameObject>pisosB = new List<GameObject>();
+    public List<GameObject>pisosC = new List<GameObject>();
+    public int cantidadPisos;
+    bool nuevoPiso = true;
+    public Transform posPiso;
+    Vector3 posPisoViejo;
 
+    [Space(10)]
+    [Header("Techos")]
+    public GameObject[] techos_prefab;
+    public List<GameObject> techoA = new List<GameObject>();
+    public List<GameObject> techoB = new List<GameObject>();
+    public List<GameObject> techoC = new List<GameObject>();
+    public int cantidadTechos;
+    public Transform posTecho;
+    bool nuevoTecho = true;
+    Vector3 posTechoViejo;
+
+    [Space(10)]
+    public GameObject spawnzona_prefab;//
+    public Transform[] posiciones;
+
+    // Use this for initialization
+
+    public bool etapa1, etapa2, etapa3;
+
+   
+ 
     int ladoDer, ladoIzq;
 
 	void Start ()
     {
-        _rieles = this;
-        Spawnear();
+        etapa1 = true;
 
+        _rieles = this;
+
+        SpawnearParedes();
+        SpawneearPisos();
+        SpawnearTechos();
+        Spawnear();
+     
 	}
 	
-	// Update is called once per frame
-	void Update ()
+	
+
+    void SpawnearParedes()
     {
-		
-	}
+        for (int i = 0; i < cantidadParedes; i++)
+        {
+            GameObject pared = Instantiate(paredes_prefab[0], transform.position, Quaternion.identity) as GameObject;
+            pared.SetActive(false);
+            pared.transform.name = "paredeA " + i;
+            paredesA.Add(pared);
+        }
+        for (int j = 0; j < cantidadParedes; j++)
+        {
+            GameObject pared = Instantiate(paredes_prefab[1], transform.position, Quaternion.identity) as GameObject;
+            pared.SetActive(false);
+            pared.transform.name = "paredeB " + j;
+            paredesB.Add(pared);
+        }
+        for (int j = 0; j < cantidadParedes; j++)
+        {
+            GameObject pared = Instantiate(paredes_prefab[2], transform.position, Quaternion.identity) as GameObject;
+            pared.SetActive(false);
+            pared.transform.name = "paredeC " + j;
+            paredesC.Add(pared);
+        }
+        for (int j = 0; j < cantidadParedes; j++)
+        {
+            GameObject pared = Instantiate(paredes_prefab[3], transform.position, Quaternion.identity) as GameObject;
+            pared.SetActive(false);
+            pared.transform.name = "paredeD " + j;
+            paredesD.Add(pared);
+        }
+        for (int j = 0; j < cantidadParedes; j++)
+        {
+            GameObject pared = Instantiate(paredes_prefab[4], transform.position, Quaternion.identity) as GameObject;
+            pared.SetActive(false);
+            pared.transform.name = "paredeE " + j;
+            paredesE.Add(pared);
+        }
+        for (int j = 0; j < cantidadParedes; j++)
+        {
+            GameObject pared = Instantiate(paredes_prefab[5], transform.position, Quaternion.identity) as GameObject;
+            pared.SetActive(false);
+            pared.transform.name = "paredeF " + j;
+            paredesF.Add(pared);
+        }
+
+    }
+
+    void SpawneearPisos()
+    {
+        for (int i = 0; i < cantidadPisos; i++)
+        {
+            GameObject piso = Instantiate(pisos_prefab[0], transform.position, Quaternion.identity) as GameObject;
+            piso.SetActive(false);
+            piso.transform.name = "pisoA " + i;
+            pisosA.Add(piso);
+        }
+
+        for (int i = 0; i < cantidadPisos; i++)
+        {
+            GameObject piso = Instantiate(pisos_prefab[1], transform.position, Quaternion.identity) as GameObject;
+            piso.SetActive(false);
+            piso.transform.name = "pisoB " + i;
+            pisosB.Add(piso);
+        }
+
+        for (int i = 0; i < cantidadPisos; i++)
+        {
+            GameObject piso = Instantiate(pisos_prefab[2], transform.position, Quaternion.identity) as GameObject;
+            piso.SetActive(false);
+            piso.transform.name = "pisoC " + i;
+            pisosC.Add(piso);
+        }
+        
+    }
+
+    void SpawnearTechos()
+    {
+        for (int i = 0; i < cantidadTechos; i++)
+        {
+            GameObject techo = Instantiate(techos_prefab[0], transform.position, Quaternion.identity) as GameObject;
+            techo.SetActive(false);
+            techo.transform.name = "techoA" + i;
+            techoA.Add(techo);
+        }
+        for (int j= 0; j < cantidadTechos; j++)
+        {
+            GameObject techo = Instantiate(techos_prefab[1], transform.position, Quaternion.identity) as GameObject;
+            techo.SetActive(false);
+            techo.transform.name = "techoB" + j;
+            techoB.Add(techo);
+        }
+        for (int k = 0; k < cantidadTechos; k++)
+        {
+            GameObject techo = Instantiate(techos_prefab[2], transform.position, Quaternion.identity) as GameObject;
+            techo.SetActive(false);
+            techo.transform.name = "techoC" + k;
+            techoC.Add(techo);
+        }
+    }
+
     void Spawnear()
     {
+        //Spawn 9 Tipos de Rieles
         for (int i = 0; i < cantidad; i++)
         {
             GameObject riel = Instantiate(rieles_prefab[0], transform.position, Quaternion.identity) as GameObject;
@@ -61,8 +216,50 @@ public class Rieles_Control : MonoBehaviour
             riel.transform.name = "rielC " + k;
             rielesC.Add(riel);
         }
+        for (int k = 0; k < cantidad; k++)
+        {
+            GameObject riel = Instantiate(rieles_prefab[3], transform.position, Quaternion.identity) as GameObject;
+            riel.SetActive(false);
+            riel.transform.name = "rielD " + k;
+            rielesD.Add(riel);
+        }
+        for (int k = 0; k < cantidad; k++)
+        {
+            GameObject riel = Instantiate(rieles_prefab[4], transform.position, Quaternion.identity) as GameObject;
+            riel.SetActive(false);
+            riel.transform.name = "rielE " + k;
+            rielesE.Add(riel);
+        }
+        for (int k = 0; k < cantidad; k++)
+        {
+            GameObject riel = Instantiate(rieles_prefab[5], transform.position, Quaternion.identity) as GameObject;
+            riel.SetActive(false);
+            riel.transform.name = "rielF " + k;
+            rielesF.Add(riel);
 
-
+        }
+        for (int k = 0; k < cantidad; k++)
+        {
+            GameObject riel = Instantiate(rieles_prefab[6], transform.position, Quaternion.identity) as GameObject;
+            riel.SetActive(false);
+            riel.transform.name = "rielG " + k;
+            rielesG.Add(riel);
+        }
+        for (int k = 0; k < cantidad; k++)
+        {
+            GameObject riel = Instantiate(rieles_prefab[7], transform.position, Quaternion.identity) as GameObject;
+            riel.SetActive(false);
+            riel.transform.name = "rielH " + k;
+            rielesH.Add(riel);
+        }
+        for (int k = 0; k < cantidad; k++)
+        {
+            GameObject riel = Instantiate(rieles_prefab[8], transform.position, Quaternion.identity) as GameObject;
+            riel.SetActive(false);
+            riel.transform.name = "rielI " + k;
+            rielesI.Add(riel);
+        }
+        ////////
 
         print("Se terminaron de cargar los rieles");
         if(inicio)
@@ -71,51 +268,142 @@ public class Rieles_Control : MonoBehaviour
             inicio = false;
         }
     }
+   
+
     public void ActivarTramo()
     {
         DestruccionDeTramo();
+
         for (int i = 0; i < 15; i++)
         {
             ActivarRiel();
-            if(i == 3)
+
+            if(i == 1)
             {
                 GameObject sz = Instantiate(spawnzona_prefab, posicionPrevia, Quaternion.identity) as GameObject;
             }
         }
-    }
-    public void ActivarRiel()
-    {
+        nuevoRiel = false;
 
-            GameObject riel = SeleccionRiel();
+      //PAREDES
 
+      for (int i = 0; i < 19; i++)
+        {
 
-            if (!nuevoRiel)
+            GameObject pared = ElegirPared();
+            if(nuevaPared)
             {
-                riel.transform.position = new Vector3(0.0f, -1.07f, 6.0f);
-                nuevoRiel = true;
-                posicionPrevia = riel.transform.position;
-
-            }
-            if (cantRielesSpawn >= 20.0f)
-            {
-                riel.transform.position = ElegirPos();
-                posicionPrevia = riel.transform.position;
+                pared.transform.position = posParedes.transform.position;
+                posParedNueva = pared.transform.position;
+                nuevaPared = false;
             }
             else
             {
-                posicionPrevia.z += 5.0f;
-                riel.transform.position = posicionPrevia;
-                posicionPrevia = riel.transform.position;
+                if (pared != null)
+                {
+                    posParedNueva.z += 4.5f;
+                    pared.transform.position = posParedNueva;
+                }
             }
-
-            riel.SetActive(true);
             
-            rielesUsando.Add(riel);
-            cantRielesSpawn++;
-        
-        
+            pared.SetActive(true);
+            StopCoroutine(pared.GetComponent<Pared_Control>().Reiniciar());
+            posParedNueva = pared.transform.position;
+          
 
+        }
+        //PISO
+        for (int i = 0; i < 6; i++)
+        {
+            GameObject piso = ElegirPiso();
+            if(nuevoPiso)
+            {
+                piso.transform.position = posPiso.transform.position;
+                posPisoViejo = piso.transform.position;
+                nuevoPiso = false;
+            }
+            else
+            {
+                if (piso != null)
+                {
+                    posPisoViejo.z += 15.9f;
+                    piso.transform.position = posPisoViejo;
+                }
+            }
+            if (piso != null)
+
+            {
+                piso.SetActive(true);
+                StopCoroutine(piso.GetComponent<Piso_Control>().Reiniciar());
+                posPisoViejo = piso.transform.position;
+            }
+        
+        }
+
+        //TECHO
+
+        for (int j = 0; j < 6; j++)
+        {
+            GameObject techo = ElegirTecho();
+            if(nuevoTecho)
+            {
+                techo.transform.position = posTecho.position;
+                posTechoViejo = techo.transform.position;
+                nuevoTecho = false;
+            }else
+            {
+                if(techo != null)
+                {
+                    posTechoViejo.z += 15.9f;
+                    techo.transform.position = posTechoViejo;
+                }
+            }
+            if(techo != null)
+            {
+                techo.SetActive(true);
+                StopCoroutine(techo.GetComponent<Techo_Control>().Reiniciar());
+                posTechoViejo = techo.transform.position;
+            }
+         
+        }
+
+        
     }
+
+    public void ActivarRiel()
+    {
+        GameObject riel = null;
+
+
+        if (nuevoRiel)
+        {
+            
+                riel = SeleccionRiel();
+                riel.transform.position = ElegirPos(0);
+                riel.SetActive(true);
+            
+        }
+        else
+        {
+            
+            for (int i = 0; i < posiciones.Length; i++)
+            {
+                riel = SeleccionRiel();
+                if (riel != null)
+                {
+                    riel.transform.position = ElegirPos(i);
+                    riel.SetActive(true);
+                    StopCoroutine(riel.GetComponent<Riel_Control>().Reseteo(1));
+                }
+               
+            }
+        }
+       
+            posicionPrevia = riel.transform.position;
+          
+                
+    }
+
     public void DestruccionDeTramo()
     {
         //comienza la desactivacion los rieles del tramo actual
@@ -132,83 +420,312 @@ public class Rieles_Control : MonoBehaviour
 
     GameObject SeleccionRiel()
     {
-        int r = Random.Range(0, rieles_prefab.Length);
-
         GameObject riel = null;
 
-        if (r == 0)
+        if (etapa1)
         {
-            foreach (GameObject ri in rielesA)
-            {
-                if (ri.activeInHierarchy == false)
-                {
-                    riel = ri;
-                   // ri.GetComponent<Riel_Control>().pasado = false;
-                    //StopCoroutine(ri.GetComponent<Riel_Control>().Reseteo());
-                    
 
+            int r = Random.Range(0, 3);
+
+           
+
+            if (r == 0)
+            {
+                foreach (GameObject ri in rielesA)
+                {
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+
+
+                    }
+                }
+            }
+            if (r == 1)
+            {
+                foreach (GameObject ri in rielesB)
+                {
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+                    }
+                }
+            }
+            if (r == 2)
+            {
+                foreach (GameObject ri in rielesC)
+                {
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+                    }
                 }
             }
         }
-        if (r == 1)
+        if(etapa2)
         {
-            foreach (GameObject ri in rielesB)
+             int r = Random.Range(0, 3);
+
+           
+
+            if (r == 0)
             {
-                if (ri.activeInHierarchy == false )
+                foreach (GameObject ri in rielesD)
                 {
-                    riel = ri;
-                  //  ri.GetComponent<Riel_Control>().pasado = false;
-                   // StopCoroutine(ri.GetComponent<Riel_Control>().Reseteo());
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+
+
+                    }
+                }
+            }
+            if (r == 1)
+            {
+                foreach (GameObject ri in rielesE)
+                {
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+                    }
+                }
+            }
+            if (r == 2)
+            {
+                foreach (GameObject ri in rielesF)
+                {
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+                    }
                 }
             }
         }
-        if (r == 2)
+        if(etapa3)
         {
-            foreach (GameObject ri in rielesC)
-            {
-                if (ri.activeInHierarchy == false || ri.GetComponent<Riel_Control>().pasado)
-                {
-                    riel = ri;
-                   // ri.GetComponent<Riel_Control>().pasado = false;
-                   // StopCoroutine(ri.GetComponent<Riel_Control>().Reseteo());
+            int r = Random.Range(0, 3);
 
+
+
+            if (r == 0)
+            {
+                foreach (GameObject ri in rielesG)
+                {
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+
+
+                    }
+                }
+            }
+            if (r == 1)
+            {
+                foreach (GameObject ri in rielesH)
+                {
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+                    }
+                }
+            }
+            if (r == 2)
+            {
+                foreach (GameObject ri in rielesI)
+                {
+                    if (ri.activeInHierarchy == false)
+                    {
+                        riel = ri;
+
+                    }
                 }
             }
         }
-
 
         return riel;
     }
 
-    Vector3 ElegirPos()
+    Vector3 ElegirPos(int n)
     {
-        int rand = Random.Range(0,3);
 
-        Vector3 pos = posiciones[rand].position;
+        Vector3 pos = posiciones[n].position;
         pos.y = -1.07f;
         pos.z = posicionPrevia.z + 5.0f;
-
-        /*if(rand != 0)
-        {
-            if (ladoDer == 0)
-            {
-                pos.z -= 5.0f;
-                ladoDer++;
-            }
-
-            if (ladoIzq == 0)
-            {
-                pos.z -= 5.0f;
-                ladoIzq++;
-            }
-        }if(rand == 0)
-        {
-            if (ladoDer != 0)
-                ladoDer = 0;
-            if (ladoIzq != 0)
-                ladoIzq = 0;
-        }*/
-
+        print(n);
         return pos;
     }
+
+    GameObject ElegirPared()
+    {
+        int rand = Random.Range(0, 2);
+        GameObject p = null;
+        if (etapa1)
+        {
+            if (rand == 0)
+            {
+                foreach (GameObject pared in paredesA)
+                {
+                    if (!pared.activeInHierarchy)
+                    {
+                        p = pared;
+                    }
+                }
+            }
+            if (rand == 1)
+            {
+                foreach (GameObject pared in paredesB)
+                {
+                    if (!pared.activeInHierarchy)
+                    {
+                        p = pared;
+                    }
+                }
+            }
+        }
+
+        if (etapa2)
+        {
+            if (rand == 0)
+            {
+                foreach (GameObject pared in paredesC)
+                {
+                    if (!pared.activeInHierarchy)
+                    {
+                        p = pared;
+                    }
+                }
+            }
+            if (rand == 1)
+            {
+                foreach (GameObject pared in paredesD)
+                {
+                    if (!pared.activeInHierarchy)
+                    {
+                        p = pared;
+                    }
+                }
+            }
+        }
+
+        if (etapa3)
+        {
+            if (rand == 0)
+            {
+                foreach (GameObject pared in paredesE)
+                {
+                    if (!pared.activeInHierarchy)
+                    {
+                        p = pared;
+                    }
+                }
+            }
+            if (rand == 1)
+            {
+                foreach (GameObject pared in paredesF)
+                {
+                    if (!pared.activeInHierarchy)
+                    {
+                        p = pared;
+                    }
+                }
+            }
+
+        }
+
+        return p;
+
+    }
+
+    GameObject ElegirPiso()
+    {
+        GameObject piso = null;
+
+        if(etapa1)
+        {
+            foreach(GameObject p in pisosA)
+            {
+                if(!p.activeInHierarchy)
+                {
+                    piso = p;
+                }
+            }
+        }
+        if (etapa2)
+        {
+            foreach (GameObject p in pisosB)
+            {
+                if (!p.activeInHierarchy)
+                {
+                    piso = p;
+                }
+            }
+        }
+        if (etapa3)
+        {
+            foreach (GameObject p in pisosC)
+            {
+                if (!p.activeInHierarchy)
+                {
+                    piso = p;
+                }
+            }
+        }
+
+        return piso;
+    }
+
+    GameObject ElegirTecho()
+    {
+        GameObject techo = null;
+
+        if(etapa1)
+        {
+            foreach(GameObject t in techoA)
+            {
+                if (!t.activeInHierarchy)
+                {
+
+                    techo = t;
+                }
+
+            }
+        }
+
+        if (etapa2)
+        {
+            foreach (GameObject t in techoB)
+            {
+                if (!t.activeInHierarchy)
+                {
+
+                    techo = t;
+                }
+
+            }
+        }
+
+        if (etapa3)
+        {
+            foreach (GameObject t in techoC)
+            {
+                if (!t.activeInHierarchy)
+                {
+
+                    techo = t;
+                }
+
+            }
+        }
+
+        return techo;
+    }
+
 }

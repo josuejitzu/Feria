@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Carro_Control : MonoBehaviour
 {
+    public static Carro_Control _carro;
     public float velocidadFinal;
     public float velocidad;
     public float step;
@@ -15,7 +16,9 @@ public class Carro_Control : MonoBehaviour
 
 	void Start ()
     {
+        _carro = this;
         enCentro = true;
+
 	}
 	
 	// Update is called once per frame
@@ -57,9 +60,9 @@ public class Carro_Control : MonoBehaviour
 
         }
 
-        posCentro.position = new Vector3(0.0f, this.transform.position.y, this.transform.position.z);
-        posDerecha.position = new Vector3(3.0f, this.transform.position.y, this.transform.position.z);
-        posIzquierda.position = new Vector3(-3.0f, this.transform.position.y, this.transform.position.z);
+        posCentro.position = new Vector3(posCentro.position.x, this.transform.position.y, this.transform.position.z);
+        posDerecha.position = new Vector3(posDerecha.position.x, this.transform.position.y, this.transform.position.z);
+        posIzquierda.position = new Vector3(posIzquierda.position.x, this.transform.position.y, this.transform.position.z);
 
         if (moverCentro)
         {
