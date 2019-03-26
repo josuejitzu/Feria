@@ -65,12 +65,40 @@ public class Rieles_Control : MonoBehaviour
     Vector3 posTechoViejo;
 
     [Space(10)]
+    [Header("Soporte")]
+    public GameObject[] soportes_prefab;
+    public List<GameObject> soporteA = new List<GameObject>();
+    public int cantidadSoportes;
+    public Transform posSoporte;
+    Vector3 posSoporteViejo;
+    bool nuevoSoporte = true;
+
+    [Space(10)]
+    [Header("Trampas")]
+    public int trampaSeleccionada;
+    public int rateTrampas = 5;
+    public int sigTrampa;
+
+    [Space(10)]
+    [Header("Murcielagos")]
+    public int cantidadColocar;
+    public int murcielagosPuestos = 0;
+
+    [Space(10)]
+    [Header("Monedas")]
+    public int cantidadMonedas;
+
+    [Space(10)]
     public GameObject spawnzona_prefab;//
+    public List<GameObject> zonasSpawn = new List<GameObject>();
     public Transform[] posiciones;
 
+    [Space(10)]
+    [Header("TramoFinal")]
+    public GameObject piezaFinal;
     // Use this for initialization
 
-    public bool etapa1, etapa2, etapa3;
+    public bool etapa1, etapa2, etapa3, etapafinal;
 
    
  
@@ -83,13 +111,26 @@ public class Rieles_Control : MonoBehaviour
         _rieles = this;
 
         SpawnearParedes();
+        SpawnSoportes();
         SpawneearPisos();
         SpawnearTechos();
         Spawnear();
      
 	}
 	
-	
+	void SpawnSoportes()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject soporte = Instantiate(soportes_prefab[0], transform.position, Quaternion.identity) as GameObject;
+            soporte.SetActive(false);
+            soporte.transform.name = "SoporteA " + i;
+            soporteA.Add(soporte);
+        }
+
+
+
+    }
 
     void SpawnearParedes()
     {
@@ -272,6 +313,16 @@ public class Rieles_Control : MonoBehaviour
 
     public void ActivarTramo()
     {
+        if(etapafinal)
+        {
+            posicionPrevia.x = 0.0f;
+            posicionPrevia.y = 0.0f;
+            posicionPrevia.z += 2.0f;
+            piezaFinal.transform.position = posicionPrevia;
+            piezaFinal.SetActive(true);
+           // FinalCamino();
+            return;
+        }
         DestruccionDeTramo();
 
         for (int i = 0; i < 15; i++)
@@ -281,7 +332,9 @@ public class Rieles_Control : MonoBehaviour
             if(i == 1)
             {
                 GameObject sz = Instantiate(spawnzona_prefab, posicionPrevia, Quaternion.identity) as GameObject;
+                zonasSpawn.Add(sz);
             }
+           
         }
         nuevoRiel = false;
 
@@ -367,6 +420,32 @@ public class Rieles_Control : MonoBehaviour
          
         }
 
+        //SOPORTE
+        for (int i = 0; i < 2; i++)
+        {
+
+
+            GameObject soporte = ElegirSoporte();
+            if (nuevoSoporte)
+            {
+                soporte.transform.position = posSoporte.position;
+                posSoporteViejo = soporte.transform.position;
+                nuevoSoporte = false;
+
+            }
+            else
+            {
+                if (soporte != null)
+                {
+                    posSoporteViejo.z += 45.0f;
+                    soporte.transform.position = posSoporteViejo;
+                    soporte.SetActive(true);
+                    StopCoroutine(soporte.GetComponent<Soporte_Control>().Reiniciar());
+                    posSoporteViejo = soporte.transform.position;
+                }
+            }
+        }
+
         
     }
 
@@ -392,13 +471,46 @@ public class Rieles_Control : MonoBehaviour
                 if (riel != null)
                 {
                     riel.transform.position = ElegirPos(i);
+
+                    if(cantRielesSpawn >= 25)
+                    {
+                        int l = LoteriaTrampa();
+                        riel.GetComponent<Riel_Control>().SetTrampa(l);
+                        if(l == 7)
+                        {
+                            if (murcielagosPuestos < 30)
+                            {
+                                riel.GetComponent<Riel_Control>().SetMurcielagos(LoteriaMurcielago());
+                                murcielagosPuestos++;
+                            }
+                        }else if(l == 9)
+                        {
+                            if(cantidadMonedas < 120)
+                            {
+                                riel.GetComponent<Riel_Control>().SetMonedas(LoteriaMonedas());
+                                
+                            }
+                        }
+
+                        sigTrampa = cantRielesSpawn + rateTrampas;
+                       /* if (cantRielesSpawn > sigTrampa)
+                        {
+                            riel.GetComponent<Riel_Control>().SetTrampa(LoteriaTrampa());
+                            sigTrampa = cantRielesSpawn + rateTrampas;
+                        }
+                        */
+
+                        
+                    }
+
                     riel.SetActive(true);
                     StopCoroutine(riel.GetComponent<Riel_Control>().Reseteo(1));
+                   
                 }
                
             }
         }
-       
+            cantRielesSpawn++;
             posicionPrevia = riel.transform.position;
           
                 
@@ -414,6 +526,40 @@ public class Rieles_Control : MonoBehaviour
                 r.GetComponent<Riel_Control>().Activado();
                 
             }
+        }
+
+    }
+
+    public void FinalCamino()
+    {
+       
+      
+
+        foreach(GameObject p in paredesA)
+        {
+            p.SetActive(false);
+        }
+        foreach (GameObject pb in paredesB)
+        {
+            pb.SetActive(false);
+        }
+        foreach (GameObject piso in pisosA)
+        {
+            piso.SetActive(false);
+        }
+        foreach(GameObject t in techoA)
+        {
+            t.SetActive(false);
+        }
+        foreach(GameObject s in soporteA)
+        {
+            s.SetActive(false);
+        }
+        foreach(GameObject z in zonasSpawn )
+        {
+
+            z.SetActive(false);
+
         }
 
     }
@@ -559,7 +705,7 @@ public class Rieles_Control : MonoBehaviour
         Vector3 pos = posiciones[n].position;
         pos.y = -1.07f;
         pos.z = posicionPrevia.z + 5.0f;
-        print(n);
+       // print(n);
         return pos;
     }
 
@@ -726,6 +872,44 @@ public class Rieles_Control : MonoBehaviour
         }
 
         return techo;
+    }
+
+    GameObject ElegirSoporte()
+    {
+        GameObject soporte = null;
+
+        foreach(GameObject s in soporteA)
+        {
+            if(!s.activeInHierarchy)
+            {
+                soporte = s;
+            }
+        }
+        return soporte;
+    }
+
+    int LoteriaTrampa()
+    {
+        int rand = Random.Range(0, 12);
+        while(rand == trampaSeleccionada)
+        {
+            rand = Random.Range(0, 12);
+        }
+
+        trampaSeleccionada = rand;
+
+        return rand;
+    }
+    
+    int LoteriaMurcielago()
+    {
+        int rand = Random.Range(0, 1);
+        return rand;
+    }
+    int LoteriaMonedas()
+    {
+        int rand = Random.Range(0, 4);
+        return rand;
     }
 
 }

@@ -284,3 +284,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pasado: 0
+  trampa: {fileID: 0}

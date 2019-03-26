@@ -10,19 +10,26 @@ public class Mano_Control : MonoBehaviour
     public SteamVR_Action_Single squeezeAction;
     public SteamVR_Action_Vector2 touchPadAction;
     // Use this for initialization
+    SteamVR_Behaviour_Pose control;
 
-    void Start () {
-		
+    void Start ()
+    {
+        control = this.GetComponent<SteamVR_Behaviour_Pose>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.Any))
-        {
 
+        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.LeftHand))
+        {
+            Carro_Control._carro.MoverIzquierda();
             print("PresionandoTrigger");
         }
-
+        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
+        {
+            Carro_Control._carro.MoverDerecha();
+            print("PresionandoTrigger");
+        }
     }
 }

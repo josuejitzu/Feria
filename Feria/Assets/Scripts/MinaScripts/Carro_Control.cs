@@ -13,6 +13,11 @@ public class Carro_Control : MonoBehaviour
     // Use this for initialization
     public bool enCentro, enIzquierda, enDerecha;
     public bool moverIzquierda,moverCentro,moverDerecha;
+    public bool enMovimiento;
+
+    public bool puedeMoverse;
+   public   bool enFinal;
+    public bool inmortal;
 
 	void Start ()
     {
@@ -32,32 +37,12 @@ public class Carro_Control : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (enCentro)
-            {
-                moverIzquierda = true;
-            }
-            else if (enDerecha)
-            {
-                moverCentro = true;
-            }
-            else if (enIzquierda)
-                return;
+            MoverIzquierda();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-
-            if (enCentro)
-            {
-                moverDerecha = true;
-            } else if (enIzquierda)
-            {
-                moverCentro = true;
-            } else if (enDerecha)
-            {
-                return;
-            }
-
+            MoverDerecha();
         }
 
         posCentro.position = new Vector3(posCentro.position.x, this.transform.position.y, this.transform.position.z);
@@ -66,6 +51,8 @@ public class Carro_Control : MonoBehaviour
 
         if (moverCentro)
         {
+
+            enMovimiento = true;
             Vector3 dist = posCentro.position - this.transform.position;
             this.transform.position = Vector3.MoveTowards(this.transform.position, posCentro.position, Time.deltaTime * velocidadPos);
             if(dist.magnitude <=0.1f)
@@ -77,10 +64,12 @@ public class Carro_Control : MonoBehaviour
                 enCentro = true;
                 enIzquierda = false;
                 enDerecha = false;
+                enMovimiento = false;
             }
         }
         if(moverDerecha)
         {
+            enMovimiento = true;
             Vector3 dist = posDerecha.position - this.transform.position;
             this.transform.position = Vector3.MoveTowards(this.transform.position, posDerecha.position, Time.deltaTime * velocidadPos);
             if (dist.magnitude <= 0.1f)
@@ -92,10 +81,12 @@ public class Carro_Control : MonoBehaviour
                 enCentro = false;
                 enIzquierda = false;
                 enDerecha = true;
+                enMovimiento = false;
             }
         }
         if(moverIzquierda)
         {
+            enMovimiento = true;
             Vector3 dist = posIzquierda.position - this.transform.position;
             this.transform.position = Vector3.MoveTowards(this.transform.position, posIzquierda.position, Time.deltaTime * velocidadPos);
             if (dist.magnitude <= 0.1f)
@@ -107,10 +98,15 @@ public class Carro_Control : MonoBehaviour
                 enCentro = false;
                 enIzquierda = true;
                 enDerecha = false;
+                enMovimiento = false;
             }
         }
 
-
+        if(this.transform.position.z >= 80.0f)
+        { 
+            if(!enFinal)
+            puedeMoverse = true;
+        }
 
 	}
     private void OnTriggerEnter(Collider other)
@@ -119,6 +115,97 @@ public class Carro_Control : MonoBehaviour
         {
             Rieles_Control._rieles.ActivarTramo();
         }
+        if(other.transform.tag =="trampa")
+        {
+            StartCoroutine(RecibirDaño());
+        }
+        if(other.transform.tag == "finalSpawn")
+        {
+            StartCoroutine(AcomodoFinal());
+            Rieles_Control._rieles.FinalCamino();
+        }
+        if (other.transform.tag == "finalVia") 
+        {
+            Master_Minas._mina.FinJuego();
+        }
+    }
+
+    public IEnumerator RecibirDaño()
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (!inmortal)
+        {
+            inmortal = true;
+            velocidadFinal = -1.0f;
+            yield return new WaitForSeconds(1.0f);
+            velocidadFinal = 7.0f;
+           // inmortal = false;
+        }
+
+        Master_Minas._mina.RestarMurcielago();
+    }
+
+    public void MoverDerecha()
+    {
+        if (!puedeMoverse)
+            return;
+
+
+        if (enMovimiento)
+            return;
+        if (enCentro)
+        {
+            moverDerecha = true;
+
+
+        }
+        else if (enIzquierda)
+        {
+            moverCentro = true;
+        }
+        else if (enDerecha)
+        {
+            return;
+        }
+
+    }
+    public void MoverIzquierda()
+    {
+        if (!puedeMoverse)
+            return;
+        if (enMovimiento)
+            return;
+
+        if (enCentro)
+        {
+            moverIzquierda = true;
+        }
+        else if (enDerecha)
+        {
+            moverCentro = true;
+        }
+        else if (enIzquierda)
+            return;
+    }
+
+
+    IEnumerator AcomodoFinal()
+    {
+        moverCentro = true;
+        puedeMoverse = false;
+        enFinal = true;
+        yield return new WaitForSeconds(1.0f);
+        puedeMoverse = false;
+    }
+    public IEnumerator Parar()
+    {
+        yield return new WaitForSeconds(0.2f);
+        velocidadFinal = 5.0f;
+        yield return new WaitForSeconds(0.5f);
+        velocidadFinal = 3.0f;
+        yield return new WaitForSeconds(0.1f);
+        velocidadFinal = 0.0f;
+
     }
 
 
