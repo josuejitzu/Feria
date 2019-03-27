@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408dd42778e4a2240821a1e80cb6139c, type: 3}
+  m_Name: SteamVR_Input_ActionSet_default_In
+  m_EditorClassIdentifier: 
+  actionSet: {fileID: 0}
+  listDirection: 0
+  actions:
+  - {fileID: 11400000, guid: 0c21ac1b349b07a4ebce8e0342e6887e, type: 2}
+  - {fileID: 11400000, guid: aae5a24932a1aba478a4c0c21255a0f3, type: 2}
+  - {fileID: 11400000, guid: 2ba336e3746dd8442b558934e6073fd2, type: 2}
+  - {fileID: 11400000, guid: 541a253840bc2cd43b6e50cd454640df, type: 2}
+  - {fileID: 11400000, guid: 2cfa8a6009aec904492432e3cdc96440, type: 2}
+  - {fileID: 11400000, guid: 1f49f6039e9f65848bbd4b5ab55341dd, type: 2}
+  - {fileID: 11400000, guid: 2660721a5ed91944eb6b0d70091e8af5, type: 2}
+  - {fileID: 11400000, guid: 773190d3fc02ec647b5d1aed2810dd06, type: 2}
+  InteractUI: {fileID: 11400000, guid: 0c21ac1b349b07a4ebce8e0342e6887e, type: 2}
+  Teleport: {fileID: 11400000, guid: aae5a24932a1aba478a4c0c21255a0f3, type: 2}
+  GrabPinch: {fileID: 11400000, guid: 2ba336e3746dd8442b558934e6073fd2, type: 2}
+  GrabGrip: {fileID: 11400000, guid: 541a253840bc2cd43b6e50cd454640df, type: 2}
+  Pose: {fileID: 11400000, guid: 2cfa8a6009aec904492432e3cdc96440, type: 2}
+  SkeletonLeftHand: {fileID: 11400000, guid: 1f49f6039e9f65848bbd4b5ab55341dd, type: 2}
+  SkeletonRightHand: {fileID: 11400000, guid: 2660721a5ed91944eb6b0d70091e8af5, type: 2}
+  Squeeze: {fileID: 11400000, guid: 773190d3fc02ec647b5d1aed2810dd06, type: 2}

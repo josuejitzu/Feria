@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - carro
+  - spawnZona
+  - trampa
+  - finalSpawn
+  - finalVia
+  - botonVR
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: 98a86bc4ec03be14ea4d664c558d8bd9
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Group34869
+    100002: Group34869 1
+    100004: Group62448
+    100006: Group62448 1
+    100008: Group62450
+    100010: Group62450 1
+    100012: Group62451
+    100014: Group62451 1
+    100016: Group62452
+    100018: Group62452 1
+    100020: Group62453
+    100022: Group62453 1
+    100024: Group62454
+    100026: Group62454 1
+    100028: Group62455
+    100030: Group62455 1
+    100032: Group62456
+    100034: Group62456 1
+    100036: Group62457
+    100038: Group62457 1
+    100040: Group62458
+    100042: Group62458 1
+    100044: Group62459
+    100046: Group62459 1
+    100048: Group62460
+    100050: Group62460 1
+    100052: Group62461
+    100054: Group62461 1
+    100056: Group62462
+    100058: Group62462 1
+    100060: Group62463
+    100062: Group62463 1
+    100064: Group62464
+    100066: Group62464 1
+    100068: Group62465
+    100070: Group62465 1
+    100072: Group62466
+    100074: Group62466 1
+    100076: Group62467
+    100078: Group62467 1
+    100080: Group62468
+    100082: Group62468 1
+    100084: Group62469
+    100086: Group62469 1
+    100088: Group62471
+    100090: Group62471 1
+    100092: Group62472
+    100094: Group62472 1
+    100096: Group62473
+    100098: Group62473 1
+    100100: Group62474
+    100102: Group62474 1
+    100104: Group62475
+    100106: Group62475 1
+    100108: Group62476
+    100110: Group62476 1
+    100112: Group62477
+    100114: Group62477 1
+    100116: Group62478
+    100118: Group62478 1
+    100120: Group62479
+    100122: Group62479 1
+    100124: Group62480
+    100126: Group62480 1
+    100128: Group62481
+    100130: Group62481 1
+    100132: Group62482
+    100134: Group62482 1
+    100136: Group62483
+    100138: Group62486
+    100140: Group62487
+    100142: Group62488
+    100144: Group62489
+    100146: Group62490
+    100148: Group62491
+    100150: Group62492
+    100152: Group6934
+    100154: Group6934 1
+    100156: //RootNode
+    100158: Techo_Paredes_0
+    100160: Techo_Paredes_1
+    400000: Group34869
+    400002: Group34869 1
+    400004: Group62448
+    400006: Group62448 1
+    400008: Group62450
+    400010: Group62450 1
+    400012: Group62451
+    400014: Group62451 1
+    400016: Group62452
+    400018: Group62452 1
+    400020: Group62453
+    400022: Group62453 1
+    400024: Group62454
+    400026: Group62454 1
+    400028: Group62455
+    400030: Group62455 1
+    400032: Group62456
+    400034: Group62456 1
+    400036: Group62457
+    400038: Group62457 1
+    400040: Group62458
+    400042: Group62458 1
+    400044: Group62459
+    400046: Group62459 1
+    400048: Group62460
+    400050: Group62460 1
+    400052: Group62461
+    400054: Group62461 1
+    400056: Group62462
+    400058: Group62462 1
+    400060: Group62463
+    400062: Group62463 1
+    400064: Group62464
+    400066: Group62464 1
+    400068: Group62465
+    400070: Group62465 1
+    400072: Group62466
+    400074: Group62466 1
+    400076: Group62467
+    400078: Group62467 1
+    400080: Group62468
+    400082: Group62468 1
+    400084: Group62469
+    400086: Group62469 1
+    400088: Group62471
+    400090: Group62471 1
+    400092: Group62472
+    400094: Group62472 1
+    400096: Group62473
+    400098: Group62473 1
+    400100: Group62474
+    400102: Group62474 1
+    400104: Group62475
+    400106: Group62475 1
+    400108: Group62476
+    400110: Group62476 1
+    400112: Group62477
+    400114: Group62477 1
+    400116: Group62478
+    400118: Group62478 1
+    400120: Group62479
+    400122: Group62479 1
+    400124: Group62480
+    400126: Group62480 1
+    400128: Group62481
+    400130: Group62481 1
+    400132: Group62482
+    400134: Group62482 1
+    400136: Group62483
+    400138: Group62486
+    400140: Group62487
+    400142: Group62488
+    400144: Group62489
+    400146: Group62490
+    400148: Group62491
+    400150: Group62492
+    400152: Group6934
+    400154: Group6934 1
+    400156: //RootNode
+    400158: Techo_Paredes_0
+    400160: Techo_Paredes_1
+    2100000: TEXEL_Map
+    2300000: Group34869
+    2300002: Group34869 1
+    2300004: Group62448
+    2300006: Group62448 1
+    2300008: Group62450
+    2300010: Group62450 1
+    2300012: Group62451
+    2300014: Group62451 1
+    2300016: Group62452
+    2300018: Group62452 1
+    2300020: Group62453
+    2300022: Group62453 1
+    2300024: Group62454
+    2300026: Group62454 1
+    2300028: Group62455
+    2300030: Group62455 1
+    2300032: Group62456
+    2300034: Group62456 1
+    2300036: Group62457
+    2300038: Group62457 1
+    2300040: Group62458
+    2300042: Group62458 1
+    2300044: Group62459
+    2300046: Group62459 1
+    2300048: Group62460
+    2300050: Group62460 1
+    2300052: Group62461
+    2300054: Group62461 1
+    2300056: Group62462
+    2300058: Group62462 1
+    2300060: Group62463
+    2300062: Group62463 1
+    2300064: Group62464
+    2300066: Group62464 1
+    2300068: Group62465
+    2300070: Group62465 1
+    2300072: Group62466
+    2300074: Group62466 1
+    2300076: Group62467
+    2300078: Group62467 1
+    2300080: Group62468
+    2300082: Group62468 1
+    2300084: Group62469
+    2300086: Group62469 1
+    2300088: Group62471
+    2300090: Group62471 1
+    2300092: Group62472
+    2300094: Group62472 1
+    2300096: Group62473
+    2300098: Group62473 1
+    2300100: Group62474
+    2300102: Group62474 1
+    2300104: Group62475
+    2300106: Group62475 1
+    2300108: Group62476
+    2300110: Group62476 1
+    2300112: Group62477
+    2300114: Group62477 1
+    2300116: Group62478
+    2300118: Group62478 1
+    2300120: Group62479
+    2300122: Group62479 1
+    2300124: Group62480
+    2300126: Group62480 1
+    2300128: Group62481
+    2300130: Group62481 1
+    2300132: Group62482
+    2300134: Group62482 1
+    2300136: Group62483
+    2300138: Group62486
+    2300140: Group62487
+    2300142: Group62488
+    2300144: Group62489
+    2300146: Group62490
+    2300148: Group62491
+    2300150: Group62492
+    2300152: Group6934
+    2300154: Group6934 1
+    3300000: Group34869
+    3300002: Group34869 1
+    3300004: Group62448
+    3300006: Group62448 1
+    3300008: Group62450
+    3300010: Group62450 1
+    3300012: Group62451
+    3300014: Group62451 1
+    3300016: Group62452
+    3300018: Group62452 1
+    3300020: Group62453
+    3300022: Group62453 1
+    3300024: Group62454
+    3300026: Group62454 1
+    3300028: Group62455
+    3300030: Group62455 1
+    3300032: Group62456
+    3300034: Group62456 1
+    3300036: Group62457
+    3300038: Group62457 1
+    3300040: Group62458
+    3300042: Group62458 1
+    3300044: Group62459
+    3300046: Group62459 1
+    3300048: Group62460
+    3300050: Group62460 1
+    3300052: Group62461
+    3300054: Group62461 1
+    3300056: Group62462
+    3300058: Group62462 1
+    3300060: Group62463
+    3300062: Group62463 1
+    3300064: Group62464
+    3300066: Group62464 1
+    3300068: Group62465
+    3300070: Group62465 1
+    3300072: Group62466
+    3300074: Group62466 1
+    3300076: Group62467
+    3300078: Group62467 1
+    3300080: Group62468
+    3300082: Group62468 1
+    3300084: Group62469
+    3300086: Group62469 1
+    3300088: Group62471
+    3300090: Group62471 1
+    3300092: Group62472
+    3300094: Group62472 1
+    3300096: Group62473
+    3300098: Group62473 1
+    3300100: Group62474
+    3300102: Group62474 1
+    3300104: Group62475
+    3300106: Group62475 1
+    3300108: Group62476
+    3300110: Group62476 1
+    3300112: Group62477
+    3300114: Group62477 1
+    3300116: Group62478
+    3300118: Group62478 1
+    3300120: Group62479
+    3300122: Group62479 1
+    3300124: Group62480
+    3300126: Group62480 1
+    3300128: Group62481
+    3300130: Group62481 1
+    3300132: Group62482
+    3300134: Group62482 1
+    3300136: Group62483
+    3300138: Group62486
+    3300140: Group62487
+    3300142: Group62488
+    3300144: Group62489
+    3300146: Group62490
+    3300148: Group62491
+    3300150: Group62492
+    3300152: Group6934
+    3300154: Group6934 1
+    4300000: Group62456
+    4300002: Group62475
+    4300004: Group62450
+    4300006: Group62481
+    4300008: Group62480
+    4300010: Group62461
+    4300012: Group62476
+    4300014: Group62472
+    4300016: Group62463
+    4300018: Group62465
+    4300020: Group62464
+    4300022: Group62482
+    4300024: Group62469
+    4300026: Group62468
+    4300028: Group62467
+    4300030: Group62466
+    4300032: Group62471
+    4300034: Group62474
+    4300036: Group62473
+    4300038: Group34869
+    4300040: Group6934
+    4300042: Group62448
+    4300044: Group62478
+    4300046: Group62477
+    4300048: Group62479
+    4300050: Group62452
+    4300052: Group62451
+    4300054: Group62454
+    4300056: Group62453
+    4300058: Group62455
+    4300060: Group62457
+    4300062: Group62458
+    4300064: Group62462
+    4300066: Group62460
+    4300068: Group62459
+    4300070: Group62489
+    4300072: Group62491
+    4300074: Group62456
+    4300076: Group62475
+    4300078: Group62450
+    4300080: Group62481
+    4300082: Group62480
+    4300084: Group62461
+    4300086: Group62476
+    4300088: Group62472
+    4300090: Group62463
+    4300092: Group62465
+    4300094: Group62464
+    4300096: Group62482
+    4300098: Group62469
+    4300100: Group62468
+    4300102: Group62467
+    4300104: Group62466
+    4300106: Group62471
+    4300108: Group62474
+    4300110: Group62473
+    4300112: Group34869
+    4300114: Group6934
+    4300116: Group62448
+    4300118: Group62478
+    4300120: Group62477
+    4300122: Group62479
+    4300124: Group62452
+    4300126: Group62451
+    4300128: Group62454
+    4300130: Group62453
+    4300132: Group62455
+    4300134: Group62457
+    4300136: Group62458
+    4300138: Group62462
+    4300140: Group62460
+    4300142: Group62459
+    4300144: Group62483
+    4300146: Group62486
+    4300148: Group62487
+    4300150: Group62488
+    4300152: Group62490
+    4300154: Group62492
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

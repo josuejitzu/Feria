@@ -1,0 +1,36 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InstruccionesMinas_Control : MonoBehaviour
+{
+    public static InstruccionesMinas_Control _instruccionesMinas;
+    public  GameObject[] instrucciones;
+	// Use this for initialization
+	void Start ()
+    {
+        _instruccionesMinas = this;	
+	}
+	
+	
+    public void AparecerInstrucciones(int num)
+    {
+        foreach(GameObject i in instrucciones)
+        {
+            i.SetActive(false);
+        }
+        Carro_Control._carro.velocidadFinal = 0.0f;
+        instrucciones[num].SetActive(true);
+
+    }
+    public void CerrarInstrucciones()
+    {
+        foreach (GameObject i in instrucciones)
+        {
+            i.SetActive(false);
+        }
+        Carro_Control._carro.velocidadFinal = 5.0f;
+        Carro_Control._carro.puedeMoverse = true;
+
+    }
+}
