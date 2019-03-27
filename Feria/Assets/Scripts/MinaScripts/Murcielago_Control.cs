@@ -15,7 +15,9 @@ public class Murcielago_Control : MonoBehaviour
     {
         if(other.transform.tag == "carro")
         {
-            Master_Minas._mina.SumarMurcielago();
+            if(Master_Minas._mina != null)
+              Master_Minas._mina.SumarMurcielago();
+
             StartCoroutine(Reinicio());
         }
 

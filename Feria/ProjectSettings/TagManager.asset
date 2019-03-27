@@ -9,6 +9,7 @@ TagManager:
   - trampa
   - finalSpawn
   - finalVia
+  - botonVR
   layers:
   - Default
   - TransparentFX
