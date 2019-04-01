@@ -76,50 +76,19 @@ public class Arco_Control : MonoBehaviour
         flechaFuerzaTotal = distanciaManos.magnitude * 25;
         //creacion de arco de acuerdo a la fuerza total de la flecha
         stepAngle = 90 - (flechaFuerzaTotal * 5);//fuerzaFlecha * (20.0f * distanciaManos.magnitude);
-        print(stepAngle);
+        //print(stepAngle);
         if (ejeRotacionAngulo.rotation.x < 180.0f)
         {
-            ejeRotacionAngulo.rotation = Quaternion.Euler(stepAngle,0,0);// (Vector3.left, stepAngle);
+            ejeRotacionAngulo.rotation = Quaternion.Euler(stepAngle,ejeRotacionAngulo.rotation.eulerAngles.y,ejeRotacionAngulo.rotation.eulerAngles.z);// (Vector3.left, stepAngle);
         }
 
         print("fuerza flecha: "+flechaFuerzaTotal+" angulo: "+ stepAngle);
         presionandoCuerda = Mano_ArcoControl._manoArco.presionando;
-        SetTargetWithAngle(objetivoArco.position, angulo);
+        //SetTargetWithAngle(objetivoArco.position, angulo);
 
          Vector3 posFlechas = new Vector3(posFlecha.transform.position.x, posFlecha.transform.position.y, 0.45f - (distanciaManos.magnitude /2));
          posFlecha.position = posFlechas;
-
-        //if (flechaActual != null)
-        //{
-        //    if(presionandoCuerda)
-        //    {
-
-
-        //        fuerzaCuerda = distanciaManos.magnitude * 80;
-        //        cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
-
-        //      //  Vector3 posFlechas = new Vector3(posFlecha.transform.position.x, posFlecha.transform.position.y, distanciaManos.magnitude * -0.1f);
-        //       // posFlecha.position = posFlechas;
-
-
-        //        if (flechaFuerzaTotal < 30.0f)
-        //        {
-        //            flechaFuerzaTotal =  distanciaManos.magnitude * 25;
-        //            stepAngle = fuerzaFlecha * (3.0f * distanciaManos.magnitude);
-        //            if(ejeRotacionAngulo.rotation.x < 0.0f) 
-        //               ejeRotacionAngulo.Rotate(Vector3.left, stepAngle);
-        //            //projectileArc_mesh.SetActive(true);
-
-        //        }
-        //    }
-        //    if(!presionandoCuerda && flechaFuerzaTotal > 0.0f)
-        //    {
-        //        DispararFlecha(flechaFuerzaTotal);
-        //        ejeRotacionAngulo.rotation = rotacionInicial;
-        //        //projectileArc_mesh.SetActive(false);
-        //    }
-        //    SetTargetWithAngle(objetivoArco.position, angulo);
-        //}
+        
 
         //////////////////////// LINE RENDER
 
