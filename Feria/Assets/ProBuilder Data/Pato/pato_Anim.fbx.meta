@@ -1,0 +1,235 @@
+fileFormatVersion: 2
+guid: 3dddcd66e79bb7040aaf608a38e9863e
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Pato_BinSkin03:Chest
+    100004: Pato_BinSkin03:Chest_CTRL
+    100006: Pato_BinSkin03:COG
+    100008: Pato_BinSkin03:COG_CTRL
+    100010: Pato_BinSkin03:head
+    100012: Pato_BinSkin03:Left_Shoulder
+    100014: Pato_BinSkin03:Master_Ctrl
+    100016: Pato_BinSkin03:Neck1
+    100018: Pato_BinSkin03:Neck2
+    100020: Pato_BinSkin03:Neck3
+    100022: Pato_BinSkin03:Pato_00:Ala_Der
+    100024: Pato_BinSkin03:Pato_00:Ala_Izq
+    100026: Pato_BinSkin03:Pato_00:Ojo_Der
+    100028: Pato_BinSkin03:Pato_00:OJo_Izq
+    100030: Pato_BinSkin03:Pato_00:Pato_01
+    100032: Pato_BinSkin03:Pato_00:Pato_Pascual
+    100034: Pato_BinSkin03:RightShoulder
+    100036: Pato_BinSkin03:ShoulderLeft
+    100038: Pato_BinSkin03:ShoulderRight
+    100040: Pato_BinSkin03:Spine1_CTRL
+    100042: Pato_BinSkin03:spine2
+    100044: Pato_BinSkin03:Spine2_CTRL
+    100046: Pato_BinSkin03:spine3
+    100048: Pato_BinSkin03:tail1
+    100050: Pato_BinSkin03:tail2
+    100052: Pato_BinSkin03:tail3
+    100054: Pato_BinSkin03:Tail_Base
+    100056: Pato_BinSkin03:Wing_Left1
+    100058: Pato_BinSkin03:Wing_Left2
+    100060: Pato_BinSkin03:Wing_Left3
+    100062: Pato_BinSkin03:Wing_Right1
+    100064: Pato_BinSkin03:Wing_Right2
+    100066: Pato_BinSkin03:Wing_Right3
+    400000: //RootNode
+    400002: Pato_BinSkin03:Chest
+    400004: Pato_BinSkin03:Chest_CTRL
+    400006: Pato_BinSkin03:COG
+    400008: Pato_BinSkin03:COG_CTRL
+    400010: Pato_BinSkin03:head
+    400012: Pato_BinSkin03:Left_Shoulder
+    400014: Pato_BinSkin03:Master_Ctrl
+    400016: Pato_BinSkin03:Neck1
+    400018: Pato_BinSkin03:Neck2
+    400020: Pato_BinSkin03:Neck3
+    400022: Pato_BinSkin03:Pato_00:Ala_Der
+    400024: Pato_BinSkin03:Pato_00:Ala_Izq
+    400026: Pato_BinSkin03:Pato_00:Ojo_Der
+    400028: Pato_BinSkin03:Pato_00:OJo_Izq
+    400030: Pato_BinSkin03:Pato_00:Pato_01
+    400032: Pato_BinSkin03:Pato_00:Pato_Pascual
+    400034: Pato_BinSkin03:RightShoulder
+    400036: Pato_BinSkin03:ShoulderLeft
+    400038: Pato_BinSkin03:ShoulderRight
+    400040: Pato_BinSkin03:Spine1_CTRL
+    400042: Pato_BinSkin03:spine2
+    400044: Pato_BinSkin03:Spine2_CTRL
+    400046: Pato_BinSkin03:spine3
+    400048: Pato_BinSkin03:tail1
+    400050: Pato_BinSkin03:tail2
+    400052: Pato_BinSkin03:tail3
+    400054: Pato_BinSkin03:Tail_Base
+    400056: Pato_BinSkin03:Wing_Left1
+    400058: Pato_BinSkin03:Wing_Left2
+    400060: Pato_BinSkin03:Wing_Left3
+    400062: Pato_BinSkin03:Wing_Right1
+    400064: Pato_BinSkin03:Wing_Right2
+    400066: Pato_BinSkin03:Wing_Right3
+    2100000: Pato_BinSkin03_Pato_00_lambert26
+    2100002: Pato_BinSkin03_Pato_00_lambert25
+    2100004: Pato_BinSkin03_Pato_00_lambert24
+    2300000: Pato_BinSkin03:Pato_00:Ala_Der
+    2300002: Pato_BinSkin03:Pato_00:Ala_Izq
+    3300000: Pato_BinSkin03:Pato_00:Ala_Der
+    3300002: Pato_BinSkin03:Pato_00:Ala_Izq
+    4300000: Pato_BinSkin03:Pato_00:Ala_Der
+    4300002: Pato_BinSkin03:Pato_00:Ala_Izq
+    4300004: Pato_BinSkin03:Pato_00:Pato_01
+    4300006: Pato_BinSkin03:Pato_00:OJo_Izq
+    4300008: Pato_BinSkin03:Pato_00:Ojo_Der
+    7400000: pato_muerte
+    7400002: pato_nado
+    9500000: //RootNode
+    13700000: Pato_BinSkin03:Pato_00:Ojo_Der
+    13700002: Pato_BinSkin03:Pato_00:OJo_Izq
+    13700004: Pato_BinSkin03:Pato_00:Pato_01
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: pato_pascual_MAT_AlbedoTransparency
+    second: {fileID: 2800000, guid: 25d3032320d802149a1003ca715a5119, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: pato_nado
+      takeName: pato_Anim
+      firstFrame: 0
+      lastFrame: 563
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: pato_muerte
+      takeName: pato_Anim
+      firstFrame: 565
+      lastFrame: 649
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
