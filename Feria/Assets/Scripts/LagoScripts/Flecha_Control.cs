@@ -11,11 +11,8 @@ public class Flecha_Control : MonoBehaviour
     public GameObject arco_mesh;
     bool disparada;
     public Transform padre;
-	// Use this for initialization
-	void Start ()
-    {
-        rigid = this.GetComponent<Rigidbody>();
-	}
+    // Use this for initialization
+ 
 	
 	// Update is called once per frame
 	void Update ()
@@ -39,20 +36,26 @@ public class Flecha_Control : MonoBehaviour
     public void FlechaEnArco()
     {
         colision.enabled = false;
-       // trigger.enabled = false;
+        trigger.enabled = false;
         rigid.useGravity = false;
         enArco = true;
 
     }
     public void FlechaDejoArco()
     {
-
+        colision.enabled = true;
+        trigger.enabled = true;
     }
     public void FlechaDisparada(float fuerza)
     {
-        rigid.velocity = this.transform.forward * fuerza;
-        rigid.useGravity = true;
+
         rigid.isKinematic = false;
+        rigid.useGravity = true;
+        rigid.velocity = this.transform.forward * fuerza;
+        
+        rigid.isKinematic = false;
+        colision.enabled = true;
+        trigger.enabled = true;
         disparada = true;
     }
     public IEnumerator ReiniciarFlecha()

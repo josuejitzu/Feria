@@ -15,7 +15,8 @@ public class Arco_Control : MonoBehaviour
     public GameObject flecha_prefab;
     public List<GameObject> flechas_A = new List<GameObject>();
     public int cantidadFlechas;
-    public Transform posFlecha;
+    public Transform posFlecha,posFlecha_A,posFlecha_B;
+    
     public GameObject flechaActual;
     public float flechaFuerzaTotal;
     public float fuerzaFlecha;
@@ -26,7 +27,7 @@ public class Arco_Control : MonoBehaviour
     private float currentAngle;
     private float currentTimeOfFlight;
     public Transform objetivoArco;
-    public Transform ejeRotacionAngulo;
+    public Transform ejeRotacionAngulo, ejeRotacion_A, ejeRotacion_B;
     Quaternion rotacionInicial;
     public float stepAngle;// es 5 veces la fuerza de la flecha
     public float angulo;
@@ -63,33 +64,44 @@ public class Arco_Control : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.F))
         {
-            //DispararFlecha(10.0f);
+            DispararFlecha(10.0f);
             presionandoCuerda = false;
         }
 
+        presionandoCuerda = Mano_ArcoControl._manoArco.presionando;
+       
 
-        distanciaManos = manoIzq.transform.position - manoDer.transform.position;
-        //Torcion de cuerda
-        fuerzaCuerda = distanciaManos.magnitude * 80;
-        cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
-        //Fuerza de la flecha
-        flechaFuerzaTotal = distanciaManos.magnitude * 25;
-        //creacion de arco de acuerdo a la fuerza total de la flecha
-        stepAngle = 90 - (flechaFuerzaTotal * 5);//fuerzaFlecha * (20.0f * distanciaManos.magnitude);
-        //print(stepAngle);
-        if (ejeRotacionAngulo.rotation.x < 180.0f)
+
+        if(presionandoCuerda)
         {
-            ejeRotacionAngulo.rotation = Quaternion.Euler(stepAngle,ejeRotacionAngulo.rotation.eulerAngles.y,ejeRotacionAngulo.rotation.eulerAngles.z);// (Vector3.left, stepAngle);
+            distanciaManos = manoIzq.transform.position - manoDer.transform.position;
+
+            //Torcion de cuerda
+            fuerzaCuerda = distanciaManos.magnitude * 80;
+            //cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
+            //Fuerza de la flecha
+            flechaFuerzaTotal = distanciaManos.magnitude * 25;
+            //creacion de arco de acuerdo a la fuerza total de la flecha
+            stepAngle = 90 - (flechaFuerzaTotal * 5);//fuerzaFlecha * (20.0f * distanciaManos.magnitude);
+            //print(stepAngle);
+            /*if (ejeRotacionAngulo.rotation.x < 180.0f)
+            {
+                ejeRotacionAngulo.rotation = Quaternion.Euler(stepAngle, ejeRotacionAngulo.rotation.eulerAngles.y, ejeRotacionAngulo.rotation.eulerAngles.z);// (Vector3.left, stepAngle);
+            }*/
+            ejeRotacionAngulo.rotation = Quaternion.Lerp(ejeRotacion_A.rotation,ejeRotacion_B.rotation,distanciaManos.magnitude);
+
+            //Movimiento de la flecha de acuerdo a la distancia entre manos
+            posFlecha.position = Vector3.Lerp(posFlecha_A.position, posFlecha_B.position, distanciaManos.magnitude);
+            //projectileArc_mesh.SetActive(true);
         }
 
-        print("fuerza flecha: "+flechaFuerzaTotal+" angulo: "+ stepAngle);
-        presionandoCuerda = Mano_ArcoControl._manoArco.presionando;
-        //SetTargetWithAngle(objetivoArco.position, angulo);
-
-         Vector3 posFlechas = new Vector3(posFlecha.transform.position.x, posFlecha.transform.position.y, 0.45f - (distanciaManos.magnitude /2));
-         posFlecha.position = posFlechas;
+        if (!presionandoCuerda && fuerzaCuerda > 0.1f)
+        {
+            DispararFlecha(flechaFuerzaTotal);
+        }
         
 
+        cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
         //////////////////////// LINE RENDER
 
 
@@ -122,7 +134,8 @@ public class Arco_Control : MonoBehaviour
         {
             GameObject flecha = Instantiate(flecha_prefab, posFlecha.position, posFlecha.transform.rotation) as GameObject;
             flecha.transform.name = "flecha_" + i;
-            flecha.transform.parent = this.transform;
+            flecha.GetComponent<Flecha_Control>().padre = posFlecha.transform;
+            flecha.transform.parent = posFlecha.transform;
             flecha.SetActive(false);
             
             flechas_A.Add(flecha);
@@ -131,15 +144,7 @@ public class Arco_Control : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "flecha")
-        {
-            flechaActual = other.transform.gameObject;
-            flechaActual.GetComponent<Flecha_Control>().FlechaEnArco();
-            flechaActual.GetComponent<Flecha_Control>().padre = posFlecha.transform;
-            flechaActual.transform.parent = posFlecha.transform;
-            flechaActual.transform.position = posFlecha.position;
-            flechaActual.transform.rotation = posFlecha.rotation;
-        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
@@ -155,21 +160,35 @@ public class Arco_Control : MonoBehaviour
 
         flechaActual.transform.parent = null;
         flechaActual.GetComponent<Flecha_Control>().FlechaDisparada(f);
-        flechaFuerzaTotal = 0.0f;
+       // projectileArc_mesh.SetActive(false);
         cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
-        fuerzaCuerda = 0;
+     
+        fuerzaCuerda = 0.0f;
+        flechaFuerzaTotal = 0.0f;
+        ejeRotacionAngulo.rotation = ejeRotacion_A.rotation;
+        posFlecha.position = posFlecha_A.position;
         presionandoCuerda = false;
+        flechaActual = null;
         Invoke("ActivarFlecha", 0.5f);
 
     }
-    void ActivarFlecha()
+    public void ActivarFlecha()
     {
         flechaActual = null;
         foreach(GameObject flecha in flechas_A)
         {
             if(!flecha.activeInHierarchy)
             {
+               
+                flechaActual = flecha;
+
                 flecha.SetActive(true);
+                flechaActual.GetComponent<Flecha_Control>().FlechaEnArco();
+                flechaActual.GetComponent<Flecha_Control>().padre = posFlecha.transform;
+                flechaActual.transform.parent = posFlecha.transform;
+                flechaActual.transform.position = posFlecha.position;
+                flechaActual.transform.rotation = posFlecha.rotation;
+              
                 break;
             }
         }

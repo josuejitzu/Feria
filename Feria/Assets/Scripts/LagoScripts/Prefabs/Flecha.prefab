@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 65824744359386546}
   colision: {fileID: 65029968247266976}
-  rigid: {fileID: 0}
+  rigid: {fileID: 54698259247789588}
   enArco: 0
   arco_mesh: {fileID: 1369286419183630}
   padre: {fileID: 0}

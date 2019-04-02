@@ -35,8 +35,7 @@ public class Mano_ArcoControl : MonoBehaviour
     {
         if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.LeftHand))
         {
-
-
+            
 
             print("PresionandoTrigger");
         }
@@ -45,7 +44,9 @@ public class Mano_ArcoControl : MonoBehaviour
 
             if (!enUI && enCuerda)
             {
+
                 presionando = true;
+                Arco_Control._arco.presionandoCuerda = true;
                 print("agarrando cuerda");
             }
 
@@ -54,14 +55,15 @@ public class Mano_ArcoControl : MonoBehaviour
                 boton_selecccionado.GetComponent<Button>().onClick.Invoke();
             }
 
-            Arco_Control._arco.DispararFlecha(Arco_Control._arco.flechaFuerzaTotal);
+           // Arco_Control._arco.DispararFlecha(Arco_Control._arco.flechaFuerzaTotal);
             print("PresionandoTrigger");
         }
         if (SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.RightHand))
         {
-            
-                presionando = false;
-            
+
+            if(presionando)
+              presionando = false;
+
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -87,7 +89,7 @@ public class Mano_ArcoControl : MonoBehaviour
     {
         if(other.transform.tag == "arco")
         {
-            enCuerda = false;
+            //enCuerda = false;
             print("Salio de cuerda");
         }
     }
