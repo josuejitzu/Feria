@@ -15,6 +15,7 @@ TagManager:
   - flecha
   - arco
   - manoVR
+  - cazador
   layers:
   - Default
   - TransparentFX

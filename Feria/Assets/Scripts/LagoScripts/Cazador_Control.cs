@@ -20,6 +20,10 @@ public class Cazador_Control : MonoBehaviour
     public bool activarSlider;
     // Use this for initialization
     public bool dañado;
+    [Space(10)]
+    [Header("FX")]
+    public GameObject golpe_fx;
+
 	void Start ()
     {
         
@@ -81,6 +85,24 @@ public class Cazador_Control : MonoBehaviour
         //animacion de apuntar
         //activarSlider = true;
       
+    }
+    public IEnumerator MatarCazador()
+    {
+        apuntar = false;
+        activarSlider = false;
+        barraDisparo.value = 0.0f;
+        golpe_fx.SetActive(true);
+       // objetivo = null;
+        //animacion de daño
+        yield return new WaitForSeconds(1.0f);
+        barraDisparo.value = 0.0f;
+        fillBarra.color = color_init;
+        //animacion de esconder
+        yield return new WaitForSeconds(1.0f);
+        golpe_fx.SetActive(false);
+        this.gameObject.SetActive(false);
+      
+
     }
     public IEnumerator DesactivarCazador()
     {

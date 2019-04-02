@@ -11,6 +11,7 @@ public class Flecha_Control : MonoBehaviour
     public GameObject arco_mesh;
     bool disparada;
     public Transform padre;
+    public GameObject golpeCazador_FX;
     // Use this for initialization
  
 	
@@ -24,7 +25,12 @@ public class Flecha_Control : MonoBehaviour
 	}
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "cazador"|| other.transform.tag == "arco" || other.transform.tag == "manoVR")
+        if(other.transform.tag == "cazador")
+        {
+           StartCoroutine(other.GetComponent<Cazador_Control>().MatarCazador());
+           StartCoroutine(DestruirCazador());
+        }
+        if(other.transform.tag == "arco" || other.transform.tag == "manoVR")
         {
 
         }
@@ -58,6 +64,19 @@ public class Flecha_Control : MonoBehaviour
         trigger.enabled = true;
         disparada = true;
     }
+
+    public IEnumerator DestruirCazador()
+    {
+        trigger.enabled = false;
+        rigid.useGravity = false;
+        rigid.isKinematic = true;
+        //desparecerMesh
+        arco_mesh.SetActive(false);
+        //particula de golpe
+        golpeCazador_FX.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        StartCoroutine(ReiniciarFlecha());
+    }
     public IEnumerator ReiniciarFlecha()
     {
 
@@ -68,6 +87,7 @@ public class Flecha_Control : MonoBehaviour
         rigid.isKinematic = true;
         disparada = false;
         yield return new WaitForSeconds(1.0f);
+        golpeCazador_FX.SetActive(false);
         this.transform.position = padre.position;
         this.transform.rotation = padre.rotation;
         rigid.isKinematic = false;
