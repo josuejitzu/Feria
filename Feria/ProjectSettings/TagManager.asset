@@ -10,6 +10,11 @@ TagManager:
   - finalSpawn
   - finalVia
   - botonVR
+  - pato
+  - posFinal
+  - flecha
+  - arco
+  - manoVR
   layers:
   - Default
   - TransparentFX

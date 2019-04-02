@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c12035c8f00655444835afa13e318136
+guid: 00672e53934421146a22db12d8cb2f1f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,12 +9,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Roca_04
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LOBBY_FG_MAT
-    second: {fileID: 2100000, guid: 21f2a3298d649714ca21edcf4b6e8006, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -45,7 +40,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
