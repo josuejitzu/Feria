@@ -1,20 +1,17 @@
 fileFormatVersion: 2
-guid: ff6723471af3ab54f95909cfe5f4aa3f
+guid: 958c29366e21ed54b9c48c693134ee7c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Personaje
     400000: //RootNode
-    2100000: Detalles_Plantas
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Planta
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Detalles_Plantas
-    second: {fileID: 2100000, guid: da9d15bc412e37048871e6baf04700ae, type: 2}
+    400002: Personaje
+    2100000: Cazador_MAT
+    2300000: Personaje
+    3300000: Personaje
+    4300000: Personaje
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
