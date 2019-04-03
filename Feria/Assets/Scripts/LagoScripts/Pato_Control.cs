@@ -81,6 +81,8 @@ public class Pato_Control : MonoBehaviour
         desplazarse = false;
         agente.speed = 0;
         particulaExplosion.SetActive(true);
+        Master_Patos._masterPatos.ScorePatos();
+        Master_Patos._masterPatos.RestarMonedas(5);
         yield return new WaitForSeconds(0.7f);
         pato_mesh.SetActive(false);
        // print("Termino secuencia muerte...");

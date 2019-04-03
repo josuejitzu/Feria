@@ -12,6 +12,7 @@ public class Flecha_Control : MonoBehaviour
     bool disparada;
     public Transform padre;
     public GameObject golpeCazador_FX;
+    public GameObject trail;
     // Use this for initialization
  
 	
@@ -58,7 +59,7 @@ public class Flecha_Control : MonoBehaviour
         rigid.isKinematic = false;
         rigid.useGravity = true;
         rigid.velocity = this.transform.forward * fuerza;
-        
+        trail.SetActive(true);
         rigid.isKinematic = false;
         colision.enabled = true;
         trigger.enabled = true;
@@ -67,6 +68,7 @@ public class Flecha_Control : MonoBehaviour
 
     public IEnumerator DestruirCazador()
     {
+        trail.SetActive(false);
         trigger.enabled = false;
         rigid.useGravity = false;
         rigid.isKinematic = true;
@@ -85,6 +87,7 @@ public class Flecha_Control : MonoBehaviour
         trigger.enabled = false;
         rigid.useGravity = false;
         rigid.isKinematic = true;
+        trail.SetActive(false);
         disparada = false;
         yield return new WaitForSeconds(1.0f);
         golpeCazador_FX.SetActive(false);
