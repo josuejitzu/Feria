@@ -8,8 +8,8 @@ public class Cazador_Control : MonoBehaviour
     public GameObject objetivo;
     public float velocidadRotacion;
     public GameObject pistola;
-    public bool apuntar; 
-
+    public bool apuntar;
+    public BoxCollider trigger;
     [Space(10)]
     [Header("Slider")]
     public Slider barraDisparo;
@@ -80,6 +80,7 @@ public class Cazador_Control : MonoBehaviour
     public IEnumerator ActivarCazador()
     {
         //animacion de entrada
+        trigger.enabled = true;
         yield return new WaitForSeconds(1.0f);
         BuscarObjetivo();
         //animacion de apuntar
@@ -92,15 +93,13 @@ public class Cazador_Control : MonoBehaviour
         activarSlider = false;
         barraDisparo.value = 0.0f;
         golpe_fx.SetActive(true);
-       // objetivo = null;
+        Master_Patos._masterPatos.ScoreMonedas(5);
+        // objetivo = null;
         //animacion de daño
+        trigger.enabled = false;
+        Master_Patos._masterPatos.ScoreCazadores();
         yield return new WaitForSeconds(1.0f);
-        barraDisparo.value = 0.0f;
-        fillBarra.color = color_init;
-        //animacion de esconder
-        yield return new WaitForSeconds(1.0f);
-        golpe_fx.SetActive(false);
-        this.gameObject.SetActive(false);
+        StartCoroutine(DesactivarCazador());
       
 
     }
@@ -113,12 +112,15 @@ public class Cazador_Control : MonoBehaviour
         barraDisparo.value = 0.0f;
         objetivo = null;
         yield return new WaitForSeconds(0.5f);
+        trigger.enabled = false;
         //animacion de esconder
         yield return new WaitForSeconds(1.0f);
+        golpe_fx.SetActive(false);
         apuntar = false;
         activarSlider = false;
         barraDisparo.value = 0.0f;
         fillBarra.color = color_init;
+       
         this.gameObject.SetActive(false);
 
     }
