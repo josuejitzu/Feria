@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: ac11977fc69ce034d9eb86a805d94779
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Barril_00
+    100004: Caja_00
+    100006: Caja_01
+    100008: Caja_02
+    100010: Caja_03
+    100012: Cajas_Barril
+    100014: Carro_FPV
+    100016: Carro_Minas
+    100018: Carro_Minas 1
+    100020: Carro_Prop
+    100022: Columna_00
+    100024: Columna_01
+    100026: Columna_02
+    100028: Columna_03
+    100030: Columnas_Madera
+    100032: Linterna
+    100034: Obstaculo_Cajas
+    100036: Obstaculo_Piedras
+    100038: Obstaculo_Rieles
+    100040: Obstaculos
+    100042: Pala
+    100044: Pared_Roca_00
+    100046: Pared_Roca_01
+    100048: Pico
+    100050: Piedra_00
+    100052: Piedra_01
+    100054: Piedras
+    100056: Piedras_02
+    100058: Piedras_03
+    100060: Props
+    100062: Riel_00
+    100064: Riel_01
+    100066: Riel_02
+    100068: Riel_Curvo
+    100070: Rieles
+    100072: Roca_00
+    100074: Roca_01
+    100076: Roca_02
+    100078: Roca_Riel
+    100080: Roca_Riel 1
+    100082: Roca_Riel 2
+    100084: Rocas_Piedras
+    100086: Ruedas_1
+    100088: Ruedas_2
+    100090: Tabla_Sup_Soporte_00
+    100092: Tabla_Sup_Soporte_01
+    100094: Tabla_Sup_Soporte_02
+    100096: Tabla_Sup_Soporte_03
+    100098: Tabla_Sup_Soporte_04
+    100100: Tablas_Riel
+    100102: Tablas_Riel 1
+    100104: Tablas_Riel 2
+    100106: Vela_CH
+    100108: Vela_Conjunto
+    100110: Vela_G
+    100112: Vela_M
+    400000: //RootNode
+    400002: Barril_00
+    400004: Caja_00
+    400006: Caja_01
+    400008: Caja_02
+    400010: Caja_03
+    400012: Cajas_Barril
+    400014: Carro_FPV
+    400016: Carro_Minas
+    400018: Carro_Minas 1
+    400020: Carro_Prop
+    400022: Columna_00
+    400024: Columna_01
+    400026: Columna_02
+    400028: Columna_03
+    400030: Columnas_Madera
+    400032: Linterna
+    400034: Obstaculo_Cajas
+    400036: Obstaculo_Piedras
+    400038: Obstaculo_Rieles
+    400040: Obstaculos
+    400042: Pala
+    400044: Pared_Roca_00
+    400046: Pared_Roca_01
+    400048: Pico
+    400050: Piedra_00
+    400052: Piedra_01
+    400054: Piedras
+    400056: Piedras_02
+    400058: Piedras_03
+    400060: Props
+    400062: Riel_00
+    400064: Riel_01
+    400066: Riel_02
+    400068: Riel_Curvo
+    400070: Rieles
+    400072: Roca_00
+    400074: Roca_01
+    400076: Roca_02
+    400078: Roca_Riel
+    400080: Roca_Riel 1
+    400082: Roca_Riel 2
+    400084: Rocas_Piedras
+    400086: Ruedas_1
+    400088: Ruedas_2
+    400090: Tabla_Sup_Soporte_00
+    400092: Tabla_Sup_Soporte_01
+    400094: Tabla_Sup_Soporte_02
+    400096: Tabla_Sup_Soporte_03
+    400098: Tabla_Sup_Soporte_04
+    400100: Tablas_Riel
+    400102: Tablas_Riel 1
+    400104: Tablas_Riel 2
+    400106: Vela_CH
+    400108: Vela_Conjunto
+    400110: Vela_G
+    400112: Vela_M
+    2100000: MAT_Mina_02
+    2100002: MAT_Mina_01
+    2100004: MAT_Mina_04
+    2300000: Barril_00
+    2300002: Caja_00
+    2300004: Caja_01
+    2300006: Caja_02
+    2300008: Caja_03
+    2300010: Carro_FPV
+    2300012: Carro_Minas 1
+    2300014: Columna_00
+    2300016: Columna_01
+    2300018: Columna_02
+    2300020: Columna_03
+    2300022: Linterna
+    2300024: Obstaculo_Cajas
+    2300026: Obstaculo_Piedras
+    2300028: Obstaculo_Rieles
+    2300030: Pala
+    2300032: Pared_Roca_00
+    2300034: Pared_Roca_01
+    2300036: Pico
+    2300038: Piedra_00
+    2300040: Piedra_01
+    2300042: Piedras_02
+    2300044: Piedras_03
+    2300046: Riel_Curvo
+    2300048: Roca_00
+    2300050: Roca_01
+    2300052: Roca_02
+    2300054: Roca_Riel
+    2300056: Roca_Riel 1
+    2300058: Roca_Riel 2
+    2300060: Ruedas_1
+    2300062: Ruedas_2
+    2300064: Tabla_Sup_Soporte_00
+    2300066: Tabla_Sup_Soporte_01
+    2300068: Tabla_Sup_Soporte_02
+    2300070: Tabla_Sup_Soporte_03
+    2300072: Tabla_Sup_Soporte_04
+    2300074: Tablas_Riel
+    2300076: Tablas_Riel 1
+    2300078: Tablas_Riel 2
+    2300080: Vela_CH
+    2300082: Vela_Conjunto
+    2300084: Vela_G
+    2300086: Vela_M
+    3300000: Barril_00
+    3300002: Caja_00
+    3300004: Caja_01
+    3300006: Caja_02
+    3300008: Caja_03
+    3300010: Carro_FPV
+    3300012: Carro_Minas 1
+    3300014: Columna_00
+    3300016: Columna_01
+    3300018: Columna_02
+    3300020: Columna_03
+    3300022: Linterna
+    3300024: Obstaculo_Cajas
+    3300026: Obstaculo_Piedras
+    3300028: Obstaculo_Rieles
+    3300030: Pala
+    3300032: Pared_Roca_00
+    3300034: Pared_Roca_01
+    3300036: Pico
+    3300038: Piedra_00
+    3300040: Piedra_01
+    3300042: Piedras_02
+    3300044: Piedras_03
+    3300046: Riel_Curvo
+    3300048: Roca_00
+    3300050: Roca_01
+    3300052: Roca_02
+    3300054: Roca_Riel
+    3300056: Roca_Riel 1
+    3300058: Roca_Riel 2
+    3300060: Ruedas_1
+    3300062: Ruedas_2
+    3300064: Tabla_Sup_Soporte_00
+    3300066: Tabla_Sup_Soporte_01
+    3300068: Tabla_Sup_Soporte_02
+    3300070: Tabla_Sup_Soporte_03
+    3300072: Tabla_Sup_Soporte_04
+    3300074: Tablas_Riel
+    3300076: Tablas_Riel 1
+    3300078: Tablas_Riel 2
+    3300080: Vela_CH
+    3300082: Vela_Conjunto
+    3300084: Vela_G
+    3300086: Vela_M
+    4300000: Obstaculo_Cajas
+    4300002: Obstaculo_Piedras
+    4300004: Obstaculo_Rieles
+    4300006: Pared_Roca_00
+    4300008: Pared_Roca_01
+    4300010: Roca_00
+    4300012: Roca_01
+    4300014: Roca_02
+    4300016: Piedra_00
+    4300018: Piedra_01
+    4300020: Piedras_02
+    4300022: Piedras_03
+    4300024: Carro_FPV
+    4300026: Ruedas_1
+    4300028: Ruedas_2
+    4300030: Carro_Minas
+    4300032: Caja_00
+    4300034: Caja_01
+    4300036: Barril_00
+    4300038: Caja_02
+    4300040: Caja_03
+    4300042: Linterna
+    4300044: Vela_Conjunto
+    4300046: Vela_G
+    4300048: Vela_M
+    4300050: Vela_CH
+    4300052: Pala
+    4300054: Pico
+    4300056: Tabla_Sup_Soporte_00
+    4300058: Columna_00
+    4300060: Tabla_Sup_Soporte_01
+    4300062: Columna_01
+    4300064: Tabla_Sup_Soporte_02
+    4300066: Tabla_Sup_Soporte_03
+    4300068: Columna_02
+    4300070: Tabla_Sup_Soporte_04
+    4300072: Columna_03
+    4300074: Tablas_Riel
+    4300076: Roca_Riel
+    4300078: Tablas_Riel
+    4300080: Roca_Riel
+    4300082: Tablas_Riel
+    4300084: Roca_Riel
+    4300086: Riel_Curvo
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Mina_01
+    second: {fileID: 2100000, guid: 1b857d1f661d6fa46a59cd00d909f041, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Mina_02
+    second: {fileID: 2100000, guid: 0b3ae45bb04771647a02644165a187ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_Mina_04
+    second: {fileID: 2100000, guid: 7cebf32a7293a3141940787dda574a4a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
