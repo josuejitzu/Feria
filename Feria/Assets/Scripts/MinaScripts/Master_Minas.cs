@@ -8,12 +8,18 @@ public class Master_Minas : MonoBehaviour
 {
     public static Master_Minas _mina;
     [Header("Score")]
-    public int score_murcielago;
+    public int murcielago_score;
     public int monedas_score;
     [Header("Tiempo")]
     public bool empezarConteo;
     public float tiempo;
     public Text tiempo_texto;
+    [Space(10)]
+    [Header("UI")]
+    public TMP_Text murcielagos_txt;
+    public TMP_Text monedas_txt;
+    public TMP_Text trampas_txt;
+ 
 	// Use this for initialization
 
 	void Start ()
@@ -27,8 +33,7 @@ public class Master_Minas : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.S))
         {
-            empezarConteo = true;
-            Carro_Control._carro.velocidadFinal = 7.0f;
+            IniciarJuego();
         }
         Tiempo();
 
@@ -55,7 +60,7 @@ public class Master_Minas : MonoBehaviour
             {
              /*   Rieles_Control._rieles.etapa1 = false;
                 Rieles_Control._rieles.etapa2 = true;*/
-                Carro_Control._carro.velocidadFinal = 9.0f;
+                Carro_Control._carro.velocidadFinal = 10.5f;
 
             }
             else if( tiempo >= 120.0f)
@@ -64,7 +69,7 @@ public class Master_Minas : MonoBehaviour
                   Rieles_Control._rieles.etapa1 = false;
                   Rieles_Control._rieles.etapa2 = false;*/
                 if (!Carro_Control._carro.enFinal) 
-                Carro_Control._carro.velocidadFinal = 11.0f;
+                Carro_Control._carro.velocidadFinal = 12.0f;
             }
 
         }
@@ -76,23 +81,44 @@ public class Master_Minas : MonoBehaviour
 
     public void SumarMurcielago()
     {
-        score_murcielago++;
+        murcielago_score++;
+        murcielagos_txt.text = murcielago_score.ToString("00");
     }
 
     public void RestarMurcielago()
     {
-        if(score_murcielago > 0)
-            score_murcielago -= 1;
+        if(murcielago_score > 0)
+            murcielago_score -= 1;
+
+        murcielagos_txt.text = murcielago_score.ToString("00");
     }
 
     public void SumarMonedas()
     {
         monedas_score++;
+        monedas_txt.text = monedas_score.ToString("000");
+    }
+    public void RestarMonedas(int n)
+    {
+        monedas_score -= n;
+
+        if(monedas_score <0)
+        {
+            monedas_score = 0;
+        }
+        monedas_txt.text = monedas_score.ToString("000");
+
     }
     public void FinJuego()
     {
         //pararcoche
         StartCoroutine(Carro_Control._carro.Parar());
         //Aparecer Score enfrente 
+    }
+
+    public void IniciarJuego()
+    {
+        empezarConteo = true;
+        Carro_Control._carro.velocidadFinal = 9.0f;
     }
 }

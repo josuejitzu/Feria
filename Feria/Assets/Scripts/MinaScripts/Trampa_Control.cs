@@ -42,11 +42,22 @@ public class Trampa_Control : MonoBehaviour
             triggers_trampas[2].enabled = true;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == "carro")
+        {
+            foreach (GameObject b in trampas_mesh)
+            {
+                b.SetActive(false);
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if(other.transform.tag == "carro")
         {
-            Carro_Control._carro.inmortal = false;
+            //Carro_Control._carro.inmortal = false;
+           
             
         }
     }

@@ -15,7 +15,7 @@ public class Mano_Control : MonoBehaviour
 
     public GameObject boton_selecccionado;
     public  bool enUI;
-
+    float triggerValueL,triggerValueR;
     void Start ()
     {
         control = this.GetComponent<SteamVR_Behaviour_Pose>();
@@ -25,14 +25,14 @@ public class Mano_Control : MonoBehaviour
     void Update()
     {
 
-        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.LeftHand))
+        if (SteamVR_Input._default.inActions.GrabPinch.GetState(SteamVR_Input_Sources.LeftHand))
         {
            
                Carro_Control._carro.MoverIzquierda();
 
             print("PresionandoTrigger");
         }
-        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
+        if (SteamVR_Input._default.inActions.GrabPinch.GetState(SteamVR_Input_Sources.RightHand))
         {
            
                 Carro_Control._carro.MoverDerecha();
@@ -44,6 +44,21 @@ public class Mano_Control : MonoBehaviour
 
             print("PresionandoTrigger");
         }
+
+        
+            triggerValueR = squeezeAction.GetAxis(SteamVR_Input_Sources.RightHand);
+       
+            triggerValueL = squeezeAction.GetAxis(SteamVR_Input_Sources.LeftHand);
+
+        if (triggerValueR > 0.2f)
+        {
+            Carro_Control._carro.MoverDerecha();
+        }
+        if(triggerValueL > 0.2f)
+        {
+            Carro_Control._carro.MoverIzquierda();
+        }
+
 
         RaycastHit hit;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward),Color.red);

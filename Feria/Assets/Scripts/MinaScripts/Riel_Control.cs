@@ -100,9 +100,11 @@ public class Riel_Control : MonoBehaviour
             murcielagos[i].SetActive(true);
         }
         */
-        murcielagos[2].SetActive(true);
-        murcielagos[2].GetComponentInChildren<Animator>().SetFloat("velocidadAnim", Random.Range(1.0f, 1.8f));
-        
+        if (n == 0)
+        {
+            murcielagos[0].SetActive(true);
+            murcielagos[0].GetComponentInChildren<Animator>().SetFloat("velocidadAnim", Random.Range(1.0f, 1.8f));
+        }
 
     }
 

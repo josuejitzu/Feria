@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonedasMinas_Control : MonoBehaviour
 {
-
+    public GameObject moneda_mesh;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "carro")
@@ -17,7 +17,9 @@ public class MonedasMinas_Control : MonoBehaviour
 
     public IEnumerator Reinicio()
     {
+        //moneda_mesh.SetActive(false);
         yield return new WaitForSeconds(0.5f);
+        //moneda_mesh.SetActive(true);
         this.gameObject.SetActive(false);
     }
 
