@@ -20,6 +20,7 @@ public class InstruccionesMinas_Control : MonoBehaviour
             i.SetActive(false);
         }
         Carro_Control._carro.velocidadFinal = 0.0f;
+        Carro_Control._carro.puedeMoverse = false;
         instrucciones[num].SetActive(true);
 
     }
@@ -31,6 +32,12 @@ public class InstruccionesMinas_Control : MonoBehaviour
         }
         Carro_Control._carro.velocidadFinal = 5.0f;
         Carro_Control._carro.puedeMoverse = true;
+
+    }
+    public void CambiarNivel(string n)
+    {
+
+        Master._master.CambiarNivel(n);
 
     }
 }

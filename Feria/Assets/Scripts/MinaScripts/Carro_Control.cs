@@ -19,6 +19,11 @@ public class Carro_Control : MonoBehaviour
     public   bool enFinal;
     public bool inmortal;
 
+
+    [Space(10)]
+    [Header("MonedasFx")]
+    public GameObject[] monedasAnim;
+
     [Space(10)]
     [Header("Golpe Efectos")]
     public GameObject murcielago;
@@ -247,6 +252,23 @@ public class Carro_Control : MonoBehaviour
         murcielago.transform.position = muercielago_pos.position;
         murcielagoPerdido_fx.SetActive(false);
 
+
+    }
+
+    public IEnumerator ActivarMonedaEfecto()
+    {
+        GameObject moneda = null;
+        foreach(GameObject m in monedasAnim)
+        {
+            if(!m.activeInHierarchy)
+            {
+                moneda = m;
+                moneda.SetActive(true);
+            }
+        }
+        yield return new WaitForSeconds(0.45f);
+        if(moneda != null)
+             moneda.SetActive(false);
 
     }
 

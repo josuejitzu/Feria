@@ -395,7 +395,7 @@ public class Rieles_Control : MonoBehaviour
 
         //TECHO
 
-        for (int j = 0; j < 6; j++)
+        for (int j = 0; j < 8; j++)
         {
             GameObject techo = ElegirTecho();
             if(nuevoTecho)
@@ -562,6 +562,7 @@ public class Rieles_Control : MonoBehaviour
 
         }
 
+      
     }
 
     GameObject SeleccionRiel()
@@ -890,10 +891,10 @@ public class Rieles_Control : MonoBehaviour
 
     int LoteriaTrampa()
     {
-        int rand = Random.Range(0, 15);
+        int rand = Random.Range(0, 17);
         while(rand == trampaSeleccionada)
         {
-            rand = Random.Range(0, 12);
+            rand = Random.Range(0, 17);
         }
 
         trampaSeleccionada = rand;

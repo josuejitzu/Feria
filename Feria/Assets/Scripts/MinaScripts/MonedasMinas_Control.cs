@@ -10,6 +10,7 @@ public class MonedasMinas_Control : MonoBehaviour
         if (other.transform.tag == "carro")
         {
             Master_Minas._mina.SumarMonedas();
+            StartCoroutine(Carro_Control._carro.ActivarMonedaEfecto());
             StartCoroutine(Reinicio());
         }
 
