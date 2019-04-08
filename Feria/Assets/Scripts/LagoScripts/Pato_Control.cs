@@ -16,9 +16,11 @@ public class Pato_Control : MonoBehaviour
     public bool enMira;
     public int enPos;
     public Animator pato_anim;
+    public GameObject monedasPerdidas_fx;
     public GameObject pato_mesh;
     public GameObject particulaExplosion;
     bool rotar;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -38,6 +40,7 @@ public class Pato_Control : MonoBehaviour
             agente.speed = velocidad;
             agente.destination = camino[enPos].position;
             Vector3 dist = camino[enPos].position - this.transform.position;
+
             if (dist.magnitude <= 0.4f)
             {
                 //enPos++;
@@ -83,6 +86,7 @@ public class Pato_Control : MonoBehaviour
         particulaExplosion.SetActive(true);
         Master_Patos._masterPatos.ScorePatos();
         Master_Patos._masterPatos.RestarMonedas(5);
+        monedasPerdidas_fx.SetActive(true);
         yield return new WaitForSeconds(0.7f);
         pato_mesh.SetActive(false);
        // print("Termino secuencia muerte...");
@@ -94,6 +98,7 @@ public class Pato_Control : MonoBehaviour
     {
        // print("Reiniciando...");
         enPos = 0;
+        monedasPerdidas_fx.SetActive(false);
         yield return new WaitForSeconds(0.1f);
       
         velocidad = 1.0f;

@@ -34,6 +34,9 @@ public class Flecha_Control : MonoBehaviour
         if(other.transform.tag == "arco" || other.transform.tag == "manoVR")
         {
 
+        }else if(other.transform.tag =="pato")
+        {
+            other.GetComponent<Pato_Control>().MatarPato();
         }
         else
         {

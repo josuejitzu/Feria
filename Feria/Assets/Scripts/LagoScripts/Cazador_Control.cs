@@ -10,6 +10,7 @@ public class Cazador_Control : MonoBehaviour
     public GameObject pistola;
     public bool apuntar;
     public BoxCollider trigger;
+    public Animator cazador_anim;
     [Space(10)]
     [Header("Slider")]
     public Slider barraDisparo;
@@ -23,6 +24,8 @@ public class Cazador_Control : MonoBehaviour
     [Space(10)]
     [Header("FX")]
     public GameObject golpe_fx;
+    public GameObject disparo_fx;
+    public GameObject moneda_anim;
 
  
 
@@ -49,6 +52,8 @@ public class Cazador_Control : MonoBehaviour
                // activarSlider = false;
                if(!dañado)
                 {
+                    cazador_anim.SetTrigger("disparar");
+                    disparo_fx.SetActive(true);
                     StartCoroutine(objetivo.GetComponent<Pato_Control>().MatarPato());
                     StartCoroutine(DesactivarCazador());
                 }
@@ -72,6 +77,7 @@ public class Cazador_Control : MonoBehaviour
               
                 Vector3 distPistola = objetivo.transform.position - pistola.transform.position;
                 Debug.DrawRay(pistola.transform.position, distPistola, Color.red);
+                pistola.SetActive(true);
                 pistola.transform.LookAt(objetivo.transform.position);
             }
         }
@@ -82,8 +88,10 @@ public class Cazador_Control : MonoBehaviour
     public IEnumerator ActivarCazador()
     {
         //animacion de entrada
+        barraDisparo.gameObject.SetActive(true);
         trigger.enabled = true;
         yield return new WaitForSeconds(1.0f);
+        cazador_anim.SetTrigger("apuntar");
         BuscarObjetivo();
         //animacion de apuntar
         //activarSlider = true;
@@ -94,13 +102,18 @@ public class Cazador_Control : MonoBehaviour
         apuntar = false;
         activarSlider = false;
         barraDisparo.value = 0.0f;
+        barraDisparo.gameObject.SetActive(false);
+        pistola.SetActive(false);
         golpe_fx.SetActive(true);
+        cazador_anim.SetTrigger("golpeado");
+        moneda_anim.SetActive(true);
         Master_Patos._masterPatos.ScoreMonedas(5);
         // objetivo = null;
         //animacion de daño
         trigger.enabled = false;
         Master_Patos._masterPatos.ScoreCazadores();
         yield return new WaitForSeconds(1.0f);
+
         StartCoroutine(DesactivarCazador());
       
 
@@ -113,9 +126,14 @@ public class Cazador_Control : MonoBehaviour
         //objetivo.GetComponent<Pato_Control>().enMira = false;
         barraDisparo.value = 0.0f;
         objetivo = null;
+        barraDisparo.gameObject.SetActive(false);
+        pistola.SetActive(false);
         yield return new WaitForSeconds(0.5f);
+        disparo_fx.SetActive(false);
         trigger.enabled = false;
+        moneda_anim.SetActive(false);
         //animacion de esconder
+        cazador_anim.SetTrigger("agacharse");
         yield return new WaitForSeconds(1.0f);
         golpe_fx.SetActive(false);
         apuntar = false;

@@ -10,7 +10,9 @@ public class Trayectoria : MonoBehaviour {
     public float velocidad, tiempo,distancia;
     public Transform objetivo;
     public float fuerzaCurva;
-	// Use this for initialization
+    public bool esCazador;
+    // Use this for initialization.
+    Vector3 dist;
 	void Start () {
        // lineRenderer.useWorldSpace = true;
 	}
@@ -19,7 +21,12 @@ public class Trayectoria : MonoBehaviour {
 	void Update ()
     {
         // Vector3 dist = objetivo.transform.position - this.transform.position;
-        Vector3 dist = new Vector3(0.0f, 0.0f, fuerzaCurva * 0.4f);
+        if(esCazador)
+        {
+            dist = new Vector3(0.0f, 0.0f, fuerzaCurva * 0.4f);
+        }
+        else
+         dist = new Vector3(0.0f, 0.0f, fuerzaCurva * -0.4f);//esta multiplicada por - para que la rotacion en z no gire con el arco y en el arco se pide la rotacion
         UpdateTrajectory(transform.localPosition, dist,  Vector3.down);
 
     }
