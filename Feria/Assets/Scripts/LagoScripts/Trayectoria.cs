@@ -9,16 +9,18 @@ public class Trayectoria : MonoBehaviour {
     public LineRenderer lineRenderer;
     public float velocidad, tiempo,distancia;
     public Transform objetivo;
+    public float fuerzaCurva;
 	// Use this for initialization
 	void Start () {
-        lineRenderer.useWorldSpace = true;
+       // lineRenderer.useWorldSpace = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Vector3 dist = objetivo.transform.position - this.transform.position;
-        UpdateTrajectory(transform.position, dist,  Vector3.down);
+        // Vector3 dist = objetivo.transform.position - this.transform.position;
+        Vector3 dist = new Vector3(0.0f, 0.0f, fuerzaCurva * 0.4f);
+        UpdateTrajectory(transform.localPosition, dist,  Vector3.down);
 
     }
 
@@ -28,7 +30,8 @@ public class Trayectoria : MonoBehaviour {
         float timeDelta = 1.0f / initialVelocity.magnitude; // for example
 
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.SetVertexCount(numSteps);
+        //lineRenderer.SetVertexCount(numSteps);
+        lineRenderer.positionCount = numSteps;
 
         Vector3 position = initialPosition;
         Vector3 velocity = initialVelocity;

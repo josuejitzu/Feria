@@ -19,6 +19,8 @@ public class Mano_ArcoControl : MonoBehaviour
 
     public GameObject boton_selecccionado;
     public bool enUI;
+    float triggerValueL, triggerValueR;
+    public Color color_select, color_deselect;
 
     private void OnValidate()
     {
@@ -65,6 +67,40 @@ public class Mano_ArcoControl : MonoBehaviour
               presionando = false;
 
         }
+
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.red);
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1000))
+        {
+            if (hit.transform.tag == "botonVR")
+            {
+                enUI = true;
+                boton_selecccionado = hit.transform.gameObject;
+                boton_selecccionado.GetComponent<Image>().color = color_select;
+                //boton_selecccionado.GetComponent<Button>().s
+                print(hit.transform.name);
+            }
+            else
+            {
+                if (boton_selecccionado != null)
+                {
+                    boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                    boton_selecccionado = null;
+                }
+                //   enUI = false;
+            }
+
+        }
+        else
+        {
+            if (boton_selecccionado != null)
+            {
+                boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                boton_selecccionado = null;
+            }
+            //enUI = false;
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {

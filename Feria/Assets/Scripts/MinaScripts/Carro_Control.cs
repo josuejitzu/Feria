@@ -16,8 +16,24 @@ public class Carro_Control : MonoBehaviour
     public bool enMovimiento;
 
     public bool puedeMoverse;
-   public   bool enFinal;
+    public   bool enFinal;
     public bool inmortal;
+
+
+    [Space(10)]
+    [Header("MonedasFx")]
+    public GameObject[] monedasAnim;
+
+    [Space(10)]
+    [Header("Golpe Efectos")]
+    public GameObject murcielago;
+    public Transform muercielago_pos;
+    public Animator murcielago_anim;
+    public Animator destello_anim;
+    public GameObject golpe_fx;
+    public GameObject murcielagoPerdido_fx;
+
+
 
 	void Start ()
     {
@@ -54,10 +70,10 @@ public class Carro_Control : MonoBehaviour
 
             enMovimiento = true;
             Vector3 dist = posCentro.position - this.transform.position;
-            this.transform.position = Vector3.MoveTowards(this.transform.position, posCentro.position, Time.deltaTime * velocidadPos);
-            if(dist.magnitude <=0.1f)
+            this.transform.position = Vector3.Lerp(this.transform.position, posCentro.position, Time.deltaTime * velocidadPos);
+            if(dist.magnitude <=0.4f)
             {
-                this.transform.position = posCentro.position;
+                //this.transform.position = posCentro.position;
                 moverCentro = false;
                 moverDerecha = false;
                 moverIzquierda = false;
@@ -71,10 +87,10 @@ public class Carro_Control : MonoBehaviour
         {
             enMovimiento = true;
             Vector3 dist = posDerecha.position - this.transform.position;
-            this.transform.position = Vector3.MoveTowards(this.transform.position, posDerecha.position, Time.deltaTime * velocidadPos);
-            if (dist.magnitude <= 0.1f)
+            this.transform.position = Vector3.Lerp(this.transform.position, posDerecha.position, Time.deltaTime * velocidadPos);
+            if (dist.magnitude <= 0.4f)
             {
-                this.transform.position = posDerecha.position;
+                //this.transform.position = posDerecha.position;
                 moverCentro = false;
                 moverDerecha = false;
                 moverIzquierda = false;
@@ -88,10 +104,10 @@ public class Carro_Control : MonoBehaviour
         {
             enMovimiento = true;
             Vector3 dist = posIzquierda.position - this.transform.position;
-            this.transform.position = Vector3.MoveTowards(this.transform.position, posIzquierda.position, Time.deltaTime * velocidadPos);
-            if (dist.magnitude <= 0.1f)
+            this.transform.position = Vector3.Lerp(this.transform.position, posIzquierda.position, Time.deltaTime * velocidadPos);
+            if (dist.magnitude <= 0.4f)
             {
-                this.transform.position = posIzquierda.position;
+               // this.transform.position = posIzquierda.position;
                 moverCentro = false;
                 moverDerecha = false;
                 moverIzquierda = false;
@@ -117,8 +133,10 @@ public class Carro_Control : MonoBehaviour
         }
         if(other.transform.tag =="trampa")
         {
+
             StartCoroutine(RecibirDaño());
         }
+
         if(other.transform.tag == "finalSpawn")
         {
             StartCoroutine(AcomodoFinal());
@@ -132,14 +150,21 @@ public class Carro_Control : MonoBehaviour
 
     public IEnumerator RecibirDaño()
     {
-        yield return new WaitForSeconds(0.2f);
+       
+        yield return new WaitForSeconds(0.1f);
         if (!inmortal)
         {
+            destello_anim.SetTrigger("destello");
             inmortal = true;
-            velocidadFinal = -1.0f;
+            StartCoroutine(AventarMurcielago());
+            Master_Minas._mina.RestarMonedas(10);
+            // velocidadFinal = -1.0f;
+            golpe_fx.GetComponent<ParticleSystem>().Stop();
+            golpe_fx.SetActive(true);
             yield return new WaitForSeconds(1.0f);
-            velocidadFinal = 7.0f;
-           // inmortal = false;
+            golpe_fx.SetActive(false);
+           // velocidadFinal = 7.0f;
+            inmortal = false;
         }
 
         Master_Minas._mina.RestarMurcielago();
@@ -169,6 +194,7 @@ public class Carro_Control : MonoBehaviour
         }
 
     }
+
     public void MoverIzquierda()
     {
         if (!puedeMoverse)
@@ -197,6 +223,7 @@ public class Carro_Control : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         puedeMoverse = false;
     }
+
     public IEnumerator Parar()
     {
         yield return new WaitForSeconds(0.2f);
@@ -205,6 +232,43 @@ public class Carro_Control : MonoBehaviour
         velocidadFinal = 3.0f;
         yield return new WaitForSeconds(0.1f);
         velocidadFinal = 0.0f;
+
+    }
+
+    public IEnumerator AventarMurcielago()
+    {
+        yield return new WaitForSeconds(0.1f);
+        murcielago.SetActive(true);
+       
+        murcielago_anim.gameObject.SetActive(true);
+        murcielago_anim.SetTrigger("aventar");
+       
+        yield return new WaitForSeconds(1.0f);
+        murcielago.transform.parent = null;
+        murcielago_anim.gameObject.SetActive(false);
+        murcielagoPerdido_fx.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        murcielago.transform.parent = this.transform;
+        murcielago.transform.position = muercielago_pos.position;
+        murcielagoPerdido_fx.SetActive(false);
+
+
+    }
+
+    public IEnumerator ActivarMonedaEfecto()
+    {
+        GameObject moneda = null;
+        foreach(GameObject m in monedasAnim)
+        {
+            if(!m.activeInHierarchy)
+            {
+                moneda = m;
+                moneda.SetActive(true);
+            }
+        }
+        yield return new WaitForSeconds(0.45f);
+        if(moneda != null)
+             moneda.SetActive(false);
 
     }
 

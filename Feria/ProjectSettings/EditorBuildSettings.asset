@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/_Escenas/Lobby_01.unity
+    guid: 5ef312f041c357c4d8a1129b2fc39b80
+  - enabled: 1
+    path: Assets/_Escenas/Mina_02.unity
+    guid: e6b831544efc0d341ad754fd46e088b8
+  - enabled: 1
+    path: Assets/_Escenas/Mina_Tutorial_01.unity
+    guid: 57b88fb22926ee440b5ebcb57a6f2730
+  - enabled: 1
+    path: Assets/_Escenas/Lago_02.unity
+    guid: 77062d1b91ee2bc4dafb9287c31de814
   m_configObjects: {}

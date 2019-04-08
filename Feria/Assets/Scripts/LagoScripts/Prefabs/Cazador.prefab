@@ -1072,6 +1072,7 @@ MonoBehaviour:
   velocidadRotacion: 5
   pistola: {fileID: 1546042627900194}
   apuntar: 0
+  trigger: {fileID: 65865678681574394}
   barraDisparo: {fileID: 114261342698095696}
   fillBarra: {fileID: 114031399131168592}
   tiempoDisparo: 100
@@ -1081,6 +1082,7 @@ MonoBehaviour:
   activarSlider: 0
   "da\xF1ado": 0
   golpe_fx: {fileID: 1916908602064112}
+  lineTrayectoria: {fileID: 0}
 --- !u!114 &114982026245127136
 MonoBehaviour:
   m_ObjectHideFlags: 1

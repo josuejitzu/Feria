@@ -24,6 +24,8 @@ public class Cazador_Control : MonoBehaviour
     [Header("FX")]
     public GameObject golpe_fx;
 
+ 
+
 	void Start ()
     {
         

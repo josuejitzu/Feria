@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: 2b706f9129810df46ae7fd70fcadba77
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Murcielago_BinSkin02:COG
+    100004: Murcielago_BinSkin02:joint10
+    100006: Murcielago_BinSkin02:joint11
+    100008: Murcielago_BinSkin02:joint8
+    100010: Murcielago_BinSkin02:joint8 1
+    100012: Murcielago_BinSkin02:joint9
+    100014: Murcielago_BinSkin02:murcielago_02_geometriaOk:chupon1
+    100016: Murcielago_BinSkin02:neck1
+    100018: Murcielago_BinSkin02:neck2
+    100020: Murcielago_BinSkin02:neck3
+    100022: Murcielago_BinSkin02:oreja1
+    100024: Murcielago_BinSkin02:oreja2
+    100026: Murcielago_BinSkin02:oreja2 1
+    100028: Murcielago_BinSkin02:oreja3
+    100030: Murcielago_BinSkin02:oreja3 1
+    100032: Murcielago_BinSkin02:oreja7
+    100034: Murcielago_BinSkin02:Shoulder1
+    100036: Murcielago_BinSkin02:Shoulder2
+    100038: Murcielago_BinSkin02:Spine1
+    100040: Murcielago_BinSkin02:Spine2
+    100042: Murcielago_BinSkin02:Spine3
+    100044: Murcielago_BinSkin02:Tail2
+    100046: Murcielago_BinSkin02:Tail3
+    100048: Murcielago_BinSkin02:Tail4
+    400000: //RootNode
+    400002: Murcielago_BinSkin02:COG
+    400004: Murcielago_BinSkin02:joint10
+    400006: Murcielago_BinSkin02:joint11
+    400008: Murcielago_BinSkin02:joint8
+    400010: Murcielago_BinSkin02:joint8 1
+    400012: Murcielago_BinSkin02:joint9
+    400014: Murcielago_BinSkin02:murcielago_02_geometriaOk:chupon1
+    400016: Murcielago_BinSkin02:neck1
+    400018: Murcielago_BinSkin02:neck2
+    400020: Murcielago_BinSkin02:neck3
+    400022: Murcielago_BinSkin02:oreja1
+    400024: Murcielago_BinSkin02:oreja2
+    400026: Murcielago_BinSkin02:oreja2 1
+    400028: Murcielago_BinSkin02:oreja3
+    400030: Murcielago_BinSkin02:oreja3 1
+    400032: Murcielago_BinSkin02:oreja7
+    400034: Murcielago_BinSkin02:Shoulder1
+    400036: Murcielago_BinSkin02:Shoulder2
+    400038: Murcielago_BinSkin02:Spine1
+    400040: Murcielago_BinSkin02:Spine2
+    400042: Murcielago_BinSkin02:Spine3
+    400044: Murcielago_BinSkin02:Tail2
+    400046: Murcielago_BinSkin02:Tail3
+    400048: Murcielago_BinSkin02:Tail4
+    2100000: Murcielago_BinSkin02_murcielago_02_geometriaOk_murcielago_MAT
+    4300000: Murcielago_BinSkin02:murcielago_02_geometriaOk:chupon1
+    7400000: Murcielago_retuerce
+    7400002: Murcielago_feliz
+    7400004: Murcielago_aventado
+    9500000: //RootNode
+    13700000: Murcielago_BinSkin02:murcielago_02_geometriaOk:chupon1
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: murcielago_MAT_AlbedoTransparency
+    second: {fileID: 2800000, guid: 3417ff7a893feeb44a8f05e5586c45a7, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Murcielago_retuerce
+      takeName: Murcielago_Animacion
+      firstFrame: 1
+      lastFrame: 215
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Murcielago_feliz
+      takeName: Murcielago_Animacion
+      firstFrame: 280
+      lastFrame: 620
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Murcielago_aventado
+      takeName: Murcielago_Animacion
+      firstFrame: 686
+      lastFrame: 770
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

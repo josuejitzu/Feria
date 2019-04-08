@@ -15,6 +15,8 @@ public class Mano_Control : MonoBehaviour
 
     public GameObject boton_selecccionado;
     public  bool enUI;
+    float triggerValueL,triggerValueR;
+    public Color color_select, color_deselect;
 
     void Start ()
     {
@@ -29,6 +31,11 @@ public class Mano_Control : MonoBehaviour
         {
            
                Carro_Control._carro.MoverIzquierda();
+            if (enUI && boton_selecccionado != null)
+            {
+                boton_selecccionado.GetComponent<Button>().onClick.Invoke();
+            }
+
 
             print("PresionandoTrigger");
         }
@@ -45,6 +52,21 @@ public class Mano_Control : MonoBehaviour
             print("PresionandoTrigger");
         }
 
+        
+            triggerValueR = squeezeAction.GetAxis(SteamVR_Input_Sources.RightHand);
+       
+            triggerValueL = squeezeAction.GetAxis(SteamVR_Input_Sources.LeftHand);
+
+        if (triggerValueR > 0.2f)
+        {
+            Carro_Control._carro.MoverDerecha();
+        }
+        if(triggerValueL > 0.2f)
+        {
+            Carro_Control._carro.MoverIzquierda();
+        }
+
+
         RaycastHit hit;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward),Color.red);
         if (Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward), out hit,1000))
@@ -53,12 +75,15 @@ public class Mano_Control : MonoBehaviour
             {
                 enUI = true;
                 boton_selecccionado = hit.transform.gameObject;
+                boton_selecccionado.GetComponent<Image>().color = color_select;
+                //boton_selecccionado.GetComponent<Button>().s
                 print(hit.transform.name);
             }
             else
             {
                 if (boton_selecccionado != null)
                 {
+                    boton_selecccionado.GetComponent<Image>().color = color_deselect;
                     boton_selecccionado = null;
                 }
              //   enUI = false;
@@ -68,6 +93,7 @@ public class Mano_Control : MonoBehaviour
         {
             if(boton_selecccionado != null)
             {
+                boton_selecccionado.GetComponent<Image>().color = color_deselect;
                 boton_selecccionado = null;
             }
             //enUI = false;

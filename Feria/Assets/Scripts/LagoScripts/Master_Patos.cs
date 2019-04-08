@@ -20,8 +20,13 @@ public class Master_Patos : MonoBehaviour
     public TMP_Text patosScore_text;
     public TMP_Text cazadoresScore_text;
     public TMP_Text monedasScore_text;
+    [Header("FinJuego")]
+    public GameObject scoreFinal_tablero;
+    public TMP_Text patos_final_txt;
+    public TMP_Text monedas_final_txt;
+    public TMP_Text cazadores_final_txt;
 
-	void Start ()
+    void Start ()
     {
         _masterPatos = this;
         StartCoroutine(IniciarJuego());
@@ -59,6 +64,7 @@ public class Master_Patos : MonoBehaviour
                 empezarConteo = false;
                 Parvada_Control._parvada.spawnear = false;
                 Cazadores_Control._cazadores.spawnear = false;
+                FinJuego();
                 
             }
             if(tiempo >= tiempoFinal)
@@ -116,5 +122,16 @@ public class Master_Patos : MonoBehaviour
     public void FinJuego()
     {
 
+        scoreFinal_tablero.SetActive(true);
+        patos_final_txt.text = patosScore + "/30";
+        monedas_final_txt.text = monedasScore.ToString();
+        cazadores_final_txt.text = cazadoresScore.ToString();
     }
+    public void CambiarNivel(string n)
+    {
+
+        Master._master.CambiarNivel(n);
+
+    }
+
 }

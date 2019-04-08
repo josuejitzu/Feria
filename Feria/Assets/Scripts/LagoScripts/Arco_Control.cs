@@ -34,6 +34,10 @@ public class Arco_Control : MonoBehaviour
     public Transform inicioArc;
 
     public bool presionandoCuerda;
+
+
+    public Trayectoria lineTrayectoria;
+
     private void OnValidate()
     {
         cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
@@ -45,7 +49,7 @@ public class Arco_Control : MonoBehaviour
         SpawnFlechas();
         Invoke("ActivarFlecha",1.0f);
         rotacionInicial = ejeRotacionAngulo.rotation;
-        //projectileArc_mesh.SetActive(false);
+        projectileArc_mesh.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -80,19 +84,15 @@ public class Arco_Control : MonoBehaviour
             fuerzaCuerda = distanciaManos.magnitude * 80;
             //cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
             //Fuerza de la flecha
-            flechaFuerzaTotal = distanciaManos.magnitude * 25;
+            flechaFuerzaTotal = distanciaManos.magnitude * 35;
+            lineTrayectoria.fuerzaCurva = flechaFuerzaTotal;
+            projectileArc_mesh.SetActive(true);
             //creacion de arco de acuerdo a la fuerza total de la flecha
-            stepAngle = 90 - (flechaFuerzaTotal * 5);//fuerzaFlecha * (20.0f * distanciaManos.magnitude);
-            //print(stepAngle);
-            /*if (ejeRotacionAngulo.rotation.x < 180.0f)
-            {
-                ejeRotacionAngulo.rotation = Quaternion.Euler(stepAngle, ejeRotacionAngulo.rotation.eulerAngles.y, ejeRotacionAngulo.rotation.eulerAngles.z);// (Vector3.left, stepAngle);
-            }*/
-            ejeRotacionAngulo.rotation = Quaternion.Lerp(ejeRotacion_A.rotation,ejeRotacion_B.rotation,distanciaManos.magnitude);
+            //ejeRotacionAngulo.rotation = Quaternion.Lerp(ejeRotacion_A.rotation,ejeRotacion_B.rotation,distanciaManos.magnitude);
 
             //Movimiento de la flecha de acuerdo a la distancia entre manos
             posFlecha.position = Vector3.Lerp(posFlecha_A.position, posFlecha_B.position, distanciaManos.magnitude);
-            //projectileArc_mesh.SetActive(true);
+            
         }
 
         if (!presionandoCuerda && fuerzaCuerda > 0.1f)
@@ -106,25 +106,6 @@ public class Arco_Control : MonoBehaviour
 
 
     }
-
-
-    public void SetTargetWithAngle(Vector3 point, float angle)
-    {
-        currentAngle = angle;
-
-        Vector3 direction = point - inicioArc.position;
-        float yOffset = -direction.y;
-        direction = Math3d.ProjectVectorOnPlane(Vector3.up, direction);
-        float distance = direction.magnitude;
-
-        currentSpeed = ProjectileMath.LaunchSpeed(distance, yOffset, Physics.gravity.magnitude, angle * Mathf.Deg2Rad);
-
-        projectileArc.UpdateArc(currentSpeed, distance, Physics.gravity.magnitude, currentAngle * Mathf.Deg2Rad, direction, true);
-        //SetTurret(direction, currentAngle);
-
-        currentTimeOfFlight = ProjectileMath.TimeOfFlight(currentSpeed, currentAngle * Mathf.Deg2Rad, yOffset, Physics.gravity.magnitude);
-    }
-
 
 
     void SpawnFlechas()
@@ -160,12 +141,12 @@ public class Arco_Control : MonoBehaviour
 
         flechaActual.transform.parent = null;
         flechaActual.GetComponent<Flecha_Control>().FlechaDisparada(f);
-       // projectileArc_mesh.SetActive(false);
+        projectileArc_mesh.SetActive(false);
         cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
      
         fuerzaCuerda = 0.0f;
         flechaFuerzaTotal = 0.0f;
-        ejeRotacionAngulo.rotation = ejeRotacion_A.rotation;
+       
         posFlecha.position = posFlecha_A.position;
         presionandoCuerda = false;
         flechaActual = null;
