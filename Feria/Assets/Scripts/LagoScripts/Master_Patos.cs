@@ -26,10 +26,12 @@ public class Master_Patos : MonoBehaviour
     public TMP_Text monedas_final_txt;
     public TMP_Text cazadores_final_txt;
 
+    public bool tutorial;
+
     void Start ()
     {
         _masterPatos = this;
-        StartCoroutine(IniciarJuego());
+        //StartCoroutine(IniciarJuego());
         tiempo = tiempoFinal;
 	}
 	
@@ -64,7 +66,8 @@ public class Master_Patos : MonoBehaviour
                 empezarConteo = false;
                 Parvada_Control._parvada.spawnear = false;
                 Cazadores_Control._cazadores.spawnear = false;
-                FinJuego();
+                if(!tutorial)
+                  FinJuego();
                 
             }
             if(tiempo >= tiempoFinal)

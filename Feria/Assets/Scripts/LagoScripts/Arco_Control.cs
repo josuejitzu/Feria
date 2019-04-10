@@ -87,6 +87,9 @@ public class Arco_Control : MonoBehaviour
             flechaFuerzaTotal = distanciaManos.magnitude * 35;
             lineTrayectoria.fuerzaCurva = flechaFuerzaTotal;
             projectileArc_mesh.SetActive(true);
+            Vector3 rot = this.transform.rotation.eulerAngles;
+            rot.z = 0.0f;
+            projectileArc_mesh.transform.rotation = Quaternion.Euler(rot);
             //creacion de arco de acuerdo a la fuerza total de la flecha
             //ejeRotacionAngulo.rotation = Quaternion.Lerp(ejeRotacion_A.rotation,ejeRotacion_B.rotation,distanciaManos.magnitude);
 

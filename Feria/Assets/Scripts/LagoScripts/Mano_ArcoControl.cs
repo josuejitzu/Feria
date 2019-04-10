@@ -87,7 +87,7 @@ public class Mano_ArcoControl : MonoBehaviour
                     boton_selecccionado.GetComponent<Image>().color = color_deselect;
                     boton_selecccionado = null;
                 }
-                //   enUI = false;
+                  enUI = false;
             }
 
         }
@@ -98,7 +98,7 @@ public class Mano_ArcoControl : MonoBehaviour
                 boton_selecccionado.GetComponent<Image>().color = color_deselect;
                 boton_selecccionado = null;
             }
-            //enUI = false;
+            enUI = false;
         }
 
     }
