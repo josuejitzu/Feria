@@ -33,6 +33,7 @@ public class Oso_Control : MonoBehaviour
         velocidadFinal = 0.55f;
         
         yield return new WaitForSeconds(0.1f);
+        oso_anim.gameObject.SetActive(true);
         this.gameObject.SetActive(false);
 
 
@@ -41,10 +42,10 @@ public class Oso_Control : MonoBehaviour
     {
         velocidadFinal = 0.0f;
         agente.isStopped = true;
-        oso_anim.SetTrigger("brinco");
+        oso_anim.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.5f);
-        oso_anim.SetTrigger("capturado");
-        yield return new WaitForSeconds(2.9f);
+        
+        yield return new WaitForSeconds(2.0f);
         this.transform.parent = null;
         StartCoroutine(ReiniciarOso());
        

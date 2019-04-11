@@ -18,6 +18,8 @@ TagManager:
   - cazador
   - oso
   - trampaOso
+  - bellota
+  - terreno
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineaControl : MonoBehaviour
 {
     public GameObject[] trampas;
-
+    public bool jugando = true;
 	// Use this for initialization
 	void Start ()
     {
@@ -24,6 +24,10 @@ public class LineaControl : MonoBehaviour
     }
 	public void ActivarTrampas()
     {
+
+        if (!jugando)
+            return;
+
         int  rt = LoteriaTrampa();
         for (int i = 0; i < 6; i++)
         {
@@ -33,8 +37,9 @@ public class LineaControl : MonoBehaviour
                     {
                             rt = LoteriaTrampa();
                     }
-                    trampas[rt].SetActive(true);
-                    trampas[rt].GetComponent<TrampaOso_Control>().ActivarTrampa();
+                    trampas[rt].SetActive(true);                
+                    //trampas[rt].GetComponent<TrampaOso_Control>().StopAllCoroutines();
+                   StartCoroutine(trampas[rt].GetComponent<TrampaOso_Control>().ActivarTrampa());
              }
         }
 
@@ -45,4 +50,13 @@ public class LineaControl : MonoBehaviour
         int r = Random.Range(0, trampas.Length);
         return r;
     }
+
+    public void DesarmarTrampas()//Desarma las trampas activas al final del juego
+    {
+        foreach (GameObject t in trampas)
+        {
+           StartCoroutine( t.GetComponent<TrampaOso_Control>().DesactivarTrampa());
+        }
+    }
+
 }

@@ -34,13 +34,16 @@ public class Osos_Master : MonoBehaviour
             {
 
                 empezarConteo = false;
-              
-              
+
+                OsosManada_Control._osos.spawnear = false;
+                OsosManada_Control._osos.DesactivarTrampas();
+                tiempo = 0.0f;
 
             }
             if (tiempo >= tiempoFinal)
             {
                 // Parvada_Control._parvada.spawnear = false;
+               
             }
 
         }

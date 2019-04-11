@@ -21,7 +21,7 @@ public class OsosManada_Control : MonoBehaviour {
     [Space(10)]
     [Header("Trampas")]
     public LineaControl LineaA;
-    public LineaControl LineaB, LineaC, LineaD, LineaE, LineaF, LineaG;
+    public LineaControl LineaB, LineaC, LineaD, LineaE, LineaF;
     [Space(10)]
     [Header("Tiempos")]
     public float intervaloSpawn;
@@ -137,10 +137,7 @@ public class OsosManada_Control : MonoBehaviour {
         {
             LineaF.ActivarTrampas();
         }
-        if (linea == "g")
-        {
-            LineaG.ActivarTrampas();
-        }
+       
 
     }
     /*
@@ -267,5 +264,21 @@ public class OsosManada_Control : MonoBehaviour {
         return r;
     }*/
     
-    
+    public void DesactivarTrampas()//final
+    {
+        LineaA.jugando = false;
+        LineaB.jugando = false;
+        LineaC.jugando = false;
+        LineaD.jugando = false;
+        LineaE.jugando = false;
+        LineaF.jugando = false;
+
+        LineaA.DesarmarTrampas();    
+        LineaB.DesarmarTrampas();
+        LineaC.DesarmarTrampas();
+        LineaD.DesarmarTrampas();
+        LineaE.DesarmarTrampas();
+        LineaF.DesarmarTrampas();
+
+    }
 }

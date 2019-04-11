@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class TrampaOso_Control : MonoBehaviour
 {
-    public enum LineaTrampa { a,b,c,d,e,f,g}
+    public enum LineaTrampa {a,b,c,d,e,f,g}
     public LineaTrampa linea;
     // Use this for initialization
     public BoxCollider trigger;
     public Oso_Control oso;
     public GameObject trampaMesh;
+    public Animator trampa_anim;
+    public GameObject osoEnTrampa;
     public GameObject jaulaMesh;
     [Space(10)]
     [Header("FX")]
     public GameObject humofx;
+    public GameObject activacionfx;
     public GameObject monedaPerdida;
 
 	void Start ()
@@ -33,38 +36,67 @@ public class TrampaOso_Control : MonoBehaviour
     public IEnumerator ActivarTrampa()
     {
         //activar humo aparicion
-        oso = null;
+        print("Activando trampa: " + transform.name);
+        trampa_anim.Play("trampa_idle", 0, 0.0f);
+        humofx.SetActive(false);
+       
+        if (oso != null)
+            oso = null;
         jaulaMesh.SetActive(false);
         yield return new WaitForSeconds(0.1f);
         trampaMesh.SetActive(true);
         trigger.enabled = true;
+        print("Trampa: " + transform.name +" activada");
+
     }
     public IEnumerator CapturarOso()
     {
+        print("Trampa: " + transform.name + " accionada");
         trigger.enabled = false;
-        oso.gameObject.transform.parent = this.transform;
-        StartCoroutine(oso.OsoCapturado());
-        //activar humo fx
-        //activar animacion de oso caputurado
-        trampaMesh.SetActive(false);
-        //aparecer jaula
         
-        yield return new WaitForSeconds(3.0f);
-        //activar humo fx
-        yield return new WaitForSeconds(0.3f);
-       // StartCoroutine(oso.ReiniciarOso());
+        StartCoroutine(oso.OsoCapturado());
+        trampa_anim.SetTrigger("activar");
+        osoEnTrampa.SetActive(true);
+        activacionfx.GetComponent<ParticleSystem>().Play();
+        yield return new WaitForSeconds(0.4f);
+        humofx.SetActive(true);
+        osoEnTrampa.SetActive(false);
+        trampaMesh.SetActive(false);
+        jaulaMesh.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        oso = null;
         StartCoroutine(ReiniciarTrampa());
 
     }
+    public IEnumerator DesactivarTrampa()
+    {
+        activacionfx.GetComponent<ParticleSystem>().Play();
+        trigger.enabled = false;
+        trampa_anim.SetTrigger("desarmar");
+        //animacion de trampa activada? u hacer otra?
+        yield return new WaitForSeconds(0.8f);
+        trampaMesh.SetActive(false);
+        jaulaMesh.SetActive(false);
+        print("Trampa: " + transform.name + "desactivada");
+       
+        OsosManada_Control._osos.ActivarTrampa(linea.ToString());
+        this.gameObject.SetActive(false);
+    }
     public IEnumerator ReiniciarTrampa()
     {
-        //desactivar humo1fx
-        //desactivar humo2fx
 
-        yield return new WaitForSeconds(1.0f);
-        // trigger.enabled = true;
+        print("Trampa: " + transform.name + " reiniciando");
+        trampaMesh.SetActive(false);
+        jaulaMesh.SetActive(false);
+        humofx.GetComponent<ParticleSystem>().Play();
         
-        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.0f);
+
+       
         OsosManada_Control._osos.ActivarTrampa(linea.ToString());
+        yield return new WaitForSeconds(0.5f);
+        humofx.SetActive(false);
+        this.gameObject.SetActive(false);
+        
     }
 }
