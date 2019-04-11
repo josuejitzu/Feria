@@ -16,6 +16,8 @@ TagManager:
   - arco
   - manoVR
   - cazador
+  - oso
+  - trampaOso
   layers:
   - Default
   - TransparentFX

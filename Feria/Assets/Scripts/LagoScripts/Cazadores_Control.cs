@@ -23,8 +23,9 @@ public class Cazadores_Control : MonoBehaviour
     public float sigSpawn;
 
     public bool spawnear;
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+   
+    void Start ()
     {
         _cazadores = this;
         SpawnCazador();
