@@ -35,7 +35,7 @@ public class Bellota_Control : MonoBehaviour
         }
         if(other.transform.tag == "terreno")
         {
-
+            Invoke("GolpeNormal",3.0f);
         }
     }
 
@@ -51,6 +51,10 @@ public class Bellota_Control : MonoBehaviour
         rigid.isKinematic = false;
         collision.enabled = true;
         trigger.enabled = true;
+    }
+    public void GolpeNormal()
+    {
+        StartCoroutine(Reiniciar());
     }
     public IEnumerator Reiniciar()
     {

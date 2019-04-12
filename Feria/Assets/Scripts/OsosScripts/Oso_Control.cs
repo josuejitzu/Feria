@@ -43,6 +43,7 @@ public class Oso_Control : MonoBehaviour
         velocidadFinal = 0.0f;
         agente.isStopped = true;
         oso_anim.gameObject.SetActive(false);
+        Osos_Master._masterOsos.RestarOso();
         yield return new WaitForSeconds(0.5f);
         
         yield return new WaitForSeconds(2.0f);

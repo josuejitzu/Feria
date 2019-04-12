@@ -63,6 +63,7 @@ public class TrampaOso_Control : MonoBehaviour
         osoEnTrampa.SetActive(false);
         trampaMesh.SetActive(false);
         jaulaMesh.SetActive(true);
+        Osos_Master._masterOsos.RestarMonedas(10);
         yield return new WaitForSeconds(1.5f);
         oso = null;
         StartCoroutine(ReiniciarTrampa());
@@ -73,6 +74,8 @@ public class TrampaOso_Control : MonoBehaviour
         activacionfx.GetComponent<ParticleSystem>().Play();
         trigger.enabled = false;
         trampa_anim.SetTrigger("desarmar");
+        Osos_Master._masterOsos.SumarMoneda(5);
+        Osos_Master._masterOsos.SumarTrampas();
         //animacion de trampa activada? u hacer otra?
         yield return new WaitForSeconds(0.8f);
         trampaMesh.SetActive(false);

@@ -20,6 +20,10 @@ TagManager:
   - trampaOso
   - bellota
   - terreno
+  - basura
+  - raqueta
+  - boteBasura
+  - zonaMuerte
   layers:
   - Default
   - TransparentFX

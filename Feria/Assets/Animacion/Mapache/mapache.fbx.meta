@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: d3949bff21e0ce249941788c25eacad9
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Mapache_BinSkin01:body
+    100004: Mapache_BinSkin01:Chest
+    100006: Mapache_BinSkin01:cola1
+    100008: Mapache_BinSkin01:cola2
+    100010: Mapache_BinSkin01:cola3
+    100012: Mapache_BinSkin01:cola4
+    100014: Mapache_BinSkin01:cola5
+    100016: Mapache_BinSkin01:Cuello1
+    100018: Mapache_BinSkin01:cuello2
+    100020: Mapache_BinSkin01:cuello3
+    100022: Mapache_BinSkin01:ikHandle1
+    100024: Mapache_BinSkin01:ikHandle2
+    100026: Mapache_BinSkin01:ikHandle3
+    100028: Mapache_BinSkin01:ikHandle4
+    100030: Mapache_BinSkin01:Mapache_00:Mapache_00
+    100032: Mapache_BinSkin01:Mapache_00:Mapache_Mariachi
+    100034: Mapache_BinSkin01:Mapache_00:Ojo_Der
+    100036: Mapache_BinSkin01:Mapache_00:Ojo_Izq
+    100038: Mapache_BinSkin01:Master_CTRL
+    100040: Mapache_BinSkin01:Pelvis
+    100042: Mapache_BinSkin01:Pierna_DelanteraDer1
+    100044: Mapache_BinSkin01:Pierna_DelanteraDer2
+    100046: Mapache_BinSkin01:Pierna_DelanteraDer3
+    100048: Mapache_BinSkin01:Pierna_DelanteraDer4
+    100050: Mapache_BinSkin01:Pierna_DelanteraIzq1
+    100052: Mapache_BinSkin01:Pierna_DelanteraIzq2
+    100054: Mapache_BinSkin01:Pierna_DelanteraIzq3
+    100056: Mapache_BinSkin01:Pierna_DelanteraIzq4
+    100058: Mapache_BinSkin01:Pierna_traseraDer1
+    100060: Mapache_BinSkin01:Pierna_traseraDer2
+    100062: Mapache_BinSkin01:Pierna_traseraDer3
+    100064: Mapache_BinSkin01:Pierna_traseraDer4
+    100066: Mapache_BinSkin01:Pierna_traseraIzq1
+    100068: Mapache_BinSkin01:Pierna_traseraIzq2
+    100070: Mapache_BinSkin01:Pierna_traseraIzq3
+    100072: Mapache_BinSkin01:Pierna_traseraIzq4
+    100074: Mapache_BinSkin01:Spine1
+    100076: Mapache_BinSkin01:Spine2
+    100078: Mapache_BinSkin01:Spine3
+    400000: //RootNode
+    400002: Mapache_BinSkin01:body
+    400004: Mapache_BinSkin01:Chest
+    400006: Mapache_BinSkin01:cola1
+    400008: Mapache_BinSkin01:cola2
+    400010: Mapache_BinSkin01:cola3
+    400012: Mapache_BinSkin01:cola4
+    400014: Mapache_BinSkin01:cola5
+    400016: Mapache_BinSkin01:Cuello1
+    400018: Mapache_BinSkin01:cuello2
+    400020: Mapache_BinSkin01:cuello3
+    400022: Mapache_BinSkin01:ikHandle1
+    400024: Mapache_BinSkin01:ikHandle2
+    400026: Mapache_BinSkin01:ikHandle3
+    400028: Mapache_BinSkin01:ikHandle4
+    400030: Mapache_BinSkin01:Mapache_00:Mapache_00
+    400032: Mapache_BinSkin01:Mapache_00:Mapache_Mariachi
+    400034: Mapache_BinSkin01:Mapache_00:Ojo_Der
+    400036: Mapache_BinSkin01:Mapache_00:Ojo_Izq
+    400038: Mapache_BinSkin01:Master_CTRL
+    400040: Mapache_BinSkin01:Pelvis
+    400042: Mapache_BinSkin01:Pierna_DelanteraDer1
+    400044: Mapache_BinSkin01:Pierna_DelanteraDer2
+    400046: Mapache_BinSkin01:Pierna_DelanteraDer3
+    400048: Mapache_BinSkin01:Pierna_DelanteraDer4
+    400050: Mapache_BinSkin01:Pierna_DelanteraIzq1
+    400052: Mapache_BinSkin01:Pierna_DelanteraIzq2
+    400054: Mapache_BinSkin01:Pierna_DelanteraIzq3
+    400056: Mapache_BinSkin01:Pierna_DelanteraIzq4
+    400058: Mapache_BinSkin01:Pierna_traseraDer1
+    400060: Mapache_BinSkin01:Pierna_traseraDer2
+    400062: Mapache_BinSkin01:Pierna_traseraDer3
+    400064: Mapache_BinSkin01:Pierna_traseraDer4
+    400066: Mapache_BinSkin01:Pierna_traseraIzq1
+    400068: Mapache_BinSkin01:Pierna_traseraIzq2
+    400070: Mapache_BinSkin01:Pierna_traseraIzq3
+    400072: Mapache_BinSkin01:Pierna_traseraIzq4
+    400074: Mapache_BinSkin01:Spine1
+    400076: Mapache_BinSkin01:Spine2
+    400078: Mapache_BinSkin01:Spine3
+    2100000: Mapache_BinSkin01_Mapache_00_lambert24
+    2100002: Mapache_BinSkin01_Mapache_00_lambert25
+    4300000: Mapache_BinSkin01:Mapache_00:Mapache_00
+    4300002: Mapache_BinSkin01:Mapache_00:Ojo_Izq
+    4300004: Mapache_BinSkin01:Mapache_00:Ojo_Der
+    7400000: mapache_lanzando
+    7400002: mapache_caminando
+    7400004: mapache_idle
+    9500000: //RootNode
+    13700000: Mapache_BinSkin01:Mapache_00:Mapache_00
+    13700002: Mapache_BinSkin01:Mapache_00:Ojo_Der
+    13700004: Mapache_BinSkin01:Mapache_00:Ojo_Izq
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mapache_BinSkin01_Mapache_00_lambert24
+    second: {fileID: 2100000, guid: f3c8c02d8be40a74f8907ae4a4c2cca5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mapache_BinSkin01_Mapache_00_lambert25
+    second: {fileID: 2100000, guid: 86eb1d36a1e8cf14f86503ee2cbcb78f, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: mapache_lanzando
+      takeName: mapache
+      firstFrame: 70
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: mapache_caminando
+      takeName: mapache
+      firstFrame: 1
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: mapache_idle
+      takeName: mapache
+      firstFrame: 71
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
