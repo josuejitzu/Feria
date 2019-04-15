@@ -3,19 +3,17 @@ guid: ef3a98cc3f9412341adfbb5c98e34ba6
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Lata
-    100002: //RootNode
-    400000: Lata
-    400002: //RootNode
-    2100000: Props_Oso_Mapache_MAT
-    2300000: Lata
-    3300000: Lata
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Props_Oso_Mapache_MAT19
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Lata
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Props_Oso_Mapache_MAT
+      name: Props_Oso_Mapache_MAT19
     second: {fileID: 2100000, guid: 508aa6ce16a20784f9d131d579c98df9, type: 2}
   materials:
     importMaterials: 1
