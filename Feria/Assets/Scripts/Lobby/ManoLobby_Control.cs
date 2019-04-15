@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 using UnityEngine.UI;
+using TMPro;
 
 public class ManoLobby_Control : MonoBehaviour
 {
@@ -57,7 +58,8 @@ public class ManoLobby_Control : MonoBehaviour
             {
                 enUI = true;
                 boton_selecccionado = hit.transform.gameObject;
-                boton_selecccionado.GetComponent<Image>().color = color_select;
+                //boton_selecccionado.GetComponent<Image>().color = color_select;
+                boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
                 //boton_selecccionado.GetComponent<Button>().s
                 print(hit.transform.name);
             }
@@ -65,7 +67,8 @@ public class ManoLobby_Control : MonoBehaviour
             {
                 if (boton_selecccionado != null)
                 {
-                    boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                   // boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                    boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                     boton_selecccionado = null;
                 }
                 //   enUI = false;
@@ -76,7 +79,8 @@ public class ManoLobby_Control : MonoBehaviour
         {
             if (boton_selecccionado != null)
             {
-                boton_selecccionado.GetComponent<Image>().color = color_deselect;
+               // boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                 boton_selecccionado = null;
                 
             }

@@ -20,6 +20,7 @@ public class Master_Patos : MonoBehaviour
     public TMP_Text patosScore_text;
     public TMP_Text cazadoresScore_text;
     public TMP_Text monedasScore_text;
+    public GameObject tableroInicio;
     [Header("FinJuego")]
     public GameObject scoreFinal_tablero;
     public TMP_Text patos_final_txt;
@@ -41,10 +42,17 @@ public class Master_Patos : MonoBehaviour
         Tiempo();
 		
 	}
+    public void Jugar()
+    {
+        StartCoroutine(IniciarJuego());
+        
+    }
 
     public IEnumerator IniciarJuego()
     {
         NuevoJuego();
+        if(!tutorial)
+            tableroInicio.SetActive(false);
         yield return new WaitForSeconds(inicioJuego);
         empezarConteo = true;
         Parvada_Control._parvada.spawnear = true;
