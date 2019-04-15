@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c6d313a2332ad5842bcd1163f5581753
+guid: af78ee4e9b4facb4fa54d161dc86d149
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: Props_Oso_Mapache_MAT
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Jaula
+    4300000: Jugo
   externalObjects:
   - first:
       type: UnityEngine:Material

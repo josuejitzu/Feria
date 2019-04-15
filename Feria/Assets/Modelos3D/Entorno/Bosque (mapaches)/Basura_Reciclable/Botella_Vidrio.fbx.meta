@@ -1,14 +1,16 @@
 fileFormatVersion: 2
-guid: c6d313a2332ad5842bcd1163f5581753
+guid: 2d88f2d267ddf9e4d87c54fec4611b2a
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Botella_Vidrio
+    100002: //RootNode
+    400000: Botella_Vidrio
+    400002: //RootNode
     2100000: Props_Oso_Mapache_MAT
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Jaula
+    2300000: Botella_Vidrio
+    3300000: Botella_Vidrio
+    4300000: Botella_Vidrio
   externalObjects:
   - first:
       type: UnityEngine:Material

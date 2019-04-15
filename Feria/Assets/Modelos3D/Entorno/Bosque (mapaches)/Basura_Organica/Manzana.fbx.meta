@@ -1,14 +1,16 @@
 fileFormatVersion: 2
-guid: c6d313a2332ad5842bcd1163f5581753
+guid: d15e018955b21d14794a10cfae176679
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Manzana
+    100002: //RootNode
+    400000: Manzana
+    400002: //RootNode
     2100000: Props_Oso_Mapache_MAT
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Jaula
+    2300000: Manzana
+    3300000: Manzana
+    4300000: Manzana
   externalObjects:
   - first:
       type: UnityEngine:Material

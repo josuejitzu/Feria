@@ -3,18 +3,20 @@ guid: a3b32df7170dd4e4097b79c97ddc51f9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: bellota
+    100000: Bellota
+    100002: //RootNode
+    400000: Bellota
+    400002: //RootNode
+    2100000: Props_Oso_Mapache_MAT
+    2300000: Bellota
+    3300000: Bellota
+    4300000: Bellota
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: fc025038c5cd86e498b068bf062d4e43, type: 2}
+      name: Props_Oso_Mapache_MAT
+    second: {fileID: 2100000, guid: 508aa6ce16a20784f9d131d579c98df9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

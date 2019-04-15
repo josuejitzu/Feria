@@ -1,14 +1,16 @@
 fileFormatVersion: 2
-guid: c6d313a2332ad5842bcd1163f5581753
+guid: 55ba25d667f8cb945baf94ae3b18a9ac
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Pescado
+    100002: //RootNode
+    400000: Pescado
+    400002: //RootNode
     2100000: Props_Oso_Mapache_MAT
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Jaula
+    2300000: Pescado
+    3300000: Pescado
+    4300000: Pescado
   externalObjects:
   - first:
       type: UnityEngine:Material
