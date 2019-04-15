@@ -3,19 +3,17 @@ guid: 2f8b167e0b6dce54689e92a3aae9d9d1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Bolsa_Basura
-    100002: //RootNode
-    400000: Bolsa_Basura
-    400002: //RootNode
-    2100000: Props_Oso_Mapache_MAT
-    2300000: Bolsa_Basura
-    3300000: Bolsa_Basura
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Props_Oso_Mapache_MAT13
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Bolsa_Basura
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Props_Oso_Mapache_MAT
+      name: Props_Oso_Mapache_MAT13
     second: {fileID: 2100000, guid: 508aa6ce16a20784f9d131d579c98df9, type: 2}
   materials:
     importMaterials: 1
