@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/_Escenas/Mina_Tutorial_01.unity
     guid: 57b88fb22926ee440b5ebcb57a6f2730
   - enabled: 1
-    path: Assets/_Escenas/Lago_02.unity
-    guid: 77062d1b91ee2bc4dafb9287c31de814
+    path: Assets/_Escenas/Lago_03.unity
+    guid: 6f32c9248af2dee49a16b1f30e0ba03f
+  - enabled: 1
+    path: Assets/_Escenas/Mapaches_01.unity
+    guid: 7da2286532e848e4587ca7d5d52bb48e
+  - enabled: 1
+    path: Assets/_Escenas/BosqueOsos_Tutorial_01.unity
+    guid: e1b0a44d9a2c15c498ee1a94053a1658
+  - enabled: 1
+    path: Assets/_Escenas/BosqueOsos_01.unity
+    guid: edee9dd5062ad4947b35bce78d4bea29
   m_configObjects: {}

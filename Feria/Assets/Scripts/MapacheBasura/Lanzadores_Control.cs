@@ -4,30 +4,39 @@ using UnityEngine;
 
 public class Lanzadores_Control : MonoBehaviour
 {
-
+    public static Lanzadores_Control _lanzadores;
     public LanzadorBasura_Control[] lanzadores;
     int lanzadorPasado = 0;
     [Space(10)]
     [Header("Tiempo")]
     public float rateDisparo;
     float sigDisparo;
+    public bool lanzar;
 	// Use this for initialization
 	void Start ()
     {
-		
+        _lanzadores = this;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
 
-		if(Time.time >= sigDisparo)
+        TiempoLanzar();
+	}
+    void TiempoLanzar()
+    {
+        if (!lanzar)
+            return;
+
+        if (Time.time >= sigDisparo)
         {
             DispararMapache();
-            sigDisparo = Time.time + rateDisparo;     
+            sigDisparo = Time.time + rateDisparo;
         }
 
-	}
+
+    }
 
     public void DispararMapache()
     {
