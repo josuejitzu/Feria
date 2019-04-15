@@ -16,6 +16,7 @@ public class MunicionBellota_Control : MonoBehaviour
     [Header("Tiempo")]
     public float rateTiempo;
     float sigSpawn;
+    public bool spawnBellota;
 	// Use this for initialization
 	void Start ()
     {
@@ -26,16 +27,23 @@ public class MunicionBellota_Control : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        TiempoSpawn();
+		
+	}
 
-		if(Time.time >= sigSpawn)
+    void TiempoSpawn()
+    {
+        if (!spawnBellota)
+            return;
+
+        if (Time.time >= sigSpawn)
         {
-            if(cantidadBellotas < cantidadLimite)
-               SpawnBellota();
+            if (cantidadBellotas < cantidadLimite)
+                SpawnBellota();
 
             sigSpawn = rateTiempo + Time.time;
         }
-	}
-
+    }
     public void SpawnBellota()
     {
         GameObject bellota = Instantiate(bellotaPrefab, transform.position, Quaternion.identity);

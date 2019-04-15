@@ -21,6 +21,7 @@ public class Osos_Master : MonoBehaviour
     [Header("UI")]
     public TMP_Text osos_text;
     public TMP_Text monedas_text, trampas_text;
+    public GameObject panelInicio_juego;
 
     // Use this for initialization
     void Start ()
@@ -98,5 +99,21 @@ public class Osos_Master : MonoBehaviour
             osos_score = 0;
         }
         osos_text.text = osos_score.ToString("00");
+    }
+    
+    public void CambiarNivel(string n)
+    {
+        Master._master.CambiarNivel(n);
+    }
+
+    public void IniciarJuego()
+    {
+        empezarConteo = true;
+        OsosManada_Control._osos.spawnear = true;
+        MunicionBellota_Control._bellotas.spawnBellota = true;
+    }
+    public void FinJuego()
+    {
+
     }
 }

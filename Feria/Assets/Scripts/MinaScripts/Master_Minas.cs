@@ -43,6 +43,7 @@ public class Master_Minas : MonoBehaviour
         {
             IniciarJuego();
         }
+
         Tiempo();
 
 	}
@@ -126,6 +127,7 @@ public class Master_Minas : MonoBehaviour
 
     public void FinJuego()
     {
+
         //pararcoche
         StartCoroutine(Carro_Control._carro.Parar());
         murcielagos_final_txt.text = murcielago_score.ToString();
@@ -133,7 +135,7 @@ public class Master_Minas : MonoBehaviour
 
         scoreFinal_tablero.SetActive(true);
        // trampas_final_txt =;
-    //Aparecer Score enfrente 
+       //Aparecer Score enfrente 
 }
 
     public void IniciarJuego()

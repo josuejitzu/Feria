@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
-
+using TMPro;
 
 public class Master : MonoBehaviour
 {
@@ -24,6 +24,18 @@ public class Master : MonoBehaviour
     [Header("Patos")]
     public string nivelPatos_juego;
     public string nivelPatos_tutorial;
+    [Space(10)]
+    [Header("Osos")]
+    public string nivelOsos_juego;
+    public string nivelOsos_tutorial;
+    [Space(10)]
+    [Header("Mapaches")]
+    public string nivelMapache_juego;
+    public string nivelMapache_tutorial;
+    [Space(10)]
+    [Header("UI Operador")]
+    public TMP_Text tickets_jugador;
+    public TMP_InputField inputTickets;
        
     // Use this for initialization
 
@@ -32,6 +44,7 @@ public class Master : MonoBehaviour
     {
 
         cambiandoNivel = false;
+        tickets_jugador.text = tickets.ToString("00");
         
     }
 
@@ -53,7 +66,8 @@ public class Master : MonoBehaviour
     void Start()
     {
         cambiandoNivel = false;
-       
+        tickets_jugador.text = tickets.ToString("00");
+
     }
     
     public void CambiarNivel(string n)
@@ -86,21 +100,21 @@ public class Master : MonoBehaviour
         }
         else if(n == Niveles.patosTutorial.ToString())
         {
-            print("En construccion");
+            nivelACambiar = nivelPatos_tutorial;
         }
 
         if (n == Niveles.osoJuego.ToString())
         {
-            print("En construccion");
+            nivelACambiar = nivelOsos_juego;
         }
         else if(n == Niveles.osoTutorial.ToString())
         {
-            print("En construccion");
+            nivelACambiar = nivelOsos_tutorial;
         }
 
         if (n == Niveles.raquetasJuego.ToString())
         {
-            print("En construccion");
+            nivelACambiar = nivelMapache_juego;
         }
         else if (n == Niveles.raquetasTutorial.ToString())
         {
@@ -127,11 +141,20 @@ public class Master : MonoBehaviour
         {
             tickets--;
         }
+        tickets_jugador.text = tickets.ToString("00");
     }
 
     public void SumarTicket()
     {
         tickets++;
+        tickets_jugador.text = tickets.ToString("00");
+
+    }
+    public void IngresoTickets()
+    {
+        tickets += int.Parse(inputTickets.text);
+        tickets_jugador.text = tickets.ToString("00");
+        inputTickets.text = "";
     }
 
     public void NuevasSesion()
