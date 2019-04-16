@@ -8,8 +8,11 @@ using TMPro;
 public class Master : MonoBehaviour
 {
     public static Master _master;
- 
-        
+
+    public enum Niveles { lobby, minasJuego, minasTutorial, patosJuego, patosTutorial, osoJuego, osoTutorial, raquetasJuego, raquetasTutorial }
+    string nivelACambiar;
+
+
     [Space(10)]
     [Header("Tickets")]
     public int tickets;
@@ -18,20 +21,29 @@ public class Master : MonoBehaviour
     [Header("Minas")]
     public string nivelMinas_juego;
     public string nivelMinas_tutorial,lobby;
-    public enum Niveles {lobby,minasJuego,minasTutorial,patosJuego,patosTutorial,osoJuego,osoTutorial,raquetasJuego,raquetasTutorial}
-    string nivelACambiar ;
+    public int murcielagos, monedasMinas, obstaculos;
+    public TMP_Text monedasmina_text,murcielagos_text;
     [Space(10)]
     [Header("Patos")]
     public string nivelPatos_juego;
     public string nivelPatos_tutorial;
+    public int patos,monedasPatos,cazadores; // 0/30;
+    public TMP_Text patos_text, monedasPatos_text,cazadores_text;
+
     [Space(10)]
     [Header("Osos")]
     public string nivelOsos_juego;
     public string nivelOsos_tutorial;
+    public int osos, monedasOsos, trampas;
+    public TMP_Text osos_text, monedasOsos_text, trampas_text;
+
     [Space(10)]
     [Header("Mapaches")]
     public string nivelMapache_juego;
     public string nivelMapache_tutorial;
+    public int basuraCorrecta, basuraIncorrecta;
+    public TMP_Text basuraCorrecta_text, basuraIncorrecta_text;
+
     [Space(10)]
     [Header("UI Operador")]
     public TMP_Text tickets_jugador;
@@ -159,10 +171,14 @@ public class Master : MonoBehaviour
 
     public void NuevasSesion()
     {
+        SceneManager.LoadScene("Lobby_01");
         tickets = 3;
     }
 
+    public void ScoreDeSesion()
+    {
 
+    }
 	
 	
 }
