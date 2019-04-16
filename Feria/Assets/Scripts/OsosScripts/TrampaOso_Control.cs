@@ -19,7 +19,7 @@ public class TrampaOso_Control : MonoBehaviour
     public GameObject activacionfx;
     public GameObject monedaPerdida;
     public GameObject monedaGanada;
-
+    public bool dummy;
 	void Start ()
     {
 		
@@ -78,8 +78,11 @@ public class TrampaOso_Control : MonoBehaviour
         activacionfx.GetComponent<ParticleSystem>().Play();
         trigger.enabled = false;
         trampa_anim.SetTrigger("desarmar");
-        Osos_Master._masterOsos.SumarMoneda(5);
-        Osos_Master._masterOsos.SumarTrampas();
+        if (!dummy)
+        {
+            Osos_Master._masterOsos.SumarMoneda(5);
+            Osos_Master._masterOsos.SumarTrampas();
+        }
         
         monedaGanada.SetActive(true);
         yield return new WaitForSeconds(0.8f);
@@ -87,7 +90,8 @@ public class TrampaOso_Control : MonoBehaviour
         jaulaMesh.SetActive(false);
         print("Trampa: " + transform.name + "desactivada");
        
-        OsosManada_Control._osos.ActivarTrampa(linea.ToString());
+        if(!dummy)
+          OsosManada_Control._osos.ActivarTrampa(linea.ToString());
         this.gameObject.SetActive(false);
     }
     public IEnumerator ReiniciarTrampa()

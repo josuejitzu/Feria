@@ -136,7 +136,14 @@ public class Master_Minas : MonoBehaviour
         scoreFinal_tablero.SetActive(true);
        // trampas_final_txt =;
        //Aparecer Score enfrente 
-}
+       if(Master._master != null)
+        {
+            Master._master.monedasMinas = monedas_score;
+            Master._master.murcielagos = murcielago_score;
+        }
+
+
+     }
 
     public void IniciarJuego()
     {

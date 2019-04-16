@@ -12,6 +12,7 @@ public class Raqueta_Control : MonoBehaviour
     TipoRaqueta tipoOriginal;
     public SteamVR_Behaviour_Pose control;
     public Material matVerde, matRojo, matAzul;
+    public ParticleSystem hit_verde, hit_rojo, hit_azul;
 	// Use this for initialization
 	void Start ()
     {
@@ -29,8 +30,9 @@ public class Raqueta_Control : MonoBehaviour
         if(other.transform.tag == "basura")
         {
             //other.GetComponent<Rigidbody>().velocity = control.GetVelocity();
-            //StartCoroutine(other.GetComponent<Basura_Control>().BasuraABote(tipoRaqueta.ToString()));
+            StartCoroutine(other.GetComponent<Basura_Control>().BasuraABote(tipoRaqueta.ToString()));
             other.GetComponent<Rigidbody>().angularVelocity = control.GetAngularVelocity() * 2.0f;
+            ActivarGolpeFx();
         }
 
         if(other.transform.tag == "raqueta")
@@ -59,5 +61,19 @@ public class Raqueta_Control : MonoBehaviour
 
         if (tipoRaqueta == TipoRaqueta.verde)
             this.GetComponent<Renderer>().material = matVerde;
+    }
+
+    void ActivarGolpeFx()
+    {
+        if (tipoRaqueta == TipoRaqueta.verde)
+        {
+            hit_verde.Play();
+        }else if(tipoRaqueta == TipoRaqueta.roja)
+        {
+            hit_rojo.Play();
+        }else if(tipoRaqueta == TipoRaqueta.azul)
+        {
+            hit_azul.Play();
+        }
     }
 }

@@ -18,6 +18,8 @@ public class Basura_Control : MonoBehaviour
     Transform destino;
     public bool moverABote;
     public float velocidadBasura;
+    public TrailRenderer trail;
+    public Material trailAzul, trailRojo, trailVerde;
     // Use this for initialization
     private void OnValidate()
     {
@@ -55,7 +57,13 @@ public class Basura_Control : MonoBehaviour
         trigger.enabled = true;
         rigid.isKinematic = false;
         moverABote = false;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.4f);
+        //Desactivar mesh
+        foreach (GameObject m in meshes)
+        {
+            m.SetActive(false);
+        }
+        yield return new WaitForSeconds(0.5f);
 
         this.gameObject.SetActive(false);
 
@@ -66,14 +74,15 @@ public class Basura_Control : MonoBehaviour
         if(other.transform.tag == "boteBasura")
         {
 
-           StartCoroutine(BasuraABote(other.GetComponent<Bote_Control>()._tipo.ToString()));
+            // StartCoroutine(BasuraABote(other.GetComponent<Bote_Control>()._tipo.ToString()));
+           // StartCoroutine(other.GetComponent<Bote_Control>().BasuraEntrando());
         }
         if(other.transform .tag == "zonaMuerte")
         {
             StartCoroutine(TirarBote());
         }
     }
-    public IEnumerator BasuraABote(string tipoRaqueta)
+    public IEnumerator BasuraABote(string tipoRaqueta)//Lo envia la raqueta que lo golpea
     {
         if(tipoRaqueta == "verde")
         {
@@ -88,7 +97,7 @@ public class Basura_Control : MonoBehaviour
             destino = boteAzul;
         }
         trigger.enabled = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         rigid.isKinematic = true;
         moverABote = true;
 
@@ -150,18 +159,21 @@ public class Basura_Control : MonoBehaviour
         if (n == 0)
         {
             _tipoBasura = TipoBasura.azul;
+            trail.material = trailAzul;
             RandomMeshAzul();
         
 
         }else if(n == 1)
         {
             _tipoBasura = TipoBasura.roja;
+            trail.material = trailRojo;
             RandomMeshRoja();
            
         }
         else if(n == 2)
         {
             _tipoBasura = TipoBasura.verde;
+            trail.material = trailVerde;
             RandomMeshVerde();
             
         }

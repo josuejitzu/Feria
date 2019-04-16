@@ -137,6 +137,13 @@ public class Master_Patos : MonoBehaviour
         patos_final_txt.text = patosScore + "/30";
         monedas_final_txt.text = monedasScore.ToString();
         cazadores_final_txt.text = cazadoresScore.ToString();
+
+        if (Master._master != null)
+        {
+            Master._master.patos = patosScore;
+            Master._master.cazadores = cazadoresScore;
+            Master._master.monedasPatos = monedasScore;
+        }
     }
     public void CambiarNivel(string n)
     {
