@@ -57,8 +57,15 @@ public class Master : MonoBehaviour
 
         cambiandoNivel = false;
         tickets_jugador.text = tickets.ToString("00");
-        
+
+        if (Scores_Lobby._scoreLobby != null)
+        {
+            Scores_Lobby._scoreLobby.CompararScore();
+            print("Solicitando comparacio de scores");
+        }
+
     }
+
 
     private void Awake()
     {
@@ -71,8 +78,7 @@ public class Master : MonoBehaviour
             _master = this;
             DontDestroyOnLoad(this.gameObject);
         }
-      
-
+       
         //_masterLobby = this;
     }
     void Start()
@@ -173,6 +179,9 @@ public class Master : MonoBehaviour
     {
         SceneManager.LoadScene("Lobby_01");
         tickets = 3;
+
+
+
     }
 
     public void ScoreDeSesion(string nombreJuego)

@@ -49,8 +49,15 @@ public class Scores_Lobby : MonoBehaviour
     {
         _scoreLobby = this;
         CargarScore();
-        
-        
+        StartCoroutine(StatusScore());
+
+
+    }
+    public IEnumerator StatusScore()
+    {
+        yield return new WaitForSeconds(1.0f);
+        CompararScore();
+        StartCoroutine(StatusScore());
     }
     // Update is called once per frame
     void FixedUpdate ()
@@ -91,6 +98,8 @@ public class Scores_Lobby : MonoBehaviour
         basuraCorrecta_text.text = basuraCorrecta.ToString("000");
         basuraIncorrecta_text.text = basuraIncorrecta.ToString("000");
         monedasBasura_text.text = monedasBasura.ToString("000");
+
+        
 
     }
     public void SalvarScore()
@@ -167,6 +176,25 @@ public class Scores_Lobby : MonoBehaviour
         }
 
         SalvarScore();
+
+    }
+
+    public void ReiniciarScore()
+    {
+        QuickSaveWriter.Create("HighScore").Write("murcielagoHigh", 0)
+                                           .Write("murcielagoMonedasHigh", 0)
+                                           .Write("patosHigh", 0)
+                                            .Write("monedasPatosHigh", 0)
+                                            .Write("cazadoresHigh", 0)
+                                            .Write("ososHigh", 0)
+                                            .Write("monedasOsosHigh", 0)
+                                            .Write("trampas", 0)
+                                            .Write("basuraCorrectaHigh", 0)
+                                            .Write("basuraIncorrectaHigh", 0)
+                                            .Write("monedasBasuraHigh", 0).Commit();
+
+        Debug.Log(Application.persistentDataPath);
+        CargarScore();
 
     }
 
