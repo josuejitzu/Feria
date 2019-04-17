@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 using UnityEngine.UI;
+using TMPro;
 public class ManoOsos_Control : MonoBehaviour {
 
     [SteamVR_DefaultAction("Squeeze")]
@@ -21,8 +22,9 @@ public class ManoOsos_Control : MonoBehaviour {
     public bool enUI;
     public Color color_select, color_deselect;
 
-    void Start() {
-
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -73,15 +75,14 @@ public class ManoOsos_Control : MonoBehaviour {
             {
                 enUI = true;
                 boton_selecccionado = hit.transform.gameObject;
-                boton_selecccionado.GetComponent<Image>().color = color_select;
-                
+                boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
                 print(hit.transform.name);
             }
             else
             {
                 if (boton_selecccionado != null)
                 {
-                    boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                    boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                     boton_selecccionado = null;
                 }
                    enUI = false;
@@ -92,7 +93,7 @@ public class ManoOsos_Control : MonoBehaviour {
         {
             if (boton_selecccionado != null)
             {
-                boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                 boton_selecccionado = null;
             }
             enUI = false;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Valve.VR;
+using TMPro;
 
 public class Mano_Raqueta : MonoBehaviour
 {
@@ -51,7 +52,8 @@ public class Mano_Raqueta : MonoBehaviour
             {
                 enUI = true;
                 boton_selecccionado = hit.transform.gameObject;
-                boton_selecccionado.GetComponent<Image>().color = color_select;
+               // boton_selecccionado.GetComponent<Image>().color = color_select;
+                boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
 
                 print(hit.transform.name);
             }
@@ -59,7 +61,8 @@ public class Mano_Raqueta : MonoBehaviour
             {
                 if (boton_selecccionado != null)
                 {
-                    boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                    //boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                    boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                     boton_selecccionado = null;
                 }
                 enUI = false;
@@ -70,7 +73,8 @@ public class Mano_Raqueta : MonoBehaviour
         {
             if (boton_selecccionado != null)
             {
-                boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                // boton_selecccionado.GetComponent<Image>().color = color_deselect;
+                boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                 boton_selecccionado = null;
             }
             enUI = false;

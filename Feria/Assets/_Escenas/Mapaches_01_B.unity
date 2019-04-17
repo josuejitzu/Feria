@@ -419,7 +419,7 @@ Prefab:
     - target: {fileID: 54446450753416986, guid: 26591c3820f3a634e93df1d80c9b9da8,
         type: 2}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65083986308170452, guid: 26591c3820f3a634e93df1d80c9b9da8,
         type: 2}
@@ -943,7 +943,7 @@ Prefab:
     - target: {fileID: 54552356789188686, guid: 55ca9bb9a896b0c448fd0d5c2deb7a0f,
         type: 2}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65406188985812224, guid: 55ca9bb9a896b0c448fd0d5c2deb7a0f,
         type: 2}
@@ -1638,6 +1638,10 @@ Prefab:
     - target: {fileID: 1999971974255090, guid: 17f36e55f35b1194999ed8805af40ffe, type: 2}
       propertyPath: m_Name
       value: UI_Marco_InicioJuego
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999971974255090, guid: 17f36e55f35b1194999ed8805af40ffe, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f36e55f35b1194999ed8805af40ffe, type: 2}

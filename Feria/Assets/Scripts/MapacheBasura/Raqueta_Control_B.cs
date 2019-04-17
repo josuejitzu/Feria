@@ -13,6 +13,8 @@ public class Raqueta_Control_B : MonoBehaviour
     public SteamVR_Behaviour_Pose control;
     public Material matVerde, matRojo, matAzul;
     // Use this for initialization
+
+
     void Start()
     {
         tipoOriginal = tipoRaqueta;

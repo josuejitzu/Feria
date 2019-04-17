@@ -19,10 +19,16 @@ public class Osos_Master : MonoBehaviour
 
     [Space(10)]
     [Header("UI")]
+    
     public TMP_Text osos_text;
     public TMP_Text monedas_text, trampas_text;
     public GameObject panelInicio_juego;
+    [Header("UI Final")]
+    public TMP_Text ososFinal_text;
+    public TMP_Text monedasFinal_text, trampasFinal_text;
+    public GameObject panelFinal;
 
+    public bool finJuego;
     // Use this for initialization
     void Start ()
     {
@@ -68,6 +74,8 @@ public class Osos_Master : MonoBehaviour
 
     public void SumarMoneda(int n)
     {
+        if (finJuego)
+            return;
         monedas += n;
         if(monedas == 100)
         {
@@ -77,6 +85,9 @@ public class Osos_Master : MonoBehaviour
     }
     public void RestarMonedas(int n)
     {
+        if (finJuego)
+            return;
+
         monedas -= n;
         if(monedas <=0)
         {
@@ -87,33 +98,59 @@ public class Osos_Master : MonoBehaviour
     }
     public void SumarTrampas()
     {
+        if (finJuego)
+            return;
         trampas++;
         trampas_text.text = trampas.ToString("00");
 
     }
     public void RestarOso()
     {
+        if (finJuego)
+            return;
         osos_score -= 1;
         if(osos_score < 0)
         {
             osos_score = 0;
         }
-        osos_text.text = osos_score.ToString("00");
+        osos_text.text = osos_score.ToString("00")+" /30";
     }
     
     public void CambiarNivel(string n)
     {
         Master._master.CambiarNivel(n);
     }
+    
+    public void RepetirNivel(string n)
+    {
+        Master._master.DescontarTicket();
+        Master._master.CambiarNivel(n);
+    }
 
     public void IniciarJuego()
     {
         empezarConteo = true;
+        panelInicio_juego.SetActive(false);
         OsosManada_Control._osos.spawnear = true;
         MunicionBellota_Control._bellotas.spawnBellota = true;
     }
     public void FinJuego()
     {
+        OsosManada_Control._osos.spawnear = false;
+        MunicionBellota_Control._bellotas.spawnBellota = false;
+
+
+        ososFinal_text.text = osos_score.ToString("00") + " /30";
+        monedasFinal_text.text = monedas.ToString("000");
+        trampasFinal_text.text = trampas.ToString("000");
+        panelFinal.SetActive(true);
+
+        if (Master._master != null)
+        {
+            Master._master.osos = osos_score;
+            Master._master.trampas = trampas;
+            Master._master.monedasOsos = monedas;
+        }
 
     }
 }
