@@ -29,7 +29,7 @@ public class LineaControl : MonoBehaviour
             return;
 
         int  rt = LoteriaTrampa();
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < trampas.Length; i++)
         {
              if (i == rt)
              {
