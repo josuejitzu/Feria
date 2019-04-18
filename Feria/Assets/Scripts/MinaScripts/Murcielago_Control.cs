@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Murcielago_Control : MonoBehaviour
 {
-
+    public ParticleSystem explosionFx;
+    public GameObject meshMurcielago;
 	// Use this for initialization
 	void Start ()
     {
@@ -17,7 +18,8 @@ public class Murcielago_Control : MonoBehaviour
         {
             if(Master_Minas._mina != null)
               Master_Minas._mina.SumarMurcielago();
-
+            meshMurcielago.SetActive(false);
+            explosionFx.Play();
             StartCoroutine(Reinicio());
         }
 
@@ -25,6 +27,7 @@ public class Murcielago_Control : MonoBehaviour
     public IEnumerator Reinicio()
     {
         yield return new WaitForSeconds(0.5f);
+        meshMurcielago.SetActive(true);
         this.gameObject.SetActive(false);
     }
 

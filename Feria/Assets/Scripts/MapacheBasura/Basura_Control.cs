@@ -69,6 +69,21 @@ public class Basura_Control : MonoBehaviour
 
     }
 
+    IEnumerator ReiniciarBasura()
+    {
+        trigger.enabled = true;
+        rigid.isKinematic = false;
+        moverABote = false;
+        yield return new WaitForSeconds(0.4f);
+        //Desactivar mesh
+        foreach (GameObject m in meshes)
+        {
+            m.SetActive(false);
+        }
+        yield return new WaitForSeconds(0.5f);
+
+        this.gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag == "boteBasura")
@@ -80,6 +95,10 @@ public class Basura_Control : MonoBehaviour
         if(other.transform .tag == "zonaMuerte")
         {
             StartCoroutine(TirarBote());
+        }
+        if(other.transform.tag == "terreno")
+        {
+           StartCoroutine( ReiniciarBasura());
         }
     }
     public IEnumerator BasuraABote(string tipoRaqueta)//Lo envia la raqueta que lo golpea

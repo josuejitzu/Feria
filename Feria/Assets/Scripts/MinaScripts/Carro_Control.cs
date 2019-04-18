@@ -19,6 +19,7 @@ public class Carro_Control : MonoBehaviour
     public   bool enFinal;
     public bool inmortal;
 
+    public GameObject luzR, luzL;
 
     [Space(10)]
     [Header("MonedasFx")]
@@ -145,6 +146,7 @@ public class Carro_Control : MonoBehaviour
         if (other.transform.tag == "finalVia") 
         {
             Master_Minas._mina.FinJuego();
+            ApagarLuces();
         }
     }
 
@@ -272,5 +274,10 @@ public class Carro_Control : MonoBehaviour
 
     }
 
+    public void ApagarLuces()
+    {
+        luzL.SetActive(false);
+        luzR.SetActive(false);
+    }
 
 }

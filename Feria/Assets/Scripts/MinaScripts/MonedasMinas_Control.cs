@@ -5,12 +5,14 @@ using UnityEngine;
 public class MonedasMinas_Control : MonoBehaviour
 {
     public GameObject moneda_mesh;
+    public ParticleSystem monedaFX;
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "carro")
         {
             Master_Minas._mina.SumarMonedas();
             StartCoroutine(Carro_Control._carro.ActivarMonedaEfecto());
+            monedaFX.Play();
             StartCoroutine(Reinicio());
         }
 
@@ -18,9 +20,9 @@ public class MonedasMinas_Control : MonoBehaviour
 
     public IEnumerator Reinicio()
     {
-        //moneda_mesh.SetActive(false);
+        moneda_mesh.SetActive(false);
         yield return new WaitForSeconds(0.5f);
-        //moneda_mesh.SetActive(true);
+        moneda_mesh.SetActive(true);
         this.gameObject.SetActive(false);
     }
 

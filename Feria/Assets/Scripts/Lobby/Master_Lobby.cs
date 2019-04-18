@@ -22,8 +22,11 @@ public class Master_Lobby : MonoBehaviour
 	}
     public void CambiarNivel(string n)
     {
-  
-        Master._master.CambiarNivel(n);
-        Master._master.DescontarTicket();        
+       
+        Master._master.CambiarNivel(n,true);
+
+        //if (!Master._master.cambiandoNivel)
+        //    Master._master.DescontarTicket();
+
     }
 }

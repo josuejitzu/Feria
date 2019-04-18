@@ -11,6 +11,7 @@ public class Mano_Raqueta : MonoBehaviour
     public GameObject boton_selecccionado;
     public bool enUI;
     public Color color_select, color_deselect;
+    public GameObject puntero;
     // Use this for initialization
     void Start () {
 		
@@ -54,7 +55,7 @@ public class Mano_Raqueta : MonoBehaviour
                 boton_selecccionado = hit.transform.gameObject;
                // boton_selecccionado.GetComponent<Image>().color = color_select;
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
-
+                puntero.SetActive(true);
                 print(hit.transform.name);
             }
             else
@@ -65,6 +66,7 @@ public class Mano_Raqueta : MonoBehaviour
                     boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                     boton_selecccionado = null;
                 }
+                puntero.SetActive(false);
                 enUI = false;
             }
 
@@ -77,6 +79,7 @@ public class Mano_Raqueta : MonoBehaviour
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                 boton_selecccionado = null;
             }
+            puntero.SetActive(false);
             enUI = false;
         }
 

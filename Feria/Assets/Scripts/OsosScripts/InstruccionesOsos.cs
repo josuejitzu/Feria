@@ -40,6 +40,6 @@ public class InstruccionesOsos : MonoBehaviour
     }
     public void CambiarNivel(string n)
     {
-        Master._master.CambiarNivel(n);
+        Master._master.CambiarNivel(n,false);
     }
 }

@@ -143,13 +143,21 @@ public class Master_Patos : MonoBehaviour
             Master._master.patos = patosScore;
             Master._master.cazadores = cazadoresScore;
             Master._master.monedasPatos = monedasScore;
+            if(monedasScore >= 100)
+            {
+                Master._master.SumarTicket();
+            }
         }
     }
     public void CambiarNivel(string n)
     {
 
-        Master._master.CambiarNivel(n);
+        Master._master.CambiarNivel(n,false);
 
+    }
+    public void RepetirJuego(string n)
+    {
+        Master._master.CambiarNivel(n, true);
     }
 
 }

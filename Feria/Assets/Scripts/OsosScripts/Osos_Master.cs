@@ -118,13 +118,13 @@ public class Osos_Master : MonoBehaviour
     
     public void CambiarNivel(string n)
     {
-        Master._master.CambiarNivel(n);
+        Master._master.CambiarNivel(n,false);
     }
     
     public void RepetirNivel(string n)
     {
-        Master._master.DescontarTicket();
-        Master._master.CambiarNivel(n);
+       // Master._master.DescontarTicket();
+        Master._master.CambiarNivel(n,true);
     }
 
     public void IniciarJuego()
@@ -150,6 +150,10 @@ public class Osos_Master : MonoBehaviour
             Master._master.osos = osos_score;
             Master._master.trampas = trampas;
             Master._master.monedasOsos = monedas;
+            if (monedas >= 100)
+            {
+                Master._master.SumarTicket();
+            }
         }
 
     }

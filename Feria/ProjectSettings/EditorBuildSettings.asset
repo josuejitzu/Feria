@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Escenas/Lobby_01.unity
     guid: 5ef312f041c357c4d8a1129b2fc39b80
   - enabled: 1
@@ -20,13 +20,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Escenas/Lago_03.unity
     guid: 6f32c9248af2dee49a16b1f30e0ba03f
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Escenas/Mapaches_01.unity
     guid: 7da2286532e848e4587ca7d5d52bb48e
   - enabled: 1
+    path: Assets/_Escenas/Mapaches_03.unity
+    guid: 930bdec06b2822a449aa969a04592324
+  - enabled: 1
+    path: Assets/_Escenas/BosqueOsos_02.unity
+    guid: 3a8b9887c4608114fa3441922c811add
+  - enabled: 1
     path: Assets/_Escenas/BosqueOsos_Tutorial_01.unity
     guid: e1b0a44d9a2c15c498ee1a94053a1658
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Escenas/BosqueOsos_01.unity
     guid: edee9dd5062ad4947b35bce78d4bea29
   m_configObjects: {}

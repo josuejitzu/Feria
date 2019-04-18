@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class Master_Mapaches : MonoBehaviour
 {
     public static Master_Mapaches _masterMapaches;
@@ -12,6 +13,7 @@ public class Master_Mapaches : MonoBehaviour
     bool empezarConteo;
     public TMP_Text tiempo_text;
     public TMP_Text tiempoUsuario_text;
+    
 
     [Space(10)]
     [Header("Score")]
@@ -31,8 +33,9 @@ public class Master_Mapaches : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        _masterMapaches = this;	
-	}
+        _masterMapaches = this;
+        
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -50,7 +53,13 @@ public class Master_Mapaches : MonoBehaviour
 
             duracionJuego -= Time.deltaTime;
 
-
+            if(duracionJuego <= 120.0f)
+            {
+                Lanzadores_Control._lanzadores.CambiarVelocidad(2);
+            }else if(duracionJuego <= 60.0f)
+            {
+                Lanzadores_Control._lanzadores.CambiarVelocidad(3);
+            }
             if (duracionJuego <= 0.0f)
             {
 
@@ -119,7 +128,11 @@ public class Master_Mapaches : MonoBehaviour
 
     public void CambiarNivel(string n)
     {
-        Master._master.CambiarNivel(n);
+        Master._master.CambiarNivel(n,false);
+    }
+    public void RepetirJuego(string n)
+    {
+        Master._master.CambiarNivel(n, true);
     }
     public void FinJuego()
     {
@@ -135,6 +148,10 @@ public class Master_Mapaches : MonoBehaviour
             Master._master.basuraCorrecta = basuraCorrecta;
             Master._master.basuraIncorrecta = basuraIncorrecta;
             Master._master.monedasBasura = monedas;
+            if (monedas >= 100)
+            {
+                Master._master.SumarTicket();
+            }
         }
     }
 }

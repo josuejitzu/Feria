@@ -21,6 +21,7 @@ public class ManoOsos_Control : MonoBehaviour {
     public GameObject boton_selecccionado;
     public bool enUI;
     public Color color_select, color_deselect;
+    public GameObject puntero;
 
     void Start()
     {
@@ -77,6 +78,7 @@ public class ManoOsos_Control : MonoBehaviour {
                 boton_selecccionado = hit.transform.gameObject;
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
                 print(hit.transform.name);
+                puntero.SetActive(true);
             }
             else
             {
@@ -84,8 +86,10 @@ public class ManoOsos_Control : MonoBehaviour {
                 {
                     boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                     boton_selecccionado = null;
+                    puntero.SetActive(false);
                 }
                    enUI = false;
+                puntero.SetActive(false);
             }
 
         }
@@ -96,6 +100,7 @@ public class ManoOsos_Control : MonoBehaviour {
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                 boton_selecccionado = null;
             }
+            puntero.SetActive(false);
             enUI = false;
         }
 

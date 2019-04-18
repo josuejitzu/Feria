@@ -7,6 +7,7 @@ public class Bote_Control : MonoBehaviour
     public enum TipoBote {verde,roja,azul};
     public TipoBote _tipo;
     public Animator bote_anim;
+    public GameObject moneda_anim;
 	// Use this for initialization
 	void Start ()
     {
@@ -27,9 +28,13 @@ public class Bote_Control : MonoBehaviour
 
         if(tipoBasura == _tipo.ToString())//Si es correcto
         {
-            Master_Mapaches._masterMapaches.SumarBasura("correcta");
+            if(Master_Mapaches._masterMapaches != null)
+                 Master_Mapaches._masterMapaches.SumarBasura("correcta");
 
-        }else//equivocado
+            moneda_anim.SetActive(true);
+
+        }
+        else//equivocado
         {
             Master_Mapaches._masterMapaches.SumarBasura("incorrecta");
         }
@@ -39,6 +44,9 @@ public class Bote_Control : MonoBehaviour
     {
         yield return new WaitForSeconds(0.7f);
         bote_anim.SetTrigger("abrirbote");
+        moneda_anim.SetActive(false);
+        yield return new WaitForSeconds(1.0f);
+       
     }
 
 }

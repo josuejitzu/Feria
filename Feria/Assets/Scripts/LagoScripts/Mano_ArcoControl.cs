@@ -22,6 +22,7 @@ public class Mano_ArcoControl : MonoBehaviour
     public bool enUI;
     float triggerValueL, triggerValueR;
     public Color color_select, color_deselect;
+    public GameObject puntero;
 
     private void OnValidate()
     {
@@ -80,6 +81,7 @@ public class Mano_ArcoControl : MonoBehaviour
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
                 //boton_selecccionado.GetComponent<Button>().s
                 print(hit.transform.name);
+                puntero.SetActive(true);
             }
             else
             {
@@ -87,7 +89,9 @@ public class Mano_ArcoControl : MonoBehaviour
                 {
                     boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                     boton_selecccionado = null;
+
                 }
+                puntero.SetActive(false);
                   enUI = false;
             }
 
@@ -99,6 +103,7 @@ public class Mano_ArcoControl : MonoBehaviour
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                 boton_selecccionado = null;
             }
+            puntero.SetActive(false);
             enUI = false;
         }
 

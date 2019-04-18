@@ -18,7 +18,7 @@ public class Mano_Control : MonoBehaviour
     public  bool enUI;
     float triggerValueL,triggerValueR;
     public Color color_select, color_deselect;
-
+    public GameObject puntero;
     void Start ()
     {
         control = this.GetComponent<SteamVR_Behaviour_Pose>();
@@ -79,6 +79,7 @@ public class Mano_Control : MonoBehaviour
                 //boton_selecccionado.GetComponent<Image>().color = color_select;
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
                 //boton_selecccionado.GetComponent<Button>().s
+                puntero.SetActive(true);
                 print(hit.transform.name);
             }
             else
@@ -88,7 +89,9 @@ public class Mano_Control : MonoBehaviour
                    // boton_selecccionado.GetComponent<Image>().color = color_deselect;
                     boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                     boton_selecccionado = null;
+
                 }
+                puntero.SetActive(false);
              //   enUI = false;
             }
            

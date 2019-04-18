@@ -16,6 +16,7 @@ public class ManoLobby_Control : MonoBehaviour
     public bool enUI;
     float triggerValueL, triggerValueR;
     public Color color_select, color_deselect;
+    public GameObject puntero;
 
     void Start () {
 		
@@ -61,6 +62,7 @@ public class ManoLobby_Control : MonoBehaviour
                 //boton_selecccionado.GetComponent<Image>().color = color_select;
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
                 //boton_selecccionado.GetComponent<Button>().s
+                puntero.SetActive(true);
                 print(hit.transform.name);
             }
             else
@@ -71,6 +73,7 @@ public class ManoLobby_Control : MonoBehaviour
                     boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
                     boton_selecccionado = null;
                 }
+                puntero.SetActive(false);
                 //   enUI = false;
             }
 

@@ -12,10 +12,12 @@ public class Lanzadores_Control : MonoBehaviour
     public float rateDisparo;
     float sigDisparo;
     public bool lanzar;
+    public float rateA, rateB, rateC;
 	// Use this for initialization
 	void Start ()
     {
         _lanzadores = this;
+        rateDisparo = rateA;
 	}
 	
 	// Update is called once per frame
@@ -52,5 +54,18 @@ public class Lanzadores_Control : MonoBehaviour
         }
         lanzadorPasado = r;
         return r;
+    }
+    public void CambiarVelocidad(int i)
+    {
+        if(i == 1)
+        {
+            rateDisparo = rateA;
+        }else if(i == 2)
+        {
+            rateDisparo = rateB;
+        }else if(i==3)
+        {
+            rateDisparo = rateC;
+        }
     }
 }

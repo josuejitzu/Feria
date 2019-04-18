@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using TMPro;
+using Valve.VR;
 
 public class Master : MonoBehaviour
 {
@@ -63,6 +64,8 @@ public class Master : MonoBehaviour
             Scores_Lobby._scoreLobby.CompararScore();
             print("Solicitando comparacio de scores");
         }
+        SteamVR_Fade.Start(Color.black, 0);
+        SteamVR_Fade.Start(Color.clear, 1);
 
     }
 
@@ -85,16 +88,29 @@ public class Master : MonoBehaviour
     {
         cambiandoNivel = false;
         tickets_jugador.text = tickets.ToString("00");
-
+        SteamVR_Fade.Start(Color.black, 0);
+		SteamVR_Fade.Start(Color.clear, 1);
     }
-    
-    public void CambiarNivel(string n)
+
+    public void CambiarNivel(string n,bool descontar)
     {
-        if (tickets <= 0 || cambiandoNivel)//Comprobar si el jugador tiene tickets para ese juego
+        if(tickets <= 0)
         {
             print("No tienes Tickets....");
+            if(n == Niveles.lobby.ToString())
+            {
+                nivelACambiar = lobby;
+                StartCoroutine(CambiarScena(nivelACambiar));
+            }
             return;
         }
+
+        if (cambiandoNivel)
+        {
+            return;
+        }
+        
+
       
 
         if(n == Niveles.lobby.ToString())
@@ -139,8 +155,9 @@ public class Master : MonoBehaviour
             print("En construccion");
         }
 
+        if(descontar)
+                DescontarTicket();
 
-       // DescontarTicket();
         StartCoroutine(CambiarScena(nivelACambiar));
 
     }
@@ -149,12 +166,16 @@ public class Master : MonoBehaviour
     {
         cambiandoNivel = true;
         //fadeNegro
+        SteamVR_Fade.Start(Color.black, 0.9f);
+        
+        // Wait until the asynchronous scene fully loads
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(n);
     }
 
     public void DescontarTicket()
     {
+      
         if(tickets > 0)
         {
             tickets--;

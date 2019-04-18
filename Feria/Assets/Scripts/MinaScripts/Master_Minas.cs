@@ -140,6 +140,10 @@ public class Master_Minas : MonoBehaviour
         {
             Master._master.monedasMinas = monedas_score;
             Master._master.murcielagos = murcielago_score;
+            if (monedas_score >= 100)
+            {
+                Master._master.SumarTicket();
+            }
         }
 
 
@@ -159,7 +163,11 @@ public class Master_Minas : MonoBehaviour
     public void CambiarNivel(string n)
     {
         
-            Master._master.CambiarNivel(n);
+            Master._master.CambiarNivel(n,false);
         
+    }
+    public void RepetirJuego(string n)
+    {
+        Master._master.CambiarNivel(n, true);
     }
 }
