@@ -28,6 +28,7 @@ public class Osos_Master : MonoBehaviour
     public TMP_Text monedasFinal_text, trampasFinal_text;
     public GameObject panelFinal;
 
+    public ManoOsos_Control izquierda, derecha;
     public bool finJuego;
     // Use this for initialization
     void Start ()
@@ -57,6 +58,7 @@ public class Osos_Master : MonoBehaviour
                 OsosManada_Control._osos.spawnear = false;
                 OsosManada_Control._osos.DesactivarTrampas();
                 tiempo = 0.0f;
+                FinJuego();
 
             }
             if (tiempo >= tiempoFinal)
@@ -109,9 +111,10 @@ public class Osos_Master : MonoBehaviour
         if (finJuego)
             return;
         osos_score -= 1;
-        if(osos_score < 0)
+        if(osos_score <= 0)
         {
             osos_score = 0;
+            FinJuego();
         }
         osos_text.text = osos_score.ToString("00")+" /30";
     }
@@ -123,7 +126,7 @@ public class Osos_Master : MonoBehaviour
     
     public void RepetirNivel(string n)
     {
-       // Master._master.DescontarTicket();
+        Master._master.DescontarTicket();
         Master._master.CambiarNivel(n,true);
     }
 
@@ -133,12 +136,18 @@ public class Osos_Master : MonoBehaviour
         panelInicio_juego.SetActive(false);
         OsosManada_Control._osos.spawnear = true;
         MunicionBellota_Control._bellotas.spawnBellota = true;
+
+        izquierda.puedenTomar = true;
+        derecha.puedenTomar = true;
     }
     public void FinJuego()
     {
+        finJuego = true;
         OsosManada_Control._osos.spawnear = false;
         MunicionBellota_Control._bellotas.spawnBellota = false;
 
+        izquierda.puedenTomar = false;
+        derecha.puedenTomar = false;
 
         ososFinal_text.text = osos_score.ToString("00") + " /30";
         monedasFinal_text.text = monedas.ToString("000");

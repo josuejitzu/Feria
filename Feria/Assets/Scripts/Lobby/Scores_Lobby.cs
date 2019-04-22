@@ -10,32 +10,44 @@ public class Scores_Lobby : MonoBehaviour
     public static Scores_Lobby _scoreLobby;
     public TMP_Text ticketsMano;
     public int ticketsJugador;
+    public GameObject panelIngreso;
+    
     [Space(10)]
     [Header("Minas")]
+    public TMP_Text jugadorMinas_text;
     public TMP_Text monedasmina_text;
     public TMP_Text murcielagos_text;
     public TMP_Text monedasMinas_HighScore_text, murcielagos_HighScore_text;
+    public TMP_InputField nombreMinas;
     int murcielagos, monedasMinas, murcielagosHigh, monedasMinas_High;
+    string jugadorMinas;
     [Space(10)]
     [Header("Patos")]
+    public TMP_Text jugadorPatos_text;
     public TMP_Text patos_text;
     public TMP_Text monedasPatos_text, cazadores_text;
     public TMP_Text monedasPatos_HighScore_text, patos_HighScore_text, cazadoresHighScore_text;
+    public TMP_InputField nombrePatos;
     int patos, monedasPatos, cazadores, patosHigh, monedasPatos_High, cazadores_High;
+    string jugadorPatos;
     [Space(10)]
     [Header("Osos")]
+    public TMP_Text jugadorOsos_text;
     public TMP_Text osos_text;
     public TMP_Text monedasOsos_text, trampas_text;
     public TMP_Text ososHighScore_text, monedasOsosHighScore_text, trampasHighScore_text;
+    public TMP_InputField nombreOsos;
     int osos, monedasOsos, trampas, osos_High, monedasOsos_High, trampas_High;
-
+    string jugadorOsos;
     [Space(10)]
     [Header("Mapaches")]
+    public TMP_Text jugadorMapaches_text;
     public TMP_Text basuraCorrecta_text;
     public TMP_Text basuraIncorrecta_text, monedasBasura_text;
     public TMP_Text basuraCorrectaHighScore_text, basuraIncorrectaHighScore_text, monedasBasuraHighScore_text;
+    public TMP_InputField nombreMapaches;
     int basuraCorrecta, basuraIncorrecta, monedasBasura, basuraCorrecta_High, basuraIncorrecta_High, monedasBasura_High;
-
+    string jugadorMapaches;
     [Space(10)]
     [Header("UI Operador")]
     public TMP_Text tickets_jugador;
@@ -50,7 +62,7 @@ public class Scores_Lobby : MonoBehaviour
     {
         _scoreLobby = this;
         CargarScore();
-
+        //SalvarScore();
 
     }
     // Update is called once per frame
@@ -101,15 +113,19 @@ public class Scores_Lobby : MonoBehaviour
     {
         QuickSaveWriter.Create("HighScore").Write("murcielagoHigh", murcielagosHigh)
                                            .Write("murcielagoMonedasHigh", monedasMinas_High)
+                                           .Write("jugadorMinas",jugadorMinas)
                                            .Write("patosHigh", patosHigh)
                                             .Write("monedasPatosHigh", monedasPatos_High)
+                                            .Write("jugadorPatos",jugadorPatos)
                                             .Write("cazadoresHigh", cazadores_High)
                                             .Write("ososHigh", osos_High)
                                             .Write("monedasOsosHigh", monedasOsos_High)
+                                            .Write("jugadorOsos",jugadorOsos)
                                             .Write("trampas", trampas_High)
                                             .Write("basuraCorrectaHigh", basuraCorrecta_High)
                                             .Write("basuraIncorrectaHigh", basuraIncorrecta_High)
-                                            .Write("monedasBasuraHigh", monedasBasura_High).Commit();
+                                            .Write("monedasBasuraHigh", monedasBasura_High)
+                                            .Write("jugadorMapaches",jugadorMapaches).Commit();
 
         Debug.Log(Application.persistentDataPath);
         CargarScore();
@@ -120,27 +136,38 @@ public class Scores_Lobby : MonoBehaviour
 
         QuickSaveReader.Create("HighScore").Read<int>("murcielagoHigh", (r) => { murcielagosHigh = r; });
         QuickSaveReader.Create("HighScore").Read<int>("murcielagoMonedasHigh", (r) => { monedasMinas_High = r; });
+        QuickSaveReader.Create("HighScore").Read<string>("jugadorMinas",(r) => { jugadorMinas = r; });
         QuickSaveReader.Create("HighScore").Read<int>("patosHigh", (r) => { patosHigh = r; });
         QuickSaveReader.Create("HighScore").Read<int>("monedasPatosHigh", (r) => { monedasPatos_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("cazadoresHigh", (r) => { cazadores_High = r; });
+        QuickSaveReader.Create("HighScore").Read<string>("jugadorPatos", (r) => { jugadorPatos = r; });
         QuickSaveReader.Create("HighScore").Read<int>("ososHigh", (r) => { osos_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("monedasOsosHigh", (r) => { monedasOsos_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("trampas", (r) => { trampas_High = r; });
+        QuickSaveReader.Create("HighScore").Read<string>("jugadorOsos", (r) => { jugadorOsos = r; });
         QuickSaveReader.Create("HighScore").Read<int>("basuraCorrectaHigh", (r) => { basuraCorrecta_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("basuraIncorrectaHigh", (r) => { basuraIncorrecta_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("monedasBasuraHigh", (r) => { monedasBasura_High = r; });
+        QuickSaveReader.Create("HighScore").Read<string>("jugadorMapaches", (r) => { jugadorMapaches = r; });
 
         murcielagos_HighScore_text.text = murcielagosHigh.ToString("00");
         monedasMinas_HighScore_text.text = monedasMinas_High.ToString("000");
+        jugadorMinas_text.text = jugadorMinas;
+
         patos_HighScore_text.text = patosHigh.ToString("00") + " /30";
         monedasPatos_HighScore_text.text = monedasPatos_High.ToString("000");
         cazadoresHighScore_text.text = cazadores_High.ToString("00");
+        jugadorPatos_text.text = jugadorPatos;
+
         ososHighScore_text.text = osos_High.ToString("00") + " /30";
         monedasOsosHighScore_text.text = monedasOsos_High.ToString("000");
         trampasHighScore_text.text = trampas_High.ToString("00");
+        jugadorOsos_text.text = jugadorOsos;
+
         basuraCorrectaHighScore_text.text = basuraCorrecta_High.ToString("000");
         basuraIncorrectaHighScore_text.text = basuraIncorrecta_High.ToString("000");
         monedasBasuraHighScore_text.text = monedasBasura_High.ToString("000");
+        jugadorMapaches_text.text = jugadorMapaches;
 
 
     }
@@ -151,25 +178,80 @@ public class Scores_Lobby : MonoBehaviour
         {
             murcielagosHigh = murcielagos;
             monedasMinas_High = monedasMinas;
+            ActivarIngreso("minas");
         }
         if (patos > patosHigh)//Gana el que mas patos tiene
         {
             patosHigh = patos;
             monedasPatos_High = monedasPatos;
             cazadores_High = cazadores;
+            ActivarIngreso("patos");
         }
         if (osos > osos_High)//Gana el que mas osos tiene
         {
             osos_High = osos;
             monedasOsos_High = monedasOsos;
+            ActivarIngreso("osos");
         }
         if (basuraCorrecta > basuraCorrecta_High)//Gana el que mas basuraCorrecta tiene
         {
             basuraCorrecta_High = basuraCorrecta;
             basuraIncorrecta_High = basuraIncorrecta;
             monedasBasura_High = monedasBasura;
+            ActivarIngreso("mapaches");
         }
 
+        SalvarScore();
+
+    }
+
+    public void ActivarIngreso(string t)
+    {
+        panelIngreso.SetActive(true);
+
+        nombreMinas.gameObject.SetActive(false);
+        nombrePatos.gameObject.SetActive(false);
+        nombreOsos.gameObject.SetActive(false);
+        nombreMapaches.gameObject.SetActive(false);
+
+        if (t == "minas")
+        {
+            nombreMinas.gameObject.SetActive(true);
+
+        }else if(t == "patos")
+        {
+            nombrePatos.gameObject.SetActive(true);
+
+        }else if( t == "osos")
+        {
+            nombreOsos.gameObject.SetActive(true);
+
+        }else if(t == "mapaches")
+        {
+            nombreMapaches.gameObject.SetActive(true);
+        }
+    
+    }
+    public void Ingresar()
+    {
+
+        if(nombreMinas.gameObject.activeInHierarchy)
+        {
+            jugadorMinas = nombreMinas.text;
+        }
+        if (nombrePatos.gameObject.activeInHierarchy)
+        {
+            jugadorPatos = nombrePatos.text;
+        }
+        if (nombreOsos.gameObject.activeInHierarchy)
+        {
+            jugadorOsos = nombreOsos.text;
+        }
+        if (nombreMapaches.gameObject.activeInHierarchy)
+        {
+            jugadorMapaches = nombreMapaches.text;
+        }
+        panelIngreso.SetActive(false);
         SalvarScore();
 
     }

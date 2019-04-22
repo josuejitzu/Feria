@@ -11,7 +11,7 @@ public class Cazadores_Control : MonoBehaviour
     [Header("Cazadores")]
     public GameObject cazador_prefab;
     public List<GameObject> cazador_A = new List<GameObject>();
-    public int cantidadCazadores = 5;
+    //public int cantidadCazadores = 5;
 
     [Header("Puntos")]
     [Space(10)]
@@ -50,7 +50,7 @@ public class Cazadores_Control : MonoBehaviour
 
     void SpawnCazador()
     {
-        for (int i = 0; i < cantidadCazadores; i++)
+       /* for (int i = 0; i < cantidadCazadores; i++)
         {
 
 
@@ -59,23 +59,31 @@ public class Cazadores_Control : MonoBehaviour
             cazador.transform.name = "cazador_" + i;
             cazador_A.Add(cazador);
         }
+        */
     }
 
     public void ActivarCazadores()
     {
-        foreach(GameObject c in cazador_A)
+        /* foreach(GameObject c in cazador_A)
+         {
+             if(!c.activeInHierarchy)
+             {
+                // Transform pos = ActivarPunto();
+               //  c.transform.position = pos.position;
+               //  c.transform.rotation = pos.rotation;
+                 c.SetActive(true);
+                 //c.GetComponent <Cazadores_Control>().StopAllCoroutines();
+                 StartCoroutine( c.GetComponent<Cazador_Control>().ActivarCazador());
+                 break;
+             }
+         }*/
+        int randCazador = Random.Range(0, cazador_A.Count);
+        while(randCazador == puntoAnterior)
         {
-            if(!c.activeInHierarchy)
-            {
-                Transform pos = ActivarPunto();
-                c.transform.position = pos.position;
-                c.transform.rotation = pos.rotation;
-                c.SetActive(true);
-                //c.GetComponent <Cazadores_Control>().StopAllCoroutines();
-                StartCoroutine( c.GetComponent<Cazador_Control>().ActivarCazador());
-                break;
-            }
+            randCazador = Random.Range(0, cazador_A.Count);
         }
+        cazador_A[randCazador].SetActive(true);
+        StartCoroutine(cazador_A[randCazador].GetComponent<Cazador_Control>().ActivarCazador());
     }
 
     Transform ActivarPunto()

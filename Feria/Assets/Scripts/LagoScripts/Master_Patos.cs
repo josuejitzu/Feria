@@ -101,6 +101,7 @@ public class Master_Patos : MonoBehaviour
         if(patosScore <= 0)//Comprueba si ya llego a 0
         {
             //Perdiste
+            FinJuego();
         }
     }
     public void ScoreCazadores()//llamado por el Cazador

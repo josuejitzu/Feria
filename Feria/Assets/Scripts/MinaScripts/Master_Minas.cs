@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Master_Minas : MonoBehaviour
 {
     public static Master_Minas _mina;
+    public Camera camara;
     [Space(10)]
     [Header("Tickes")]
     public int tickets_ganados;
@@ -28,6 +29,7 @@ public class Master_Minas : MonoBehaviour
     public TMP_Text murcielagos_final_txt;
     public TMP_Text monedas_final_txt;
     public TMP_Text trampas_final_txt;
+
 
     // Use this for initialization
     void Start ()
@@ -63,6 +65,7 @@ public class Master_Minas : MonoBehaviour
             }else if(tiempo >= 150)
             {
                 Rieles_Control._rieles.etapafinal = true;
+                camara.clearFlags = CameraClearFlags.Skybox;
             }
 
            if(tiempo >= 60.0f &&  tiempo <= 119.0f)

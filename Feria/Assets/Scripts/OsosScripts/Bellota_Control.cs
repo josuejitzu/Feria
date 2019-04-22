@@ -30,18 +30,17 @@ public class Bellota_Control : MonoBehaviour
         if(other.transform.tag == "trampaOso")
         {
             StartCoroutine(other.GetComponent<TrampaOso_Control>().DesactivarTrampa());
-            //Reiniciar();
             StartCoroutine(Reiniciar());
         }
         if(other.transform.tag == "terreno")
         {
-            Invoke("GolpeNormal",3.0f);
+            Invoke("GolpeNormal",2.0f);
         }
     }
 
     public void BellotaAgarrada()
     {
-        trigger.enabled = false;
+        //trigger.enabled = false;
         collision.enabled = false;
         rigid.isKinematic = true;
     }

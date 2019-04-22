@@ -87,6 +87,7 @@ public class Pato_Control : MonoBehaviour
         Master_Patos._masterPatos.ScorePatos();
         Master_Patos._masterPatos.RestarMonedas(5);
         monedasPerdidas_fx.SetActive(true);
+        enMira = false;
         yield return new WaitForSeconds(0.7f);
         pato_mesh.SetActive(false);
        // print("Termino secuencia muerte...");
@@ -99,6 +100,7 @@ public class Pato_Control : MonoBehaviour
        // print("Reiniciando...");
         enPos = 0;
         monedasPerdidas_fx.SetActive(false);
+        enMira = false;
         yield return new WaitForSeconds(0.1f);
       
         velocidad = 1.0f;

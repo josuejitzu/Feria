@@ -29,4 +29,8 @@ public class Master_Lobby : MonoBehaviour
         //    Master._master.DescontarTicket();
 
     }
+    public void CambiarTutorial(string n)
+    {
+        Master._master.CambiarNivel(n, false);
+    }
 }

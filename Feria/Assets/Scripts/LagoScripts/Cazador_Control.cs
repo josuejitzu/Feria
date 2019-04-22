@@ -55,6 +55,8 @@ public class Cazador_Control : MonoBehaviour
                     cazador_anim.SetTrigger("disparar");
                     disparo_fx.SetActive(true);
                     StartCoroutine(objetivo.GetComponent<Pato_Control>().MatarPato());
+                    if(objetivo != null)
+                         objetivo.GetComponent<Pato_Control>().enMira = false;
                     StartCoroutine(DesactivarCazador());
                 }
                 
@@ -108,6 +110,8 @@ public class Cazador_Control : MonoBehaviour
         cazador_anim.SetTrigger("golpeado");
         moneda_anim.SetActive(true);
         Master_Patos._masterPatos.ScoreMonedas(5);
+        if(objetivo != null)
+            objetivo.GetComponent<Pato_Control>().enMira = false;
         // objetivo = null;
         //animacion de daño
         trigger.enabled = false;
@@ -129,6 +133,8 @@ public class Cazador_Control : MonoBehaviour
         barraDisparo.gameObject.SetActive(false);
         pistola.SetActive(false);
         yield return new WaitForSeconds(0.5f);
+        if (objetivo != null)
+            objetivo.GetComponent<Pato_Control>().enMira = false;
         disparo_fx.SetActive(false);
         trigger.enabled = false;
         moneda_anim.SetActive(false);

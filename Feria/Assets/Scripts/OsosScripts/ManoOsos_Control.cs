@@ -4,7 +4,10 @@ using UnityEngine;
 using Valve.VR;
 using UnityEngine.UI;
 using TMPro;
-public class ManoOsos_Control : MonoBehaviour {
+public class ManoOsos_Control : MonoBehaviour
+{
+    public enum ManoOso {izquierda,derecha};
+    public ManoOso mano;
 
     [SteamVR_DefaultAction("Squeeze")]
     public SteamVR_Action_Single squeezeAction;
@@ -16,13 +19,14 @@ public class ManoOsos_Control : MonoBehaviour {
     public bool enBellota;
     public bool bellotaEnMano;
     public Rigidbody rigid;
+    public bool puedenTomar;
 
-
+    //common
     public GameObject boton_selecccionado;
     public bool enUI;
     public Color color_select, color_deselect;
     public GameObject puntero;
-
+    
     void Start()
     {
         
@@ -31,41 +35,64 @@ public class ManoOsos_Control : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.LeftHand))
+        if (mano == ManoOso.izquierda)
         {
 
-            // Carro_Control._carro.MoverIzquierda();
-            if (enUI && boton_selecccionado != null)
+            if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.LeftHand))
             {
-                boton_selecccionado.GetComponent<Button>().onClick.Invoke();
+
+
+                if (enUI && boton_selecccionado != null)
+                {
+                    boton_selecccionado.GetComponent<Button>().onClick.Invoke();
+                }
+                if (enBellota == true && bellotaEnMano == false && puedenTomar)
+                {
+                    TomarBellota();
+                }
+
+
+                print("PresionandoTrigger");
             }
+            if (SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.LeftHand))
+            {
 
-
-            print("PresionandoTrigger");
+                if (bellotaEnMano)
+                {
+                    SoltarBellota();
+                }
+            }
         }
-        if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
+
+        if (mano == ManoOso.derecha )
         {
-
-            // Carro_Control._carro.MoverIzquierda();
-            if (enUI && boton_selecccionado != null)
+            if (SteamVR_Input._default.inActions.GrabPinch.GetStateDown(SteamVR_Input_Sources.RightHand))
             {
-                boton_selecccionado.GetComponent<Button>().onClick.Invoke();
-            }
-            if(enBellota == true && bellotaEnMano == false)
-            {
-                TomarBellota();
+
+
+                if (enUI && boton_selecccionado != null)
+                {
+                    boton_selecccionado.GetComponent<Button>().onClick.Invoke();
+                }
+                if (enBellota == true && bellotaEnMano == false && puedenTomar)
+                {
+                    TomarBellota();
+                }
+
+                print("PresionandoTrigger");
             }
 
-            print("PresionandoTrigger");
+            if (SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.RightHand))
+            {
+
+                if (bellotaEnMano)
+                {
+                    SoltarBellota();
+                }
+            }
         }
-        if (SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.RightHand))
-        {
+    
 
-           if(bellotaEnMano)
-            {
-                SoltarBellota();
-            }
-        }
 
 
         RaycastHit hit;
@@ -108,22 +135,31 @@ public class ManoOsos_Control : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "bellota" && !bellotaEnMano)
+        if (other.transform.tag == "bellota" && !enBellota)
         {
             enBellota = true;
             bellotaTemp = other.GetComponent<Bellota_Control>();
+           
 
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.transform.tag == "bellota")
+        {
+            enBellota = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "bellota" && bellotaEnMano)
+        if (other.transform.tag == "bellota")
         {
             enBellota = false;
-            bellotaTemp = null;
+           // bellotaTemp = null;
 
         }
+        
     }
 
     public void TomarBellota()
@@ -135,11 +171,14 @@ public class ManoOsos_Control : MonoBehaviour {
     } 
     public void SoltarBellota()
     {
+        
         bellotaTemp.BellotaSoltada();
         bellotaTemp.transform.parent = null;
         bellotaEnMano = false;
         bellotaTemp.GetComponent<Rigidbody>().angularVelocity = control.GetAngularVelocity() * 1.5f;
         bellotaTemp.GetComponent<Rigidbody>().velocity= control.GetVelocity() * 1.5f;
+        enBellota = false;
+        bellotaTemp = null;
 
 
     }

@@ -13,7 +13,7 @@ public class Master_Mapaches : MonoBehaviour
     bool empezarConteo;
     public TMP_Text tiempo_text;
     public TMP_Text tiempoUsuario_text;
-    
+
 
     [Space(10)]
     [Header("Score")]
@@ -28,22 +28,24 @@ public class Master_Mapaches : MonoBehaviour
     [Header("UI Final")]
     public GameObject panelFinal;
     public TMP_Text basuraCorrectaFinal_text, basuraIncorrectaFinal_text, monedasFinal_text;
-
+    [Header("UI Higher")]
+    public TMP_Text basuraCorrectaHigh_text, basuraIncorrectaHigh_text, monedasHigh_text;
+    public int basuraCorrectaHigh, basuraIncorrectaHigh, monedasHigh;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         _masterMapaches = this;
-        
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
 
         Tiempo();
 
-	}
+    }
 
 
     void Tiempo()
@@ -53,10 +55,10 @@ public class Master_Mapaches : MonoBehaviour
 
             duracionJuego -= Time.deltaTime;
 
-            if(duracionJuego <= 120.0f)
+            if (duracionJuego <= 120.0f)
             {
                 Lanzadores_Control._lanzadores.CambiarVelocidad(2);
-            }else if(duracionJuego <= 60.0f)
+            } else if (duracionJuego <= 60.0f)
             {
                 Lanzadores_Control._lanzadores.CambiarVelocidad(3);
             }
@@ -65,10 +67,10 @@ public class Master_Mapaches : MonoBehaviour
 
                 empezarConteo = false;
                 FinJuego();
-               
+
 
             }
-            
+
 
         }
 
@@ -79,11 +81,11 @@ public class Master_Mapaches : MonoBehaviour
 
     public void SumarBasura(string tipo)
     {
-        if(tipo == "correcta")
+        if (tipo == "correcta")
         {
             basuraCorrecta++;
             SumarMoneda(5);
-        }else if(tipo == "incorrecta")
+        } else if (tipo == "incorrecta")
         {
             basuraIncorrecta++;
             RestarMoneda(10);
@@ -110,7 +112,7 @@ public class Master_Mapaches : MonoBehaviour
     public void RestarMoneda(int n)
     {
         monedas -= n;
-        if(monedas < 0)
+        if (monedas < 0)
         {
             monedas = 0;
         }
@@ -128,7 +130,7 @@ public class Master_Mapaches : MonoBehaviour
 
     public void CambiarNivel(string n)
     {
-        Master._master.CambiarNivel(n,false);
+        Master._master.CambiarNivel(n, false);
     }
     public void RepetirJuego(string n)
     {
@@ -136,7 +138,7 @@ public class Master_Mapaches : MonoBehaviour
     }
     public void FinJuego()
     {
-       
+
         panelFinal.SetActive(true);
         basuraCorrectaFinal_text.text = basuraCorrecta.ToString("000");
         basuraIncorrectaFinal_text.text = basuraIncorrecta.ToString("000");
@@ -154,4 +156,12 @@ public class Master_Mapaches : MonoBehaviour
             }
         }
     }
+
+    public void ScoreSet()
+    {
+        
+
+
+    }
+
 }

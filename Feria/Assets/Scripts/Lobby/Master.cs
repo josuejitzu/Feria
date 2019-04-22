@@ -91,6 +91,10 @@ public class Master : MonoBehaviour
         SteamVR_Fade.Start(Color.black, 0);
 		SteamVR_Fade.Start(Color.clear, 1);
     }
+    public void CambiarNivelOperador(string n)
+    {
+        CambiarNivel(n, false);
+    }
 
     public void CambiarNivel(string n,bool descontar)
     {
@@ -165,6 +169,7 @@ public class Master : MonoBehaviour
     IEnumerator CambiarScena(string n)
     {
         cambiandoNivel = true;
+        yield return new WaitForSeconds(0.9f);
         //fadeNegro
         SteamVR_Fade.Start(Color.black, 0.9f);
         
