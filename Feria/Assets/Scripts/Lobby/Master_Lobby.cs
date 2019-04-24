@@ -5,6 +5,10 @@ using UnityEngine;
 public class Master_Lobby : MonoBehaviour
 {
     public static Master_Lobby _masterLobby;
+
+    [Header("Animacion Tickets")]
+    public GameObject ticketPato;
+    public GameObject ticketMinas, ticketOsos, ticketRaquetas;
 	// Use this for initialization
 	void Start ()
     {

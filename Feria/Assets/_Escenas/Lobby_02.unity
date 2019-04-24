@@ -17760,6 +17760,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -87.40401
       objectReference: {fileID: 0}
+    - target: {fileID: 23157758266584760, guid: 1257447739dad91489ce20fba8f2688e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: accb2bce242ac9b4180da06d1e90ce00, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1257447739dad91489ce20fba8f2688e, type: 2}
   m_IsPrefabAsset: 0
@@ -57008,6 +57013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a93fb1313edaba418f73eb16f741092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ticketPato: {fileID: 0}
+  ticketMinas: {fileID: 0}
+  ticketOsos: {fileID: 0}
+  ticketRaquetas: {fileID: 0}
 --- !u!114 &1815908023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57028,6 +57037,11 @@ MonoBehaviour:
   monedasMinas_HighScore_text: {fileID: 476560297}
   murcielagos_HighScore_text: {fileID: 1652362195}
   nombreMinas: {fileID: 2022567748}
+  murcielagos: 0
+  monedasMinas: 0
+  murcielagosHigh: 0
+  monedasMinas_High: 0
+  jugadorMinas: 
   jugadorPatos_text: {fileID: 1979635248}
   patos_text: {fileID: 1422404681}
   monedasPatos_text: {fileID: 998195182}
@@ -57036,6 +57050,13 @@ MonoBehaviour:
   patos_HighScore_text: {fileID: 1310475391}
   cazadoresHighScore_text: {fileID: 924401583}
   nombrePatos: {fileID: 1764769484}
+  patos: 0
+  monedasPatos: 0
+  cazadores: 0
+  patosHigh: 0
+  monedasPatos_High: 0
+  cazadores_High: 0
+  jugadorPatos: 
   jugadorOsos_text: {fileID: 526837890}
   osos_text: {fileID: 1595903465}
   monedasOsos_text: {fileID: 318467413}
@@ -57044,6 +57065,13 @@ MonoBehaviour:
   monedasOsosHighScore_text: {fileID: 1046853048}
   trampasHighScore_text: {fileID: 654944169}
   nombreOsos: {fileID: 600488342}
+  osos: 0
+  monedasOsos: 0
+  trampas: 0
+  osos_High: 0
+  monedasOsos_High: 0
+  trampas_High: 0
+  jugadorOsos: 
   jugadorMapaches_text: {fileID: 1072967577}
   basuraCorrecta_text: {fileID: 270215823}
   basuraIncorrecta_text: {fileID: 871412052}
@@ -57052,6 +57080,13 @@ MonoBehaviour:
   basuraIncorrectaHighScore_text: {fileID: 1376004134}
   monedasBasuraHighScore_text: {fileID: 1991109381}
   nombreMapaches: {fileID: 344145580}
+  basuraCorrecta: 0
+  basuraIncorrecta: 0
+  monedasBasura: 0
+  basuraCorrecta_High: 0
+  basuraIncorrecta_High: 0
+  monedasBasura_High: 0
+  jugadorMapaches: 
   tickets_jugador: {fileID: 1158333428}
   inputTickets: {fileID: 0}
 --- !u!1001 &1819118468
@@ -63227,7 +63262,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh77910
+  m_Name: pb_Mesh153742
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2

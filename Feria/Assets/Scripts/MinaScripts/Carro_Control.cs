@@ -19,6 +19,7 @@ public class Carro_Control : MonoBehaviour
     public   bool enFinal;
     public bool inmortal;
 
+    public float velocidadA, velocidadB, velocidadC;
     public GameObject luzR, luzL;
 
     [Space(10)]
@@ -47,7 +48,7 @@ public class Carro_Control : MonoBehaviour
 	void Update ()
     {
         if(velocidad < velocidadFinal)
-        step += Time.deltaTime * 0.5f;
+          step += Time.deltaTime * 0.5f;
 
         velocidad = Mathf.Lerp(0, velocidadFinal, step);
         this.transform.Translate(Vector3.forward * (Time.deltaTime * velocidad));
@@ -72,7 +73,7 @@ public class Carro_Control : MonoBehaviour
             enMovimiento = true;
             Vector3 dist = posCentro.position - this.transform.position;
             this.transform.position = Vector3.Lerp(this.transform.position, posCentro.position, Time.deltaTime * velocidadPos);
-            if(dist.magnitude <=0.4f)
+            if(dist.magnitude <=0.2f)
             {
                 //this.transform.position = posCentro.position;
                 moverCentro = false;
@@ -89,7 +90,7 @@ public class Carro_Control : MonoBehaviour
             enMovimiento = true;
             Vector3 dist = posDerecha.position - this.transform.position;
             this.transform.position = Vector3.Lerp(this.transform.position, posDerecha.position, Time.deltaTime * velocidadPos);
-            if (dist.magnitude <= 0.4f)
+            if (dist.magnitude <= 0.2f)
             {
                 //this.transform.position = posDerecha.position;
                 moverCentro = false;
@@ -106,7 +107,7 @@ public class Carro_Control : MonoBehaviour
             enMovimiento = true;
             Vector3 dist = posIzquierda.position - this.transform.position;
             this.transform.position = Vector3.Lerp(this.transform.position, posIzquierda.position, Time.deltaTime * velocidadPos);
-            if (dist.magnitude <= 0.4f)
+            if (dist.magnitude <= 0.2f)
             {
                // this.transform.position = posIzquierda.position;
                 moverCentro = false;
@@ -279,5 +280,21 @@ public class Carro_Control : MonoBehaviour
         luzL.SetActive(false);
         luzR.SetActive(false);
     }
+    public void CambiarVelocidad(int v)
+    {
 
+        if (v == 1)
+        {
+            velocidadFinal = velocidadA;
+        }else if( v== 2)
+        {
+            velocidadFinal = velocidadB;
+
+        }else if(v == 3)
+        {
+            velocidadFinal = velocidadC;
+        }
+
+
+    }
 }

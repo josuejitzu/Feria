@@ -134,6 +134,11 @@ public class Master_Patos : MonoBehaviour
     public void FinJuego()
     {
 
+        Parvada_Control._parvada.spawnear = false;
+        Cazadores_Control._cazadores.spawnear = false;
+        Cazadores_Control._cazadores.Finjuego();
+
+        //Score status
         scoreFinal_tablero.SetActive(true);
         patos_final_txt.text = patosScore + "/30";
         monedas_final_txt.text = monedasScore.ToString();

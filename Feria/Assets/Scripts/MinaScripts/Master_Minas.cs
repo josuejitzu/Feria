@@ -70,9 +70,9 @@ public class Master_Minas : MonoBehaviour
 
            if(tiempo >= 60.0f &&  tiempo <= 119.0f)
             {
-             /*   Rieles_Control._rieles.etapa1 = false;
+             /* Rieles_Control._rieles.etapa1 = false;
                 Rieles_Control._rieles.etapa2 = true;*/
-                Carro_Control._carro.velocidadFinal = 10.5f;
+                Carro_Control._carro.velocidadFinal = Carro_Control._carro.velocidadB;
 
             }
             else if( tiempo >= 120.0f)
@@ -81,7 +81,7 @@ public class Master_Minas : MonoBehaviour
                   Rieles_Control._rieles.etapa1 = false;
                   Rieles_Control._rieles.etapa2 = false;*/
                 if (!Carro_Control._carro.enFinal) 
-                Carro_Control._carro.velocidadFinal = 12.0f;
+                Carro_Control._carro.velocidadFinal = Carro_Control._carro.velocidadC;
             }
 
         }
@@ -156,7 +156,7 @@ public class Master_Minas : MonoBehaviour
     {
         empezarConteo = true;
         panelInicio.SetActive(false);
-        Carro_Control._carro.velocidadFinal = 9.0f;
+        Carro_Control._carro.velocidadFinal = Carro_Control._carro.velocidadA;
     }
 
     public void SumarTicket()

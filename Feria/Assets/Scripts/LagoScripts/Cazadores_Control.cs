@@ -30,6 +30,7 @@ public class Cazadores_Control : MonoBehaviour
         _cazadores = this;
         SpawnCazador();
         sigSpawn = Time.time + rateSpawn;
+        print(cazador_A.Count);
 	}
 	
 	// Update is called once per frame
@@ -77,13 +78,24 @@ public class Cazadores_Control : MonoBehaviour
                  break;
              }
          }*/
-        int randCazador = Random.Range(0, cazador_A.Count);
+        int randCazador = Random.Range(0, cazador_A.Count-1);
         while(randCazador == puntoAnterior)
         {
-            randCazador = Random.Range(0, cazador_A.Count);
+            randCazador = Random.Range(0, cazador_A.Count-1);
         }
-        cazador_A[randCazador].SetActive(true);
-        StartCoroutine(cazador_A[randCazador].GetComponent<Cazador_Control>().ActivarCazador());
+
+        if(cazador_A[randCazador].activeInHierarchy)
+        {
+            ActivarCazadores();
+            return;
+        }
+        else
+        {
+            cazador_A[randCazador].SetActive(true);
+            StartCoroutine(cazador_A[randCazador].GetComponent<Cazador_Control>().ActivarCazador());
+        }
+       
+       
     }
 
     Transform ActivarPunto()
@@ -104,9 +116,14 @@ public class Cazadores_Control : MonoBehaviour
         return pos;
     }
 
-    void DesactivarPunto()
+    public void Finjuego()//Desactiva todos los cazadores activos
     {
-
+        foreach (GameObject cazador in cazador_A)
+        {
+            cazador.GetComponent<Cazador_Control>().StopAllCoroutines();
+            cazador.GetComponent<Cazador_Control>().DesactivarCazador();
+        }
     }
+
 
 }

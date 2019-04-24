@@ -20,6 +20,7 @@ public class TrampaOso_Control : MonoBehaviour
     public GameObject monedaPerdida;
     public GameObject monedaGanada;
     public bool dummy;
+
 	void Start ()
     {
 		
@@ -34,6 +35,7 @@ public class TrampaOso_Control : MonoBehaviour
         }
 
     }
+
     public IEnumerator ActivarTrampa()
     {
         //activar humo aparicion
@@ -51,6 +53,7 @@ public class TrampaOso_Control : MonoBehaviour
         print("Trampa: " + transform.name +" activada");
 
     }
+
     public IEnumerator CapturarOso()
     {
         print("Trampa: " + transform.name + " accionada");
@@ -73,6 +76,7 @@ public class TrampaOso_Control : MonoBehaviour
         StartCoroutine(ReiniciarTrampa());
 
     }
+
     public IEnumerator DesactivarTrampa()
     {
         activacionfx.GetComponent<ParticleSystem>().Play();
@@ -85,7 +89,7 @@ public class TrampaOso_Control : MonoBehaviour
         }
         
         monedaGanada.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.9f);
         trampaMesh.SetActive(false);
         jaulaMesh.SetActive(false);
         print("Trampa: " + transform.name + "desactivada");
@@ -94,6 +98,7 @@ public class TrampaOso_Control : MonoBehaviour
           OsosManada_Control._osos.ActivarTrampa(linea.ToString());
         this.gameObject.SetActive(false);
     }
+
     public IEnumerator ReiniciarTrampa()
     {
 
@@ -106,7 +111,7 @@ public class TrampaOso_Control : MonoBehaviour
         monedaGanada.SetActive(false);
 
         OsosManada_Control._osos.ActivarTrampa(linea.ToString());
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
         humofx.SetActive(false);
         this.gameObject.SetActive(false);
         

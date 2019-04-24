@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc1913d44790bd469840d212a02216c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateSpawn: 4
+  rateSpawn: 3.5
   sigSpawn: 0
   puntos:
   - {fileID: 986114271}
@@ -1953,7 +1953,7 @@ MonoBehaviour:
   patosA_prefab: {fileID: 1019667539962818, guid: d0cb3966e0961a647a80bf8776015900,
     type: 2}
   patosA: []
-  cantidadPatos: 10
+  cantidadPatos: 15
   spawnear: 0
 --- !u!4 &94339201
 Transform:
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0206d1b7019db42b8ca98ec3e3e6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inicioJuego: 3
+  inicioJuego: 2
   tiempo: 0
   empezarConteo: 0
   tiempo_text: {fileID: 553496579}
@@ -2025,7 +2025,7 @@ MonoBehaviour:
   - {fileID: 958692816}
   - {fileID: 432146857}
   - {fileID: 130349751}
-  rateSpawn: 4
+  rateSpawn: 3.5
   sigSpawn: 0
   spawnear: 0
 --- !u!1 &95264282

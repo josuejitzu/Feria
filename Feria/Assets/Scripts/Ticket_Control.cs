@@ -9,6 +9,7 @@ public class Ticket_Control : MonoBehaviour
 
     public void QuitarTicket()
     {
-        ticket_anim.SetActive(true);
+        if(Master._master.tickets > 0)
+          ticket_anim.SetActive(true);
     }
 }
