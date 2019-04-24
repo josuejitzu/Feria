@@ -23,6 +23,8 @@ public class Osos_Master : MonoBehaviour
     public TMP_Text osos_text;
     public TMP_Text monedas_text, trampas_text;
     public GameObject panelInicio_juego;
+    public TMP_Text tickets_text;
+    public int tickets;
     [Header("UI Final")]
     public TMP_Text ososFinal_text;
     public TMP_Text monedasFinal_text, trampasFinal_text;
@@ -34,7 +36,8 @@ public class Osos_Master : MonoBehaviour
     void Start ()
     {
         _masterOsos = this;
-		
+
+        ActualizarTickets();
 	}
 	
 	// Update is called once per frame
@@ -166,4 +169,15 @@ public class Osos_Master : MonoBehaviour
         }
 
     }
+
+    public void ActualizarTickets()
+    {
+        if (Master._master == null) return;
+
+        tickets = Master._master.tickets;
+        tickets_text.text = "X " +tickets.ToString("00");
+    }
+
+        
+
 }

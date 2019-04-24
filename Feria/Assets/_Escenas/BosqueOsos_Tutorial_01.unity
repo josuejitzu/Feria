@@ -5332,6 +5332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a319bcf14724ac64db6d390184f38176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mano: 0
   squeezeAction: {fileID: 11400000, guid: 773190d3fc02ec647b5d1aed2810dd06, type: 2}
   touchPadAction: {fileID: 0}
   control: {fileID: 299891290}
@@ -5340,6 +5341,7 @@ MonoBehaviour:
   enBellota: 0
   bellotaEnMano: 0
   rigid: {fileID: 299891293}
+  puedenTomar: 0
   boton_selecccionado: {fileID: 0}
   enUI: 0
   color_select: {r: 0.090872645, g: 1, b: 0, a: 1}
@@ -9197,7 +9199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &566797912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25599,10 +25601,14 @@ MonoBehaviour:
   monedas_text: {fileID: 664162343}
   trampas_text: {fileID: 1716524962}
   panelInicio_juego: {fileID: 2006663511}
+  tickets_text: {fileID: 0}
+  tickets: 0
   ososFinal_text: {fileID: 0}
   monedasFinal_text: {fileID: 0}
   trampasFinal_text: {fileID: 0}
   panelFinal: {fileID: 0}
+  izquierda: {fileID: 0}
+  derecha: {fileID: 0}
   finJuego: 0
 --- !u!114 &1631903644
 MonoBehaviour:
@@ -29919,6 +29925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a319bcf14724ac64db6d390184f38176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mano: 0
   squeezeAction: {fileID: 11400000, guid: 773190d3fc02ec647b5d1aed2810dd06, type: 2}
   touchPadAction: {fileID: 0}
   control: {fileID: 1931022273}
@@ -29927,6 +29934,7 @@ MonoBehaviour:
   enBellota: 0
   bellotaEnMano: 0
   rigid: {fileID: 1931022276}
+  puedenTomar: 0
   boton_selecccionado: {fileID: 0}
   enUI: 0
   color_select: {r: 0.22068429, g: 1, b: 0, a: 1}

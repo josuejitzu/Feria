@@ -19,8 +19,8 @@ public class Scores_Lobby : MonoBehaviour
     public TMP_Text murcielagos_text;
     public TMP_Text monedasMinas_HighScore_text, murcielagos_HighScore_text;
     public TMP_InputField nombreMinas;
-    int murcielagos, monedasMinas, murcielagosHigh, monedasMinas_High;
-    string jugadorMinas;
+    public int murcielagos, monedasMinas, murcielagosHigh, monedasMinas_High;
+    public string jugadorMinas;
     [Space(10)]
     [Header("Patos")]
     public TMP_Text jugadorPatos_text;
@@ -28,8 +28,8 @@ public class Scores_Lobby : MonoBehaviour
     public TMP_Text monedasPatos_text, cazadores_text;
     public TMP_Text monedasPatos_HighScore_text, patos_HighScore_text, cazadoresHighScore_text;
     public TMP_InputField nombrePatos;
-    int patos, monedasPatos, cazadores, patosHigh, monedasPatos_High, cazadores_High;
-    string jugadorPatos;
+    public int patos, monedasPatos, cazadores, patosHigh, monedasPatos_High, cazadores_High;
+    public string jugadorPatos;
     [Space(10)]
     [Header("Osos")]
     public TMP_Text jugadorOsos_text;
@@ -37,8 +37,8 @@ public class Scores_Lobby : MonoBehaviour
     public TMP_Text monedasOsos_text, trampas_text;
     public TMP_Text ososHighScore_text, monedasOsosHighScore_text, trampasHighScore_text;
     public TMP_InputField nombreOsos;
-    int osos, monedasOsos, trampas, osos_High, monedasOsos_High, trampas_High;
-    string jugadorOsos;
+    public int osos, monedasOsos, trampas, osos_High, monedasOsos_High, trampas_High;
+    public string jugadorOsos;
     [Space(10)]
     [Header("Mapaches")]
     public TMP_Text jugadorMapaches_text;
@@ -46,22 +46,28 @@ public class Scores_Lobby : MonoBehaviour
     public TMP_Text basuraIncorrecta_text, monedasBasura_text;
     public TMP_Text basuraCorrectaHighScore_text, basuraIncorrectaHighScore_text, monedasBasuraHighScore_text;
     public TMP_InputField nombreMapaches;
-    int basuraCorrecta, basuraIncorrecta, monedasBasura, basuraCorrecta_High, basuraIncorrecta_High, monedasBasura_High;
-    string jugadorMapaches;
+    public int basuraCorrecta, basuraIncorrecta, monedasBasura, basuraCorrecta_High, basuraIncorrecta_High, monedasBasura_High;
+    public string jugadorMapaches;
     [Space(10)]
     [Header("UI Operador")]
     public TMP_Text tickets_jugador;
     public TMP_InputField inputTickets;
     // Use this for initialization
-
+    private void Awake()
+    {
+        _scoreLobby = this;
+    }
     private void OnLevelWasLoaded(int level)
     {
-        ActualizarMarcadores();
+       // ActualizarMarcadores();
+        _scoreLobby = this;
+        //CompararScore();
     }
     private void Start()
     {
         _scoreLobby = this;
         CargarScore();
+       
         //SalvarScore();
 
     }
@@ -69,15 +75,17 @@ public class Scores_Lobby : MonoBehaviour
     void FixedUpdate()
     {
         // CompararScore();
-        ActualizarMarcadores();
+        //ActualizarMarcadores();
         if (Input.GetKeyDown(KeyCode.I))
         {
             CompararScore();
         }
+
     }
 
     public void ActualizarMarcadores()
     {
+
         //Murcielagos
         murcielagos = Master._master.murcielagos;
         monedasMinas = Master._master.monedasMinas;
@@ -108,6 +116,8 @@ public class Scores_Lobby : MonoBehaviour
         ticketsJugador = Master._master.tickets;
         ticketsMano.text = "x "+ticketsJugador.ToString("00");
 
+        CompararScore();
+
     }
     public void SalvarScore()
     {
@@ -127,7 +137,9 @@ public class Scores_Lobby : MonoBehaviour
                                             .Write("monedasBasuraHigh", monedasBasura_High)
                                             .Write("jugadorMapaches",jugadorMapaches).Commit();
 
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
+
+        //PlayerPrefs.GetInt("murcielagoHigh", murcielagosHigh);
         CargarScore();
 
     }
@@ -137,14 +149,17 @@ public class Scores_Lobby : MonoBehaviour
         QuickSaveReader.Create("HighScore").Read<int>("murcielagoHigh", (r) => { murcielagosHigh = r; });
         QuickSaveReader.Create("HighScore").Read<int>("murcielagoMonedasHigh", (r) => { monedasMinas_High = r; });
         QuickSaveReader.Create("HighScore").Read<string>("jugadorMinas",(r) => { jugadorMinas = r; });
+
         QuickSaveReader.Create("HighScore").Read<int>("patosHigh", (r) => { patosHigh = r; });
         QuickSaveReader.Create("HighScore").Read<int>("monedasPatosHigh", (r) => { monedasPatos_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("cazadoresHigh", (r) => { cazadores_High = r; });
         QuickSaveReader.Create("HighScore").Read<string>("jugadorPatos", (r) => { jugadorPatos = r; });
+
         QuickSaveReader.Create("HighScore").Read<int>("ososHigh", (r) => { osos_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("monedasOsosHigh", (r) => { monedasOsos_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("trampas", (r) => { trampas_High = r; });
         QuickSaveReader.Create("HighScore").Read<string>("jugadorOsos", (r) => { jugadorOsos = r; });
+
         QuickSaveReader.Create("HighScore").Read<int>("basuraCorrectaHigh", (r) => { basuraCorrecta_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("basuraIncorrectaHigh", (r) => { basuraIncorrecta_High = r; });
         QuickSaveReader.Create("HighScore").Read<int>("monedasBasuraHigh", (r) => { monedasBasura_High = r; });
@@ -169,9 +184,13 @@ public class Scores_Lobby : MonoBehaviour
         monedasBasuraHighScore_text.text = monedasBasura_High.ToString("000");
         jugadorMapaches_text.text = jugadorMapaches;
 
+        ActualizarMarcadores();
 
     }
 
+    /// <summary>
+    /// Es llamda por Master.cs cuando se carga el nivel
+    /// </summary>
     public void CompararScore()
     {
         if (murcielagos > murcielagosHigh)//Gana el que mas murcielagos tiene
@@ -201,10 +220,9 @@ public class Scores_Lobby : MonoBehaviour
             ActivarIngreso("mapaches");
         }
 
-        SalvarScore();
+        //SalvarScore();
 
     }
-
     public void ActivarIngreso(string t)
     {
         panelIngreso.SetActive(true);
@@ -232,24 +250,29 @@ public class Scores_Lobby : MonoBehaviour
         }
     
     }
+
     public void Ingresar()
     {
 
         if(nombreMinas.gameObject.activeInHierarchy)
         {
             jugadorMinas = nombreMinas.text;
+            nombreMinas.gameObject.SetActive(false);
         }
         if (nombrePatos.gameObject.activeInHierarchy)
         {
             jugadorPatos = nombrePatos.text;
+            nombrePatos.gameObject.SetActive(false);
         }
         if (nombreOsos.gameObject.activeInHierarchy)
         {
             jugadorOsos = nombreOsos.text;
+            nombreOsos.gameObject.SetActive(false);
         }
         if (nombreMapaches.gameObject.activeInHierarchy)
         {
             jugadorMapaches = nombreMapaches.text;
+            nombreMapaches.gameObject.SetActive(false);
         }
         panelIngreso.SetActive(false);
         SalvarScore();

@@ -53,28 +53,30 @@ public class ManoLobby_Control : MonoBehaviour
 
         RaycastHit hit;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.red);
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1000))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3000))
         {
-            if (hit.transform.tag == "botonVR")
+            if (hit.transform.tag == "botonVR" )
             {
                 enUI = true;
                 boton_selecccionado = hit.transform.gameObject;
                 //boton_selecccionado.GetComponent<Image>().color = color_select;
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_select;
-                //boton_selecccionado.GetComponent<Button>().s
+              
                 puntero.SetActive(true);
                 print(hit.transform.name);
             }
             else
             {
-                if (boton_selecccionado != null)
+               if (boton_selecccionado != null)
                 {
                    // boton_selecccionado.GetComponent<Image>().color = color_deselect;
                     boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
-                    boton_selecccionado = null;
+                   
                 }
+                boton_selecccionado = null;
                 puntero.SetActive(false);
-                //   enUI = false;
+                enUI = false;
+
             }
 
         }
@@ -84,10 +86,12 @@ public class ManoLobby_Control : MonoBehaviour
             {
                // boton_selecccionado.GetComponent<Image>().color = color_deselect;
                 boton_selecccionado.GetComponentInChildren<TextMeshProUGUI>().color = color_deselect;
-                boton_selecccionado = null;
+              
                 
             }
-            //enUI = false;
+            puntero.SetActive(false);
+            boton_selecccionado = null;
+            enUI = false;
         }
     }
 }

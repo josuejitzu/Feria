@@ -65,7 +65,7 @@ public class Master_Minas : MonoBehaviour
             }else if(tiempo >= 150)
             {
                 Rieles_Control._rieles.etapafinal = true;
-                camara.clearFlags = CameraClearFlags.Skybox;
+                //camara.clearFlags = CameraClearFlags.Skybox;
             }
 
            if(tiempo >= 60.0f &&  tiempo <= 119.0f)

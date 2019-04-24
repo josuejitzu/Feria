@@ -13,7 +13,9 @@ public class Master : MonoBehaviour
     public enum Niveles { lobby, minasJuego, minasTutorial, patosJuego, patosTutorial, osoJuego, osoTutorial, raquetasJuego, raquetasTutorial }
     string nivelACambiar;
 
-
+    [Space(10)]
+    public GameObject menu_panel;
+    public GameObject cerrarBoton, menuBoton;
     [Space(10)]
     [Header("Tickets")]
     public int tickets;
@@ -62,7 +64,7 @@ public class Master : MonoBehaviour
         if (Scores_Lobby._scoreLobby != null)
         {
             Scores_Lobby._scoreLobby.CompararScore();
-            print("Solicitando comparacio de scores");
+            print("Solicitando comparacion de scores");
         }
         SteamVR_Fade.Start(Color.black, 0);
         SteamVR_Fade.Start(Color.clear, 1);
@@ -90,6 +92,11 @@ public class Master : MonoBehaviour
         tickets_jugador.text = tickets.ToString("00");
         SteamVR_Fade.Start(Color.black, 0);
 		SteamVR_Fade.Start(Color.clear, 1);
+        if (Scores_Lobby._scoreLobby != null)
+        {
+            Scores_Lobby._scoreLobby.CompararScore();
+            print("Solicitando comparacion de scores");
+        }
     }
     public void CambiarNivelOperador(string n)
     {
@@ -101,6 +108,7 @@ public class Master : MonoBehaviour
         if(tickets <= 0)
         {
             print("No tienes Tickets....");
+            //Sonido de no tener tickets
             if(n == Niveles.lobby.ToString())
             {
                 nivelACambiar = lobby;
@@ -169,6 +177,8 @@ public class Master : MonoBehaviour
     IEnumerator CambiarScena(string n)
     {
         cambiandoNivel = true;
+        if (Scores_Lobby._scoreLobby != null)
+            Scores_Lobby._scoreLobby.SalvarScore();
         yield return new WaitForSeconds(0.9f);
         //fadeNegro
         SteamVR_Fade.Start(Color.black, 0.9f);
@@ -219,6 +229,21 @@ public class Master : MonoBehaviour
     }
 
 
-	
+    public void AbrirMenu()
+    {
+       
+            menu_panel.SetActive(true);
+            menuBoton.SetActive(false);
+            cerrarBoton.SetActive(true);
+
+        
+      
+    }
+    public void CerrarMenu()
+    {
+        menu_panel.SetActive(false);
+        menuBoton.SetActive(true);
+        cerrarBoton.SetActive(false);
+    }
 	
 }
