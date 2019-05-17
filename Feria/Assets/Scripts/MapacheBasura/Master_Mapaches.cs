@@ -25,6 +25,8 @@ public class Master_Mapaches : MonoBehaviour
     [Header("UI")]
     public GameObject panelInicio;
     public TMP_Text basuraCorrecta_text, basuraIncorrecta_text, monedas_text;
+    public TMP_Text tickets_text;
+    public int tickets;
     [Header("UI Final")]
     public GameObject panelFinal;
     public TMP_Text basuraCorrectaFinal_text, basuraIncorrectaFinal_text, monedasFinal_text;
@@ -36,7 +38,7 @@ public class Master_Mapaches : MonoBehaviour
     void Start()
     {
         _masterMapaches = this;
-
+        ActualizarTickets();
     }
 
     // Update is called once per frame
@@ -144,7 +146,7 @@ public class Master_Mapaches : MonoBehaviour
         basuraIncorrectaFinal_text.text = basuraIncorrecta.ToString("000");
         monedasFinal_text.text = monedas.ToString("000");
         Lanzadores_Control._lanzadores.lanzar = false;
-
+        ActualizarTickets();
         if (Master._master != null)
         {
             Master._master.basuraCorrecta = basuraCorrecta;
@@ -162,6 +164,14 @@ public class Master_Mapaches : MonoBehaviour
         
 
 
+    }
+
+    public void ActualizarTickets()
+    {
+        if (Master._master == null) return;
+
+        tickets = Master._master.tickets;
+        tickets_text.text = "X " + tickets.ToString("00");
     }
 
 }

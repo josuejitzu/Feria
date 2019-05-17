@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Escenas/Titulo_01.unity
+    guid: 17e15eaa2ebb0f14abdfc9852f4c3549
+  - enabled: 1
+    path: Assets/_Escenas/Lobby_02.unity
+    guid: 6ed9a29cd486a06448e8374751b47667
+  - enabled: 1
     path: Assets/_Escenas/Mina_02.unity
     guid: e6b831544efc0d341ad754fd46e088b8
   - enabled: 1

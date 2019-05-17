@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class Master_Minas : MonoBehaviour
 {
     public static Master_Minas _mina;
@@ -18,6 +19,8 @@ public class Master_Minas : MonoBehaviour
     public bool empezarConteo;
     public float tiempo;
     public Text tiempo_texto;
+    public TMP_Text tickets_text;
+    public int tickets;
     [Space(10)]
     [Header("UI")]
     public TMP_Text murcielagos_txt;
@@ -35,7 +38,7 @@ public class Master_Minas : MonoBehaviour
     void Start ()
     {
         _mina = this;
-		
+        ActualizarTickets();
 	}
 	
 	// Update is called once per frame
@@ -135,7 +138,7 @@ public class Master_Minas : MonoBehaviour
         StartCoroutine(Carro_Control._carro.Parar());
         murcielagos_final_txt.text = murcielago_score.ToString();
         monedas_final_txt.text = monedas_score.ToString();
-
+        ActualizarTickets();
         scoreFinal_tablero.SetActive(true);
        // trampas_final_txt =;
        //Aparecer Score enfrente 
@@ -172,5 +175,13 @@ public class Master_Minas : MonoBehaviour
     public void RepetirJuego(string n)
     {
         Master._master.CambiarNivel(n, true);
+    }
+
+    public void ActualizarTickets()
+    {
+        if (Master._master == null) return;
+
+        tickets = Master._master.tickets;
+        tickets_text.text = "X " + tickets.ToString("00");
     }
 }

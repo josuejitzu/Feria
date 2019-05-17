@@ -143,6 +143,7 @@ public class Osos_Master : MonoBehaviour
         izquierda.puedenTomar = true;
         derecha.puedenTomar = true;
     }
+
     public void FinJuego()
     {
         finJuego = true;
@@ -151,7 +152,7 @@ public class Osos_Master : MonoBehaviour
 
         izquierda.puedenTomar = false;
         derecha.puedenTomar = false;
-
+        ActualizarTickets();
         ososFinal_text.text = osos_score.ToString("00") + " /30";
         monedasFinal_text.text = monedas.ToString("000");
         trampasFinal_text.text = trampas.ToString("000");

@@ -213,8 +213,9 @@ public class Master : MonoBehaviour
 
     public void NuevasSesion()
     {
-        SceneManager.LoadScene("Lobby_01");
         tickets = 3;
+        SceneManager.LoadScene("Titulo_01");
+     
 
 
 

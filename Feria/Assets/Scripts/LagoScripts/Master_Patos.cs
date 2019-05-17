@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
+
 public class Master_Patos : MonoBehaviour
 {
     public static Master_Patos _masterPatos;
@@ -12,6 +14,9 @@ public class Master_Patos : MonoBehaviour
     public TMP_Text tiempo_text;
     public TMP_Text tiempoUsuario_text;
     public float tiempoFinal = 170.0f;
+
+    public TMP_Text tickets_text;
+    public int tickets;
     [Space(10)]
     [Header("Score")]
     public int patosScore;
@@ -26,7 +31,6 @@ public class Master_Patos : MonoBehaviour
     public TMP_Text patos_final_txt;
     public TMP_Text monedas_final_txt;
     public TMP_Text cazadores_final_txt;
-
     public bool tutorial;
 
     void Start ()
@@ -34,9 +38,10 @@ public class Master_Patos : MonoBehaviour
         _masterPatos = this;
         //StartCoroutine(IniciarJuego());
         tiempo = tiempoFinal;
+        ActualizarTickets();
 	}
 	
-	// Update is called once per frame
+	
 	void Update ()
     {
         Tiempo();
@@ -137,7 +142,7 @@ public class Master_Patos : MonoBehaviour
         Parvada_Control._parvada.spawnear = false;
         Cazadores_Control._cazadores.spawnear = false;
         Cazadores_Control._cazadores.Finjuego();
-
+        ActualizarTickets();
         //Score status
         scoreFinal_tablero.SetActive(true);
         patos_final_txt.text = patosScore + "/30";
@@ -164,6 +169,14 @@ public class Master_Patos : MonoBehaviour
     public void RepetirJuego(string n)
     {
         Master._master.CambiarNivel(n, true);
+    }
+
+    public void ActualizarTickets()
+    {
+        if (Master._master == null) return;
+
+        tickets = Master._master.tickets;
+        tickets_text.text = "X " + tickets.ToString("00");
     }
 
 }
