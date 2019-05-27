@@ -37,7 +37,7 @@ public class TrampaOso_Control : MonoBehaviour
 
     }
 
-    public IEnumerator ActivarTrampa()
+    public IEnumerator ActivarTrampa()//Cuando spawnea
     {
         //activar humo aparicion
         print("Activando trampa: " + transform.name);
@@ -49,7 +49,7 @@ public class TrampaOso_Control : MonoBehaviour
         if (oso != null)
             oso = null;
         jaulaMesh.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         
         trampaMesh.SetActive(true);
         trigger.enabled = true;
@@ -57,7 +57,7 @@ public class TrampaOso_Control : MonoBehaviour
 
     }
 
-    public IEnumerator CapturarOso()
+    public IEnumerator CapturarOso()//cuando captura a un osos
     {
         print("Trampa: " + transform.name + " accionada");
         trigger.enabled = false;
@@ -99,6 +99,7 @@ public class TrampaOso_Control : MonoBehaviour
        
         if(!dummy)
           OsosManada_Control._osos.ActivarTrampa(linea.ToString());
+
         this.gameObject.SetActive(false);
     }
 
@@ -115,7 +116,7 @@ public class TrampaOso_Control : MonoBehaviour
 
         OsosManada_Control._osos.ActivarTrampa(linea.ToString());
         yield return new WaitForSeconds(0.6f);
-        humofx.SetActive(false);
+        // humofx.SetActive(false);
         this.gameObject.SetActive(false);
         
     }

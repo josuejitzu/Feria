@@ -6253,7 +6253,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 0.1}
+  m_Size: {x: 2, y: 1.5, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &196910236
 MonoBehaviour:
@@ -6443,7 +6443,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 0.1}
+  m_Size: {x: 2, y: 1.5, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &202860298
 MonoBehaviour:
@@ -14424,6 +14424,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -84.802
       objectReference: {fileID: 0}
+    - target: {fileID: 23157758266584760, guid: 1257447739dad91489ce20fba8f2688e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: accb2bce242ac9b4180da06d1e90ce00, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1257447739dad91489ce20fba8f2688e, type: 2}
   m_IsPrefabAsset: 0
@@ -26693,7 +26698,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0448437, y: 1, z: 0.1}
+  m_Size: {x: 2.0448437, y: 2, z: 0.1}
   m_Center: {x: 0.044214487, y: 0, z: 0.002855301}
 --- !u!114 &876474285
 MonoBehaviour:
@@ -33330,7 +33335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.95000005}
   m_AnchorMax: {x: 0.21934049, y: 1}
-  m_AnchoredPosition: {x: -110.7, y: 0}
+  m_AnchoredPosition: {x: -110.700195, y: 0}
   m_SizeDelta: {x: -223, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129840801
@@ -39515,7 +39520,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0448437, y: 1, z: 0.1}
+  m_Size: {x: 2.0448437, y: 2, z: 0.1}
   m_Center: {x: 0.044214487, y: 0, z: 0.002855301}
 --- !u!114 &1305349136
 MonoBehaviour:
@@ -46157,7 +46162,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0448437, y: 1, z: 0.1}
+  m_Size: {x: 2.0448437, y: 1.5, z: 0.1}
   m_Center: {x: 0.044214487, y: 0, z: 0.002855301}
 --- !u!1001 &1490538641
 Prefab:
@@ -46952,6 +46957,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -99.328
       objectReference: {fileID: 0}
+    - target: {fileID: 23157758266584760, guid: 1257447739dad91489ce20fba8f2688e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: accb2bce242ac9b4180da06d1e90ce00, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1257447739dad91489ce20fba8f2688e, type: 2}
   m_IsPrefabAsset: 0
@@ -56802,6 +56812,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 23157758266584760, guid: 1257447739dad91489ce20fba8f2688e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: accb2bce242ac9b4180da06d1e90ce00, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1257447739dad91489ce20fba8f2688e, type: 2}
   m_IsPrefabAsset: 0
@@ -59226,7 +59241,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0448437, y: 1, z: 0.1}
+  m_Size: {x: 2.0448437, y: 1.5, z: 0.1}
   m_Center: {x: 0.044214487, y: 0, z: 0.002855301}
 --- !u!114 &1892387501
 MonoBehaviour:
@@ -62489,7 +62504,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 0.1}
+  m_Size: {x: 2, y: 2, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2002640541
 MonoBehaviour:
@@ -66423,7 +66438,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 0.1}
+  m_Size: {x: 2, y: 2, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2098263005
 GameObject:

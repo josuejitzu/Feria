@@ -242,7 +242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1875863746741044
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1957492515033876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1054,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 508aa6ce16a20784f9d131d579c98df9, type: 2}
+  - {fileID: 2100000, guid: 7cd00d447c66a384f8714008cfe37289, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1411,8 +1411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555efb829da2e574e91c6b8f9ab6e7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tipoBasura: 0
-  _mesh: 10
+  _tipoBasura: 2
+  _mesh: 9
   meshes:
   - {fileID: 1875863746741044}
   - {fileID: 1454664674164874}

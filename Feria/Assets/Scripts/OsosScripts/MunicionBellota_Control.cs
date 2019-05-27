@@ -43,14 +43,18 @@ public class MunicionBellota_Control : MonoBehaviour
 
             sigSpawn = rateTiempo + Time.time;
         }
+
     }
+
     public void SpawnBellota()
     {
+
         GameObject bellota = Instantiate(bellotaPrefab, transform.position, Quaternion.identity);
         bellota.SetActive(false);
         bellota.transform.position = PosicionRand().position;
         bellota.SetActive(true);
         cantidadBellotas++;
+
     }
 
     Transform PosicionRand()

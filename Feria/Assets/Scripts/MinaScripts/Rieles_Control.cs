@@ -379,7 +379,7 @@ public class Rieles_Control : MonoBehaviour
             {
                 if (piso != null)
                 {
-                    posPisoViejo.z += 15.5f;
+                    posPisoViejo.z += 15.4f;
                     piso.transform.position = posPisoViejo;
                 }
             }
@@ -407,7 +407,7 @@ public class Rieles_Control : MonoBehaviour
             {
                 if(techo != null)
                 {
-                    posTechoViejo.z += 10.0f;
+                    posTechoViejo.z += 9.9f;
                     techo.transform.position = posTechoViejo;
                 }
             }
@@ -478,7 +478,7 @@ public class Rieles_Control : MonoBehaviour
                         riel.GetComponent<Riel_Control>().SetTrampa(l);
                         if(l == 7)
                         {
-                            if (murcielagosPuestos < 30)
+                            if (murcielagosPuestos < 35)
                             {
                                 riel.GetComponent<Riel_Control>().SetMurcielagos(LoteriaMurcielago());
                                 murcielagosPuestos++;

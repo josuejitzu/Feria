@@ -37,9 +37,10 @@ public class LineaControl : MonoBehaviour
                     {
                             rt = LoteriaTrampa();
                     }
+                    
                     trampas[rt].SetActive(true);                
                     trampas[rt].GetComponent<TrampaOso_Control>().StopAllCoroutines();
-                   StartCoroutine(trampas[rt].GetComponent<TrampaOso_Control>().ActivarTrampa());
+                    StartCoroutine(trampas[rt].GetComponent<TrampaOso_Control>().ActivarTrampa());
              }
 
         }
