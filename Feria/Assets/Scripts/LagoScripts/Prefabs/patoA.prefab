@@ -1890,6 +1890,7 @@ MonoBehaviour:
   monedasPerdidas_fx: {fileID: 1384660138256208}
   pato_mesh: {fileID: 1760135299850598}
   particulaExplosion: {fileID: 1372576423081282}
+  quacks_sfx: {fileID: 0}
 --- !u!137 &137168942063498972
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

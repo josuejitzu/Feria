@@ -13,6 +13,8 @@ public class Raqueta_Control : MonoBehaviour
     public SteamVR_Behaviour_Pose control;
     public Material matVerde, matRojo, matAzul;
     public ParticleSystem hit_verde, hit_rojo, hit_azul;
+
+    public FMODUnity.StudioEventEmitter golpe_sfx,swoosh_sfx;
 	// Use this for initialization
 	void Start ()
     {
@@ -22,7 +24,14 @@ public class Raqueta_Control : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+        print(control.GetVelocity().magnitude);	
+        if(control.GetVelocity().magnitude > 4.0f)
+        {
+            if(!swoosh_sfx.IsPlaying())
+                   swoosh_sfx.Play();
+        }
+
+            
 	}
 
     private void OnTriggerEnter(Collider other)
@@ -68,6 +77,7 @@ public class Raqueta_Control : MonoBehaviour
         if (tipoRaqueta == TipoRaqueta.verde)
         {
             hit_verde.Play();
+
         }else if(tipoRaqueta == TipoRaqueta.roja)
         {
             hit_rojo.Play();
@@ -75,5 +85,6 @@ public class Raqueta_Control : MonoBehaviour
         {
             hit_azul.Play();
         }
+        golpe_sfx.Play();
     }
 }

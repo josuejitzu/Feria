@@ -33,6 +33,7 @@ namespace Valve.VR.InteractionSystem
 
         protected SteamVR_Input_Sources inputSource;
 
+
         protected void Awake()
         {
             renderModelLoadedAction = SteamVR_Events.RenderModelLoadedAction(OnRenderModelLoaded);

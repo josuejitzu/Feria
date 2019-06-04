@@ -628,19 +628,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4806847869433154, guid: 408223eb423cdb64595cdef1f27f6c06, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.9087142
       objectReference: {fileID: 0}
     - target: {fileID: 4806847869433154, guid: 408223eb423cdb64595cdef1f27f6c06, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.047623638
       objectReference: {fileID: 0}
     - target: {fileID: 4806847869433154, guid: 408223eb423cdb64595cdef1f27f6c06, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.021703348
       objectReference: {fileID: 0}
     - target: {fileID: 4806847869433154, guid: 408223eb423cdb64595cdef1f27f6c06, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.414125
       objectReference: {fileID: 0}
     - target: {fileID: 4806847869433154, guid: 408223eb423cdb64595cdef1f27f6c06, type: 2}
       propertyPath: m_RootOrder
@@ -660,6 +660,14 @@ Prefab:
         type: 2}
       propertyPath: m_ReceiveShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806847869433154, guid: 408223eb423cdb64595cdef1f27f6c06, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806847869433154, guid: 408223eb423cdb64595cdef1f27f6c06, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408223eb423cdb64595cdef1f27f6c06, type: 2}
@@ -793,7 +801,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh91784
+  m_Name: pb_Mesh47710
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1955,6 +1963,7 @@ MonoBehaviour:
   patosA: []
   cantidadPatos: 15
   spawnear: 0
+  quack_sfx: {fileID: 1249940368}
 --- !u!4 &94339201
 Transform:
   m_ObjectHideFlags: 0
@@ -11186,7 +11195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &516697057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15292,7 +15301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 539a7e66b89dd324ba024d6fd940c722, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 539a7e66b89dd324ba024d6fd940c722, type: 3}
       propertyPath: m_AABB.m_Center.x
@@ -28317,6 +28326,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ff6723471af3ab54f95909cfe5f4aa3f,
     type: 3}
   m_PrefabInternal: {fileID: 1247971226}
+--- !u!1 &1249940366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249940367}
+  - component: {fileID: 1249940368}
+  m_Layer: 0
+  m_Name: fmod_patos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1249940367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1249940366}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.05, y: 9.76, z: -7.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1882360233}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1249940368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1249940366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/PATOS/PATOS
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1250359421
 Prefab:
   m_ObjectHideFlags: 0
@@ -32609,6 +32669,7 @@ MonoBehaviour:
   inicioArc: {fileID: 172680324}
   presionandoCuerda: 0
   lineTrayectoria: {fileID: 798417031}
+  cuerda_sfx: {fileID: 2125185453}
 --- !u!4 &1418948079
 Transform:
   m_ObjectHideFlags: 0
@@ -32629,6 +32690,7 @@ Transform:
   - {fileID: 543735017}
   - {fileID: 1386168487}
   - {fileID: 1243094281}
+  - {fileID: 2125185452}
   m_Father: {fileID: 1089850838}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -60, y: 180.00002, z: 0}
@@ -40656,7 +40718,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 49005aa241d886249afa2127ebccaa33, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 49005aa241d886249afa2127ebccaa33, type: 3}
       propertyPath: m_AABB.m_Center.x
@@ -41648,6 +41710,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bc31c09ff1f3d22489711565490ba002,
     type: 3}
   m_PrefabInternal: {fileID: 1881103714}
+--- !u!1 &1882360232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1882360233}
+  m_Layer: 0
+  m_Name: --FMOD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1882360233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882360232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2234814, y: -10.522691, z: 13.985795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2039826249}
+  - {fileID: 1249940367}
+  m_Father: {fileID: 0}
+  m_RootOrder: 49
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1883260549
 Prefab:
   m_ObjectHideFlags: 0
@@ -45768,6 +45860,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 965f7f6fd84eb5041b7ed24dd256d08d,
     type: 3}
   m_PrefabInternal: {fileID: 2037006546}
+--- !u!1 &2039826248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039826249}
+  - component: {fileID: 2039826250}
+  m_Layer: 0
+  m_Name: fmod_ambiente
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2039826249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2039826248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1882360233}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2039826250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2039826248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/PATOS/AMBIENTE
+  PlayEvent: 11
+  StopEvent: 12
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &2052073815
 GameObject:
   m_ObjectHideFlags: 0
@@ -47150,6 +47293,57 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &2125185451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2125185452}
+  - component: {fileID: 2125185453}
+  m_Layer: 0
+  m_Name: fmod_arco
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2125185452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125185451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1418948079}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2125185453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125185451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/PATOS/TORSION_CUERDA
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &2132315743
 Prefab:
   m_ObjectHideFlags: 0

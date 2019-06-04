@@ -19,6 +19,7 @@ public class Rieles_Control : MonoBehaviour
     public List<GameObject> rielesH = new List<GameObject>();
     public List<GameObject> rielesI = new List<GameObject>();
     
+
     int enPos  = 0;
     public int cantidad;
     public List<GameObject> rielesUsando = new List<GameObject>();
@@ -26,6 +27,7 @@ public class Rieles_Control : MonoBehaviour
     bool inicio = true;
     bool nuevoRiel = true;
     Vector3 posicionPrevia;
+
 
     [Space(10)]
     [Header("Paredes")]
@@ -98,9 +100,7 @@ public class Rieles_Control : MonoBehaviour
     public GameObject piezaFinal;
     // Use this for initialization
 
-    public bool etapa1, etapa2, etapa3, etapafinal;
-
-   
+    public bool etapa1, etapa2, etapa3, etapafinal; 
  
     int ladoDer, ladoIzq;
 
@@ -127,8 +127,6 @@ public class Rieles_Control : MonoBehaviour
             soporte.transform.name = "SoporteA " + i;
             soporteA.Add(soporte);
         }
-
-
 
     }
 
@@ -310,7 +308,6 @@ public class Rieles_Control : MonoBehaviour
         }
     }
    
-
     public void ActivarTramo()
     {
         if(etapafinal)
@@ -338,9 +335,8 @@ public class Rieles_Control : MonoBehaviour
         }
         nuevoRiel = false;
 
-      //PAREDES
-
-      for (int i = 0; i < 19; i++)
+        //PAREDES
+        for (int i = 0; i < 19; i++)
         {
 
             GameObject pared = ElegirPared();
@@ -365,6 +361,7 @@ public class Rieles_Control : MonoBehaviour
           
 
         }
+        
         //PISO
         for (int i = 0; i < 6; i++)
         {
@@ -394,7 +391,6 @@ public class Rieles_Control : MonoBehaviour
         }
 
         //TECHO
-
         for (int j = 0; j < 8; j++)
         {
             GameObject techo = ElegirTecho();
@@ -476,14 +472,17 @@ public class Rieles_Control : MonoBehaviour
                     {
                         int l = LoteriaTrampa();
                         riel.GetComponent<Riel_Control>().SetTrampa(l);
+
                         if(l == 7)
                         {
-                            if (murcielagosPuestos < 35)
+                            if (murcielagosPuestos < 40)
                             {
                                 riel.GetComponent<Riel_Control>().SetMurcielagos(LoteriaMurcielago());
                                 murcielagosPuestos++;
                             }
-                        }else if(l == 9)
+
+                        }
+                        else if(l == 9)
                         {
                             if(cantidadMonedas < 120)
                             {
@@ -509,7 +508,9 @@ public class Rieles_Control : MonoBehaviour
                 }
                
             }
+
         }
+
             cantRielesSpawn++;
             posicionPrevia = riel.transform.position;
           
@@ -533,8 +534,6 @@ public class Rieles_Control : MonoBehaviour
     public void FinalCamino()
     {
        
-      
-
         foreach(GameObject p in paredesA)
         {
             p.SetActive(false);
@@ -891,10 +890,10 @@ public class Rieles_Control : MonoBehaviour
 
     int LoteriaTrampa()
     {
-        int rand = Random.Range(0, 17);
+        int rand = Random.Range(0, 27);
         while(rand == trampaSeleccionada)
         {
-            rand = Random.Range(0, 17);
+            rand = Random.Range(0, 27);
         }
 
         trampaSeleccionada = rand;
@@ -904,13 +903,18 @@ public class Rieles_Control : MonoBehaviour
     
     int LoteriaMurcielago()
     {
+
         int rand = Random.Range(0, 1);
         return rand;
+
     }
+
     int LoteriaMonedas()
     {
+
         int rand = Random.Range(0, 4);
         return rand;
+
     }
 
 }

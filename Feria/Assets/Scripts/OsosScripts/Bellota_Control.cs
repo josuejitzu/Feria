@@ -10,6 +10,7 @@ public class Bellota_Control : MonoBehaviour
     // Use this for initialization
     public GameObject bellota_mesh;
     public bool enMano;
+    public FMODUnity.StudioEventEmitter swoosh_sfx;
 
 	void Start ()
     {
@@ -19,6 +20,11 @@ public class Bellota_Control : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if(rigid.angularVelocity.magnitude >= 4.0f)
+        {
+            if(!swoosh_sfx.IsPlaying())
+              swoosh_sfx.Play();
+        }
 		
 	}
     private void OnTriggerEnter(Collider other)
@@ -27,11 +33,13 @@ public class Bellota_Control : MonoBehaviour
         {
             print(this.transform.name + " en mano");
         }
+
         if(other.transform.tag == "trampaOso")
         {
             StartCoroutine(other.GetComponent<TrampaOso_Control>().DesactivarTrampa());
             StartCoroutine(Reiniciar());
         }
+
         if(other.transform.tag == "terreno")
         {
             Invoke("GolpeNormal",2.0f);
@@ -57,6 +65,7 @@ public class Bellota_Control : MonoBehaviour
     }
     public IEnumerator Reiniciar()
     {
+        swoosh_sfx.Stop();
         trigger.enabled = false;
         bellota_mesh.SetActive(false);
         MunicionBellota_Control._bellotas.cantidadBellotas -= 1;

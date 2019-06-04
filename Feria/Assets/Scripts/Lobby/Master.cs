@@ -16,10 +16,12 @@ public class Master : MonoBehaviour
     [Space(10)]
     public GameObject menu_panel;
     public GameObject cerrarBoton, menuBoton;
+
     [Space(10)]
     [Header("Tickets")]
     public int tickets;
     public bool cambiandoNivel;
+
     [Space(10)]
     [Header("Minas")]
     public string nivelMinas_juego;

@@ -65,6 +65,7 @@ public class Master_Minas : MonoBehaviour
             {
 
                 empezarConteo = false;
+
             }else if(tiempo >= 150)
             {
                 Rieles_Control._rieles.etapafinal = true;
@@ -119,6 +120,7 @@ public class Master_Minas : MonoBehaviour
 
         monedas_txt.text = monedas_score.ToString("000");
     }
+
     public void RestarMonedas(int n)
     {
         monedas_score -= n;
@@ -150,6 +152,7 @@ public class Master_Minas : MonoBehaviour
             {
                 Master._master.SumarTicket();
             }
+
         }
 
 

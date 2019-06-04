@@ -52,8 +52,10 @@ public class ManoLobby_Control : MonoBehaviour
 
 
         RaycastHit hit;
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.red);
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3000))
+        Vector3 rotacion = new Vector3(0.3f, -0.9f, 1);
+        // Debug.DrawRay(transform.position, transform.TransformDirection(rotacion), Color.red);
+        Debug.DrawRay(puntero.transform.position, puntero.transform.TransformDirection(Vector3.up), Color.red);
+        if (Physics.Raycast(puntero.transform.position, puntero.transform.TransformDirection(Vector3.up), out hit, 5000))
         {
             if (hit.transform.tag == "botonVR" )
             {

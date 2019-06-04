@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class LineaControl : MonoBehaviour
 {
     public GameObject[] trampas;
     public bool jugando = true;
+    public Transform objetivo;
+    [Space(10)]
+    [Header("Osos")]
+    public GameObject osoPrefab;
+    public List<GameObject> osos = new List<GameObject>();
+    public int cantidadOsos;
+    public bool conOso;
 	// Use this for initialization
+
 	void Start ()
     {
         DesactivarTrampas();
@@ -14,7 +23,9 @@ public class LineaControl : MonoBehaviour
         {
             ActivarTrampas();
         }
+        SpawnOsos();
 	}
+
 	public void DesactivarTrampas()
     {
         foreach(GameObject t in trampas)
@@ -22,10 +33,15 @@ public class LineaControl : MonoBehaviour
             t.SetActive(false);
         }
     }
+
+
 	public void ActivarTrampas()
     {
 
         if (!jugando)
+            return;
+
+        if (conOso)
             return;
 
         int  rt = LoteriaTrampa();
@@ -45,6 +61,48 @@ public class LineaControl : MonoBehaviour
 
         }
 
+    }
+
+    public void SpawnOsos()
+    {
+
+        for (int i = 0; i < cantidadOsos; i++)
+        {
+            GameObject oso = Instantiate(osoPrefab, transform.position, Quaternion.identity);
+            oso.SetActive(false);
+            oso.transform.name = "oso" + i + " " + this.transform.name;
+            osos.Add(oso);
+
+        }
+
+    }
+
+    public void ActivarOso()
+    {
+        if (conOso)
+        {
+            OsosManada_Control._osos.ActivarOso();
+            return; 
+
+        }
+
+        foreach (GameObject oso in osos)
+        {
+            if (!oso.activeInHierarchy)
+            {
+
+
+                oso.transform.position = this.transform.position;
+                oso.transform.rotation = this.transform.rotation;
+                oso.GetComponent<Oso_Control>().objetivo = objetivo;
+                oso.GetComponent<Oso_Control>().lineaPadre = this;
+
+                oso.SetActive(true);
+                oso.GetComponent<Oso_Control>().gruñir_sfx.Play();
+                conOso = true;
+                break;
+            }
+        }
     }
 
     int LoteriaTrampa()

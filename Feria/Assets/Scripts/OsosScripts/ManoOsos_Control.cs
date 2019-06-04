@@ -97,7 +97,8 @@ public class ManoOsos_Control : MonoBehaviour
 
         RaycastHit hit;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward), Color.red);
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1000))
+        Debug.DrawRay(puntero.transform.position, puntero.transform.TransformDirection(Vector3.up), Color.red);
+        if (Physics.Raycast(puntero.transform.position, puntero.transform.TransformDirection(Vector3.up), out hit, 5000))
         {
             if (hit.transform.tag == "botonVR")
             {

@@ -20,7 +20,9 @@ public class Pato_Control : MonoBehaviour
     public GameObject pato_mesh;
     public GameObject particulaExplosion;
     bool rotar;
-
+    [Space(10)]
+    [Header("SFX")]
+    public FMODUnity.StudioEventEmitter quacks_sfx;
 	// Use this for initialization
 	void Start ()
     {
@@ -52,7 +54,7 @@ public class Pato_Control : MonoBehaviour
                 }
 
             }
-
+           
             
         }
         if(rotar)
@@ -84,6 +86,7 @@ public class Pato_Control : MonoBehaviour
         desplazarse = false;
         agente.speed = 0;
         particulaExplosion.SetActive(true);
+     
         Master_Patos._masterPatos.ScorePatos();
         Master_Patos._masterPatos.RestarMonedas(5);
         monedasPerdidas_fx.SetActive(true);

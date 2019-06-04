@@ -22,18 +22,23 @@ public class TrampaOso_Control : MonoBehaviour
     public GameObject monedaGanada;
     public bool dummy;
 
+    public FMODUnity.StudioEventEmitter trampaClose_sfx,woosh_sfx;
+
+
 	void Start ()
     {
-		
+       
 	}
 
     private void OnTriggerEnter(Collider other)
     {
+
         if(other.transform.tag == "oso")
         {
             oso = other.GetComponent<Oso_Control>();
             StartCoroutine(CapturarOso());
         }
+
 
     }
 
@@ -64,7 +69,7 @@ public class TrampaOso_Control : MonoBehaviour
 
         StartCoroutine(oso.OsoCapturado());
         trampa_anim.SetTrigger("activar");
-      
+        woosh_sfx.Play();
         osoEnTrampa.SetActive(true);
         activacionfx.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(0.4f);
@@ -73,6 +78,7 @@ public class TrampaOso_Control : MonoBehaviour
         osoEnTrampa.SetActive(false);
         trampaMesh.SetActive(false);
         jaulaMesh.SetActive(true);
+        trampaClose_sfx.Play();
         Osos_Master._masterOsos.RestarMonedas(10);
         yield return new WaitForSeconds(1.5f);
         oso = null;
@@ -119,5 +125,10 @@ public class TrampaOso_Control : MonoBehaviour
         // humofx.SetActive(false);
         this.gameObject.SetActive(false);
         
+    }
+
+    public void ReproducirSFX(string p)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(p, this.transform.position);
     }
 }

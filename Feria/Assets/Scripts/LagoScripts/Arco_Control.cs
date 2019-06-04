@@ -37,6 +37,7 @@ public class Arco_Control : MonoBehaviour
 
 
     public Trayectoria lineTrayectoria;
+    public FMODUnity.StudioEventEmitter cuerda_sfx;
 
     private void OnValidate()
     {
@@ -79,7 +80,7 @@ public class Arco_Control : MonoBehaviour
         if(presionandoCuerda)
         {
             distanciaManos = manoIzq.transform.position - manoDer.transform.position;
-
+            cuerda_sfx.Play();
             //Torcion de cuerda
             fuerzaCuerda = distanciaManos.magnitude * 80;
             //cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);
@@ -142,6 +143,7 @@ public class Arco_Control : MonoBehaviour
         if (flechaActual == null)
             return;
 
+        cuerda_sfx.Stop();
         flechaActual.transform.parent = null;
         flechaActual.GetComponent<Flecha_Control>().FlechaDisparada(f);
         projectileArc_mesh.SetActive(false);

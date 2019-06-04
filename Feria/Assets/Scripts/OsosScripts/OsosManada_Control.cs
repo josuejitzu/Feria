@@ -16,12 +16,13 @@ public class OsosManada_Control : MonoBehaviour {
     [Header("Posiciones")]
     public Transform[] spawnPos;
     public Transform[] finCaminoPos;
-    int posPasada;
+    int posPasada = 0;
     Transform posfinal_temp;
     [Space(10)]
     [Header("Trampas")]
     public LineaControl LineaA;
     public LineaControl LineaB, LineaC, LineaD, LineaE;
+    public LineaControl[] lineas;
     [Space(10)]
     [Header("Tiempos")]
     public float intervaloSpawn;
@@ -75,33 +76,49 @@ public class OsosManada_Control : MonoBehaviour {
             osos.Add(oso);
         }
     }
-    
+
 
 
     public void ActivarOso()
     {
-        foreach(GameObject oso in osos)
-        {
-            if(!oso.activeInHierarchy)
-            {
-                Transform pos = EscogerPos();
-               
-                oso.transform.position = pos.position;
-                oso.transform.rotation = pos.rotation;
-               
-                oso.GetComponent<Oso_Control>().objetivo = posfinal_temp;
-                oso.SetActive(true);
+        /* foreach(GameObject oso in osos)
+         {
+             if(!oso.activeInHierarchy)
+             {
+                 Transform pos = EscogerPos();
 
-                break;
-            }
+                 oso.transform.position = pos.position;
+                 oso.transform.rotation = pos.rotation;
+
+                 oso.GetComponent<Oso_Control>().objetivo = posfinal_temp;
+                 oso.SetActive(true);
+
+                 break;
+             }
+         }*/
+
+        ///Version de lineas
+        int r = Random.Range(0, lineas.Length);
+        while (r == posPasada || lineas[r].conOso)//si se repitio o la linea ya tiene oso
+        {
+            r = Random.Range(0, lineas.Length);
         }
+       
+        posPasada = r;
+        lineas[r].ActivarOso();
     }
 
+    //SIN USO
     Transform EscogerPos()
     {
         int r = Random.Range(0, spawnPos.Length);
 
         if(r == posPasada)
+        {
+            r = Random.Range(0, spawnPos.Length);
+        }
+
+        while(spawnPos[r].GetComponent<LineaControl>().conOso)
         {
             r = Random.Range(0, spawnPos.Length);
         }
@@ -137,6 +154,7 @@ public class OsosManada_Control : MonoBehaviour {
        
 
     }
+
     /*
     public void ActivarTrampa(string linea)//debe ser llamada cuando se desactiva una trampa
     {

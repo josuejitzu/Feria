@@ -25,6 +25,9 @@ public class Parvada_Control : MonoBehaviour
     public int cantidadPatos;
     public bool spawnear = true;
     GameObject objetivoPasado;
+    [Space(10)]
+    [Header("SFX")]
+    public FMODUnity.StudioEventEmitter quack_sfx;
 	// Use this for initialization
 	void Start ()
     {
@@ -90,6 +93,9 @@ public class Parvada_Control : MonoBehaviour
             }
 
         }
+
+        if (!quack_sfx.IsPlaying())
+            quack_sfx.Play();
 
     }
 

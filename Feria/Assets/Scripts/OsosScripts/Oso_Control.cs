@@ -6,11 +6,12 @@ using UnityEngine.AI;
 public class Oso_Control : MonoBehaviour
 {
     public Transform objetivo;
-
+    public LineaControl lineaPadre;
     public float velocidadFinal;
     public float velocidadMax, velocidadMin;
     public NavMeshAgent agente;
     public Animator oso_anim;
+    public FMODUnity.StudioEventEmitter gruñir_sfx;
 	// Use this for initialization
 	void Start ()
     {
@@ -26,6 +27,7 @@ public class Oso_Control : MonoBehaviour
         if(dist.magnitude < 0.5f)
         {
             StartCoroutine(ReiniciarOso());
+           
         }
 	}
     public IEnumerator ReiniciarOso()
@@ -34,12 +36,15 @@ public class Oso_Control : MonoBehaviour
         
         yield return new WaitForSeconds(0.1f);
         oso_anim.gameObject.SetActive(true);
+        lineaPadre.conOso = false;
+        lineaPadre = null;
         this.gameObject.SetActive(false);
 
 
     }
     public IEnumerator OsoCapturado()
     {
+        lineaPadre.conOso = false;
         velocidadFinal = 0.0f;
         agente.isStopped = true;
         oso_anim.gameObject.SetActive(false);

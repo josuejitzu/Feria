@@ -26,8 +26,9 @@ public class Cazador_Control : MonoBehaviour
     public GameObject golpe_fx;
     public GameObject disparo_fx;
     public GameObject moneda_anim;
-
- 
+    [Header("SFX")]
+    public FMODUnity.StudioEventEmitter laser_sfx; 
+    public FMODUnity.StudioEventEmitter golpe_sfx; 
 
 	void Start ()
     {
@@ -46,7 +47,8 @@ public class Cazador_Control : MonoBehaviour
         {
             barraDisparo.value = Mathf.Lerp(barraDisparo.value, tiempoDisparo, Time.deltaTime * velocidadSlider);
             fillBarra.color = Color.Lerp(fillBarra.color, color_final, Time.deltaTime * velocidadSlider);
-
+            if(!laser_sfx.IsPlaying())
+                laser_sfx.Play();
             if(barraDisparo.value >= 99.0f)
             {
                // activarSlider = false;
@@ -58,6 +60,7 @@ public class Cazador_Control : MonoBehaviour
                     if(objetivo != null)
                          objetivo.GetComponent<Pato_Control>().enMira = false;
                     StartCoroutine(DesactivarCazador());
+                    laser_sfx.Stop();
                 }
                 
             }
@@ -107,6 +110,7 @@ public class Cazador_Control : MonoBehaviour
         barraDisparo.gameObject.SetActive(false);
         pistola.SetActive(false);
         golpe_fx.SetActive(true);
+        golpe_sfx.Play();
         cazador_anim.SetTrigger("golpeado");
         moneda_anim.SetActive(true);
         Master_Patos._masterPatos.ScoreMonedas(5);
@@ -126,7 +130,7 @@ public class Cazador_Control : MonoBehaviour
     {
         activarSlider = false;
         apuntar = false;
-
+        golpe_sfx.Stop();
         //objetivo.GetComponent<Pato_Control>().enMira = false;
         barraDisparo.value = 0.0f;
         objetivo = null;

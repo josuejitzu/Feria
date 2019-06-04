@@ -14,7 +14,7 @@ public class Flecha_Control : MonoBehaviour
     public GameObject golpeCazador_FX;
     public GameObject trail;
     // Use this for initialization
- 
+    public FMODUnity.StudioEventEmitter swoosh_sfx;
 	
 	// Update is called once per frame
 	void Update ()
@@ -22,6 +22,7 @@ public class Flecha_Control : MonoBehaviour
 		if(disparada)
         {
             transform.LookAt(this.transform.position + rigid.velocity);
+            swoosh_sfx.Play();
         }
 	}
     private void OnTriggerEnter(Collider other)
@@ -42,6 +43,7 @@ public class Flecha_Control : MonoBehaviour
         {
             StartCoroutine(ReiniciarFlecha());
         }
+        swoosh_sfx.Stop();
     }
     public void FlechaEnArco()
     {
