@@ -11,8 +11,9 @@ public class Oso_Control : MonoBehaviour
     public float velocidadMax, velocidadMin;
     public NavMeshAgent agente;
     public Animator oso_anim;
-    public FMODUnity.StudioEventEmitter gruñir_sfx;
-	// Use this for initialization
+    // public FMODUnity.StudioEventEmitter gruñir_sfx;
+    // Use this for initialization
+   
 	void Start ()
     {
 		
@@ -55,5 +56,10 @@ public class Oso_Control : MonoBehaviour
         this.transform.parent = null;
         StartCoroutine(ReiniciarOso());
        
+    }
+
+    public void PlayPisada()
+    {
+       // pisada_sfx.Play();
     }
 }

@@ -73,6 +73,8 @@ GameObject:
   - component: {fileID: 135738054682745776}
   - component: {fileID: 136254731327702016}
   - component: {fileID: 96026180024239926}
+  - component: {fileID: 114850453008847474}
+  - component: {fileID: 114750366620202912}
   m_Layer: 0
   m_Name: Bellota_prefab
   m_TagString: bellota
@@ -351,6 +353,52 @@ MonoBehaviour:
   rigid: {fileID: 54798719465661864}
   bellota_mesh: {fileID: 1089982935445506}
   enMano: 0
+  swoosh_sfx: {fileID: 114850453008847474}
+  golpe_sfx: {fileID: 114750366620202912}
+--- !u!114 &114750366620202912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523684257768760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/OSOS/bellota
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &114850453008847474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523684257768760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/OSOS/woosh_bellota
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!135 &135738054682745776
 SphereCollider:
   m_ObjectHideFlags: 1

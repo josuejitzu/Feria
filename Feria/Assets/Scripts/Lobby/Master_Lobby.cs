@@ -9,6 +9,8 @@ public class Master_Lobby : MonoBehaviour
     [Header("Animacion Tickets")]
     public GameObject ticketPato;
     public GameObject ticketMinas, ticketOsos, ticketRaquetas;
+    [Header("SFX")]
+    public FMODUnity.StudioEventEmitter menu_sfx;
 	// Use this for initialization
 	void Start ()
     {
@@ -28,6 +30,7 @@ public class Master_Lobby : MonoBehaviour
     {
        
         Master._master.CambiarNivel(n,true);
+        menu_sfx.Play();    
 
         //if (!Master._master.cambiandoNivel)
         //    Master._master.DescontarTicket();

@@ -32,6 +32,9 @@ public class Osos_Master : MonoBehaviour
 
     public ManoOsos_Control izquierda, derecha;
     public bool finJuego;
+    [Header("SFX")]
+    public FMODUnity.StudioEventEmitter moneda_sfx;
+    public FMODUnity.StudioEventEmitter menu_sfx,menuNo_sfx;
     // Use this for initialization
     void Start ()
     {
@@ -81,12 +84,15 @@ public class Osos_Master : MonoBehaviour
     {
         if (finJuego)
             return;
+
+
         monedas += n;
         if(monedas == 100)
         {
 
         }
         monedas_text.text = monedas.ToString("000");
+        moneda_sfx.Play();
     }
     public void RestarMonedas(int n)
     {
@@ -125,12 +131,14 @@ public class Osos_Master : MonoBehaviour
     public void CambiarNivel(string n)
     {
         Master._master.CambiarNivel(n,false);
+        menuNo_sfx.Play();
     }
     
     public void RepetirNivel(string n)
     {
         Master._master.DescontarTicket();
         Master._master.CambiarNivel(n,true);
+        menu_sfx.Play();
     }
 
     public void IniciarJuego()

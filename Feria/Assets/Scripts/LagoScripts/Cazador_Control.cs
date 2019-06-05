@@ -104,6 +104,7 @@ public class Cazador_Control : MonoBehaviour
     }
     public IEnumerator MatarCazador()
     {
+        laser_sfx.Stop();
         apuntar = false;
         activarSlider = false;
         barraDisparo.value = 0.0f;

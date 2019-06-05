@@ -825,6 +825,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb4b358486c61e4f92b54d350056160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionFx: {fileID: 0}
+  meshMurcielago: {fileID: 0}
 --- !u!137 &137138383383425066
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -80,7 +80,8 @@ public class Arco_Control : MonoBehaviour
         if(presionandoCuerda)
         {
             distanciaManos = manoIzq.transform.position - manoDer.transform.position;
-            cuerda_sfx.Play();
+            if(!cuerda_sfx.IsPlaying())
+                cuerda_sfx.Play();
             //Torcion de cuerda
             fuerzaCuerda = distanciaManos.magnitude * 80;
             //cuerdaBlendshape.SetBlendShapeWeight(0, fuerzaCuerda);

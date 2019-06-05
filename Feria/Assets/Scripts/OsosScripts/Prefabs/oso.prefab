@@ -1365,6 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetivo: {fileID: 0}
+  lineaPadre: {fileID: 0}
   velocidadFinal: 0.55
   velocidadMax: 0
   velocidadMin: 0

@@ -33,6 +33,9 @@ public class Master_Mapaches : MonoBehaviour
     [Header("UI Higher")]
     public TMP_Text basuraCorrectaHigh_text, basuraIncorrectaHigh_text, monedasHigh_text;
     public int basuraCorrectaHigh, basuraIncorrectaHigh, monedasHigh;
+    [Header("SFX")]
+    public FMODUnity.StudioEventEmitter moneda_sfx;
+    public FMODUnity.StudioEventEmitter menu_sfx,menuNo_sfx;
 
     // Use this for initialization
     void Start()
@@ -110,6 +113,7 @@ public class Master_Mapaches : MonoBehaviour
     {
         monedas += n;
         monedas_text.text = monedas.ToString("000");
+        moneda_sfx.Play();
     }
     public void RestarMoneda(int n)
     {
@@ -133,10 +137,12 @@ public class Master_Mapaches : MonoBehaviour
     public void CambiarNivel(string n)
     {
         Master._master.CambiarNivel(n, false);
+        menuNo_sfx.Play();
     }
     public void RepetirJuego(string n)
     {
         Master._master.CambiarNivel(n, true);
+        menu_sfx.Play();
     }
     public void FinJuego()
     {

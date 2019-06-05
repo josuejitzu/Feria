@@ -17,16 +17,12 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 114520525213537358}
   - {fileID: 114845319513957600}
-  - {fileID: 114656983662312912}
   - {fileID: 114077048672066334}
   - {fileID: 114463786479931976}
   - {fileID: 114298488183068586}
   - {fileID: 114520653992657904}
   - {fileID: 114472737270840342}
-  - {fileID: 114749683235755866}
-  - {fileID: 114601268222001646}
   - {fileID: 114305696332989318}
-  - {fileID: 114509236699618020}
   - {fileID: 114499543755005476}
   - {fileID: 114168372511704810}
   - {fileID: 114129765391001956}
@@ -37,16 +33,22 @@ MonoBehaviour:
   - {fileID: 114175088602597932}
   - {fileID: 114772410893151540}
   - {fileID: 114811066087093490}
-  - {fileID: 114659990318890348}
   - {fileID: 114651061721158086}
   - {fileID: 114291124674313306}
   - {fileID: 114850193286146268}
   - {fileID: 114559268356169418}
   - {fileID: 114436124123079950}
   - {fileID: 114650177968212428}
+  - {fileID: 114746042613136226}
+  - {fileID: 114103942889306440}
+  - {fileID: 114134073581782636}
+  - {fileID: 114265017402610004}
+  - {fileID: 114148690312678918}
+  - {fileID: 114878949074550250}
+  - {fileID: 114790332353478410}
   MasterBankRef: {fileID: 114012689651290398}
   StringsBankRef: {fileID: 114673293818106808}
-  stringsBankWriteTime: 636952481054413934
+  stringsBankWriteTime: 636953328854908394
   cacheVersion: 2
 --- !u!114 &114012689651290398
 MonoBehaviour:
@@ -60,11 +62,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Dopbox\Dropbox\Jitzu_2\FERIA 4 JUEGOS\FERIA FMOD\Build\Desktop\Master Bank.bank
-  lastModified: 636952481054353901
+  lastModified: 636953328854858369
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 17552608
+    Value: 19580256
   Exists: 1
 --- !u!114 &114015484550499680
 MonoBehaviour:
@@ -207,11 +209,32 @@ MonoBehaviour:
   Banks:
   - {fileID: 114012689651290398}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &114103942889306440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/MAPACHES/Musica_Mapaches
+  guid: df818f2077f1ba4a91e5a5ce7b871ac1
+  Banks:
+  - {fileID: 114012689651290398}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &114120093580243968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +276,48 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114134073581782636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/MINA/murcielagos_ambiente
+  guid: 0991758d84ad12499a5f2be4a2e9cb23
+  Banks:
+  - {fileID: 114012689651290398}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &114148690312678918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OSOS/explosion jaulas
+  guid: 0e3add7a67d1c24f8f1ea9645b54fdbe
+  Banks:
+  - {fileID: 114012689651290398}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 5.8
   MaxDistance: 20
 --- !u!114 &114168372511704810
 MonoBehaviour:
@@ -359,6 +424,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114265017402610004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/MINA/murcielago_token
+  guid: d8a87a029b421c41b13dbbef9ea40a26
+  Banks:
+  - {fileID: 114012689651290398}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &114291124674313306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,11 +481,11 @@ MonoBehaviour:
   guid: 319391a1ca54ee408c9654d66202943a
   Banks:
   - {fileID: 114012689651290398}
-  IsStream: 0
+  IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
+  MinDistance: 7.4
   MaxDistance: 20
 --- !u!114 &114299503317288728
 MonoBehaviour:
@@ -520,11 +606,11 @@ MonoBehaviour:
   Banks:
   - {fileID: 114012689651290398}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &114418608054395048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,8 +651,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 12.5
+  MaxDistance: 35
 --- !u!114 &114463786479931976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,11 +879,11 @@ MonoBehaviour:
   Banks:
   - {fileID: 114012689651290398}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &114601268222001646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,7 +1027,7 @@ MonoBehaviour:
   - {fileID: 114012689651290398}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -978,11 +1064,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Dopbox\Dropbox\Jitzu_2\FERIA 4 JUEGOS\FERIA FMOD\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636952481054413934
+  lastModified: 636953328854908394
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2028
+    Value: 2130
   Exists: 1
 --- !u!114 &114674495850095780
 MonoBehaviour:
@@ -1066,6 +1152,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114746042613136226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/LOBBY/BOTONES MENU no
+  guid: 7887c78b24fc20418c24e79633544617
+  Banks:
+  - {fileID: 114012689651290398}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &114749683235755866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,6 +1236,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114790332353478410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OSOS/woosh_bellota
+  guid: c1d749a0dd68f340a0a6d745128881fc
+  Banks:
+  - {fileID: 114012689651290398}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0.9
+  MaxDistance: 4.5499997
 --- !u!114 &114796276832415510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,8 +1297,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 9.6
+  MaxDistance: 60
 --- !u!114 &114817516991225002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,6 +1404,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114878949074550250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/OSOS/bellota
+  guid: 5d22c7f0393a034fb5a01909998970d0
+  Banks:
+  - {fileID: 114012689651290398}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1.5
+  MaxDistance: 45
 --- !u!114 &114883058514653320
 MonoBehaviour:
   m_ObjectHideFlags: 0

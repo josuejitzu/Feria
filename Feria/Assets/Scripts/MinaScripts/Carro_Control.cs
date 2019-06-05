@@ -28,7 +28,7 @@ public class Carro_Control : MonoBehaviour
     [Space(10)]
     [Header("SFX")]
     public FMODUnity.StudioEventEmitter rieles_sfx;
-    public FMODUnity.StudioEventEmitter cambioCarril_sfx, choque_sfx;
+    public FMODUnity.StudioEventEmitter cambioCarril_sfx, choque_sfx,moneda_sfx;
 
     [Space(10)]
     [Header("Golpe Efectos")]
@@ -147,6 +147,7 @@ public class Carro_Control : MonoBehaviour
         {
 
             StartCoroutine(RecibirDaño());
+            choque_sfx.Play();
         }
 
         if(other.transform.tag == "finalSpawn")
@@ -157,6 +158,8 @@ public class Carro_Control : MonoBehaviour
         if (other.transform.tag == "finalVia") 
         {
             Master_Minas._mina.FinJuego();
+            rieles_sfx.Stop();
+            cambioCarril_sfx.Stop();
             ApagarLuces();
         }
     }
@@ -179,8 +182,7 @@ public class Carro_Control : MonoBehaviour
            // velocidadFinal = 7.0f;
             inmortal = false;
         }
-        if(!choque_sfx.IsPlaying())
-               choque_sfx.Play();
+   
 
         Master_Minas._mina.RestarMurcielago();
     }
@@ -284,6 +286,7 @@ public class Carro_Control : MonoBehaviour
                 moneda.SetActive(true);
             }
         }
+        moneda_sfx.Play();
         yield return new WaitForSeconds(0.45f);
         if(moneda != null)
              moneda.SetActive(false);

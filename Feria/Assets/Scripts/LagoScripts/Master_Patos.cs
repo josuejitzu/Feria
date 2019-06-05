@@ -32,7 +32,8 @@ public class Master_Patos : MonoBehaviour
     public TMP_Text monedas_final_txt;
     public TMP_Text cazadores_final_txt;
     public bool tutorial;
-
+    public FMODUnity.StudioEventEmitter moneda_sfx;
+    public FMODUnity.StudioEventEmitter menu_sfx,menuNo_sfx;
     void Start ()
     {
         _masterPatos = this;
@@ -169,6 +170,7 @@ public class Master_Patos : MonoBehaviour
     public void RepetirJuego(string n)
     {
         Master._master.CambiarNivel(n, true);
+        menu_sfx.Play();
     }
 
     public void ActualizarTickets()
@@ -177,6 +179,9 @@ public class Master_Patos : MonoBehaviour
 
         tickets = Master._master.tickets;
         tickets_text.text = "X " + tickets.ToString("00");
+        menuNo_sfx.Play();
+
     }
+
 
 }

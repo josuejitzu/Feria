@@ -32,7 +32,10 @@ public class Master_Minas : MonoBehaviour
     public TMP_Text murcielagos_final_txt;
     public TMP_Text monedas_final_txt;
     public TMP_Text trampas_final_txt;
-
+    [Space(10)]
+    [Header("SFX")]
+    public FMODUnity.StudioEventEmitter murcielagoToken_sfx;
+    public FMODUnity.StudioEventEmitter murcielagoAmbiente_sfx,menu_sfx,menuNo_sfx;
 
     // Use this for initialization
     void Start ()
@@ -99,6 +102,7 @@ public class Master_Minas : MonoBehaviour
     {
         murcielago_score++;
         murcielagos_txt.text = murcielago_score.ToString("00");
+        murcielagoToken_sfx.Play();
     }
 
     public void RestarMurcielago()
@@ -163,6 +167,7 @@ public class Master_Minas : MonoBehaviour
         empezarConteo = true;
         panelInicio.SetActive(false);
         Carro_Control._carro.velocidadFinal = Carro_Control._carro.velocidadA;
+       // murcielagoAmbiente_sfx.Play();
     }
 
     public void SumarTicket()
@@ -178,12 +183,14 @@ public class Master_Minas : MonoBehaviour
     public void RepetirJuego(string n)
     {
         Master._master.CambiarNivel(n, true);
+        menu_sfx.Play();
     }
 
     public void ActualizarTickets()
     {
         if (Master._master == null) return;
 
+        menuNo_sfx.Play();
         tickets = Master._master.tickets;
         tickets_text.text = "X " + tickets.ToString("00");
     }

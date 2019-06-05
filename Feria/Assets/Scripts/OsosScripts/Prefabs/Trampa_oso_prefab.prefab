@@ -3950,7 +3950,7 @@ MonoBehaviour:
   monedaGanada: {fileID: 1382710211079718}
   dummy: 0
   trampaClose_sfx: {fileID: 114323138800397320}
-  woosh_sfx: {fileID: 114471719851577424}
+  explosion_sfx: {fileID: 114471719851577424}
 --- !u!114 &114471719851577424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3962,7 +3962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: event:/OSOS/Wooshes
+  Event: event:/OSOS/explosion jaulas
   PlayEvent: 0
   StopEvent: 0
   CollisionTag: 

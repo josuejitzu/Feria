@@ -98,7 +98,7 @@ public class LineaControl : MonoBehaviour
                 oso.GetComponent<Oso_Control>().lineaPadre = this;
 
                 oso.SetActive(true);
-                oso.GetComponent<Oso_Control>().gruñir_sfx.Play();
+                //oso.GetComponent<Oso_Control>().gruñir_sfx.Play();
                 conOso = true;
                 break;
             }

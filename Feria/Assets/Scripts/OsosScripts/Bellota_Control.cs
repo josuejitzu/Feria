@@ -11,6 +11,8 @@ public class Bellota_Control : MonoBehaviour
     public GameObject bellota_mesh;
     public bool enMano;
     public FMODUnity.StudioEventEmitter swoosh_sfx;
+    public FMODUnity.StudioEventEmitter golpe_sfx;
+
 
 	void Start ()
     {
@@ -20,7 +22,7 @@ public class Bellota_Control : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(rigid.angularVelocity.magnitude >= 4.0f)
+        if(rigid.angularVelocity.magnitude >= 7.0f)
         {
             if(!swoosh_sfx.IsPlaying())
               swoosh_sfx.Play();
@@ -44,6 +46,7 @@ public class Bellota_Control : MonoBehaviour
         {
             Invoke("GolpeNormal",2.0f);
         }
+        golpe_sfx.Play();
     }
 
     public void BellotaAgarrada()
@@ -65,7 +68,7 @@ public class Bellota_Control : MonoBehaviour
     }
     public IEnumerator Reiniciar()
     {
-        swoosh_sfx.Stop();
+       // swoosh_sfx.Stop();
         trigger.enabled = false;
         bellota_mesh.SetActive(false);
         MunicionBellota_Control._bellotas.cantidadBellotas -= 1;

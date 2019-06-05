@@ -8,6 +8,7 @@ public class Lobby_Control : MonoBehaviour
 {
     public string lobby;
     bool cambiandoNivel;
+    public FMODUnity.StudioEventEmitter menu;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +17,7 @@ public class Lobby_Control : MonoBehaviour
 	public void CambiarLobby()
     {
         StartCoroutine(CambiarScena(lobby));
+        menu.Play();
     }
     IEnumerator CambiarScena(string n)
     {
