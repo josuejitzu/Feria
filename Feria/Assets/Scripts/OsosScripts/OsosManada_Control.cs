@@ -99,7 +99,7 @@ public class OsosManada_Control : MonoBehaviour {
 
         ///Version de lineas
         int r = Random.Range(0, lineas.Length);
-        while (r == posPasada || lineas[r].conOso)//si se repitio o la linea ya tiene oso
+        if (r == posPasada || lineas[r].conOso)//si se repitio o la linea ya tiene oso, se cambio de while a if
         {
             r = Random.Range(0, lineas.Length);
         }
@@ -130,29 +130,32 @@ public class OsosManada_Control : MonoBehaviour {
 
     public void ActivarTrampa(string linea)
     {
+
         if(linea == "a")
         {
             LineaA.ActivarTrampas();
         }
+
         if (linea == "b")
         {
             LineaB.ActivarTrampas();
         }
+
         if (linea == "c")
         {
             LineaC.ActivarTrampas();
         }
+
         if (linea == "d")
         {
             LineaD.ActivarTrampas();
         }
+
         if (linea == "e")
         {
             LineaE.ActivarTrampas();
         }
        
-       
-
     }
 
     /*

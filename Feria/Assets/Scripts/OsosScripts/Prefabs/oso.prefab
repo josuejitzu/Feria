@@ -1371,6 +1371,7 @@ MonoBehaviour:
   velocidadMin: 0
   agente: {fileID: 195896338782192102}
   oso_anim: {fileID: 95084274670511986}
+  reiniciando: 0
 --- !u!137 &137971423114540892
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

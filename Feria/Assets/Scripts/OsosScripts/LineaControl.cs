@@ -16,6 +16,7 @@ public class LineaControl : MonoBehaviour
     public bool conOso;
 	// Use this for initialization
 
+
 	void Start ()
     {
         DesactivarTrampas();
@@ -26,16 +27,19 @@ public class LineaControl : MonoBehaviour
         SpawnOsos();
 	}
 
+
 	public void DesactivarTrampas()
     {
+
         foreach(GameObject t in trampas)
         {
             t.SetActive(false);
         }
+
     }
 
 
-	public void ActivarTrampas()
+	public void ActivarTrampas()//lo activa la trampa, 
     {
 
         if (!jugando)
@@ -49,6 +53,7 @@ public class LineaControl : MonoBehaviour
         {
              if (i == rt)
              {
+
                     if (trampas[rt].activeInHierarchy)
                     {
                             rt = LoteriaTrampa();
@@ -57,6 +62,7 @@ public class LineaControl : MonoBehaviour
                     trampas[rt].SetActive(true);                
                     trampas[rt].GetComponent<TrampaOso_Control>().StopAllCoroutines();
                     StartCoroutine(trampas[rt].GetComponent<TrampaOso_Control>().ActivarTrampa());
+
              }
 
         }
@@ -81,9 +87,9 @@ public class LineaControl : MonoBehaviour
     {
         if (conOso)
         {
-            OsosManada_Control._osos.ActivarOso();
-            return; 
-
+            //OsosManada_Control._osos.ActivarOso();
+           return; 
+ 
         }
 
         foreach (GameObject oso in osos)
@@ -91,16 +97,17 @@ public class LineaControl : MonoBehaviour
             if (!oso.activeInHierarchy)
             {
 
-
                 oso.transform.position = this.transform.position;
                 oso.transform.rotation = this.transform.rotation;
                 oso.GetComponent<Oso_Control>().objetivo = objetivo;
                 oso.GetComponent<Oso_Control>().lineaPadre = this;
-
+                oso.GetComponent<Oso_Control>().reiniciando = false;
+         
                 oso.SetActive(true);
                 //oso.GetComponent<Oso_Control>().gruñir_sfx.Play();
                 conOso = true;
                 break;
+
             }
         }
     }

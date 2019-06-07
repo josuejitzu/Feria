@@ -10,7 +10,7 @@ public class Master : MonoBehaviour
 {
     public static Master _master;
 
-    public enum Niveles { lobby, minasJuego, minasTutorial, patosJuego, patosTutorial, osoJuego, osoTutorial, raquetasJuego, raquetasTutorial }
+    public enum Niveles {lobby, minasJuego, minasTutorial, patosJuego, patosTutorial, osoJuego, osoTutorial, raquetasJuego, raquetasTutorial }
     string nivelACambiar;
 
     [Space(10)]
@@ -53,7 +53,11 @@ public class Master : MonoBehaviour
     [Header("UI Operador")]
     public TMP_Text tickets_jugador;
     public TMP_InputField inputTickets;
-       
+
+    [Space(10)]
+    [Header("SFX")]
+    public FMODUnity.StudioEventEmitter menu_sfx;
+    public FMODUnity.StudioEventEmitter menuNo_sfx;
     // Use this for initialization
 
 
@@ -111,6 +115,7 @@ public class Master : MonoBehaviour
         {
             print("No tienes Tickets....");
             //Sonido de no tener tickets
+            menuNo_sfx.Play();
             if(n == Niveles.lobby.ToString())
             {
                 nivelACambiar = lobby;
@@ -204,6 +209,7 @@ public class Master : MonoBehaviour
     {
         tickets++;
         tickets_jugador.text = tickets.ToString("00");
+        menu_sfx.Play();
 
     }
     public void IngresoTickets()
@@ -211,6 +217,7 @@ public class Master : MonoBehaviour
         tickets += int.Parse(inputTickets.text);
         tickets_jugador.text = tickets.ToString("00");
         inputTickets.text = "";
+        menu_sfx.Play();
     }
 
     public void NuevasSesion()

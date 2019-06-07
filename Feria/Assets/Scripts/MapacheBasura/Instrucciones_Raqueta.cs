@@ -6,6 +6,7 @@ public class Instrucciones_Raqueta : MonoBehaviour
 {
     public GameObject[] instrucciones;
     int num;
+    public FMODUnity.StudioEventEmitter menu_sfx, menuNo_sfx;
 	// Use this for initialization
 	void Start ()
     {
@@ -22,7 +23,9 @@ public class Instrucciones_Raqueta : MonoBehaviour
     {
         foreach (GameObject instruccion in instrucciones)
         {
+
             instruccion.SetActive(false);
+
         }
         num++;
         if(num == 6)
@@ -44,6 +47,7 @@ public class Instrucciones_Raqueta : MonoBehaviour
     }
     public void CambiarNivel(string n)
     {
+        menu_sfx.Play();
         Master._master.CambiarNivel(n,false);
     }
 }

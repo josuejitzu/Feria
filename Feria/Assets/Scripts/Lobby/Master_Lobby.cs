@@ -11,6 +11,7 @@ public class Master_Lobby : MonoBehaviour
     public GameObject ticketMinas, ticketOsos, ticketRaquetas;
     [Header("SFX")]
     public FMODUnity.StudioEventEmitter menu_sfx;
+    public FMODUnity.StudioEventEmitter menuNo_sfx;
 	// Use this for initialization
 	void Start ()
     {
@@ -38,6 +39,7 @@ public class Master_Lobby : MonoBehaviour
     }
     public void CambiarTutorial(string n)
     {
+
         Master._master.CambiarNivel(n, false);
     }
 }

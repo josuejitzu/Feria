@@ -8,6 +8,8 @@ public class InstruccionesOsos : MonoBehaviour
     public GameObject trampa1;
     public GameObject[] instrucciones;
     int num = 0;
+
+    public FMODUnity.StudioEventEmitter menu_sfx, menuNo_sfx;
     // Use this for initialization
     void Start()
     {
@@ -40,6 +42,8 @@ public class InstruccionesOsos : MonoBehaviour
     }
     public void CambiarNivel(string n)
     {
+        menu_sfx.Play();
         Master._master.CambiarNivel(n,false);
+      
     }
 }

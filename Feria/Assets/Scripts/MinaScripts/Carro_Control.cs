@@ -257,12 +257,11 @@ public class Carro_Control : MonoBehaviour
 
     public IEnumerator AventarMurcielago()
     {
+
         yield return new WaitForSeconds(0.1f);
         murcielago.SetActive(true);
-       
         murcielago_anim.gameObject.SetActive(true);
         murcielago_anim.SetTrigger("aventar");
-       
         yield return new WaitForSeconds(1.0f);
         murcielago.transform.parent = null;
         murcielago_anim.gameObject.SetActive(false);

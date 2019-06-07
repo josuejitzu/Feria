@@ -1650,7 +1650,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4935526a1afee0e4aa8f35e256de6a17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -26.552
+      value: -26.553
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4935526a1afee0e4aa8f35e256de6a17, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2203,7 +2203,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh58574
+  m_Name: pb_Mesh37576
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -28483,7 +28483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Event: event:/PATOS/PATOS
   PlayEvent: 0
-  StopEvent: 0
+  StopEvent: 12
   CollisionTag: 
   AllowFadeout: 1
   TriggerOnce: 0
@@ -30811,7 +30811,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4935526a1afee0e4aa8f35e256de6a17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -26.531
+      value: -26.53
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4935526a1afee0e4aa8f35e256de6a17, type: 3}
       propertyPath: m_LocalPosition.z

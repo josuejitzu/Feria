@@ -6,6 +6,7 @@ public class InstruccionesMinas_Control : MonoBehaviour
 {
     public static InstruccionesMinas_Control _instruccionesMinas;
     public  GameObject[] instrucciones;
+    public FMODUnity.StudioEventEmitter menu_sfx, menuNo_sfx;
 	// Use this for initialization
 	void Start ()
     {
@@ -36,7 +37,7 @@ public class InstruccionesMinas_Control : MonoBehaviour
     }
     public void CambiarNivel(string n)
     {
-
+        menu_sfx.Play();
         Master._master.CambiarNivel(n,false);
 
     }

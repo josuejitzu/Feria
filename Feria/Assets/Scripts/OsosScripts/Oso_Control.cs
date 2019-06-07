@@ -11,9 +11,10 @@ public class Oso_Control : MonoBehaviour
     public float velocidadMax, velocidadMin;
     public NavMeshAgent agente;
     public Animator oso_anim;
-    // public FMODUnity.StudioEventEmitter gruñir_sfx;
+
     // Use this for initialization
-   
+    public bool reiniciando;
+
 	void Start ()
     {
 		
@@ -25,16 +26,21 @@ public class Oso_Control : MonoBehaviour
         agente.speed = velocidadFinal;
         agente.destination = objetivo.position;
         Vector3 dist = objetivo.position - this.transform.position;
+
         if(dist.magnitude < 0.5f)
         {
-            StartCoroutine(ReiniciarOso());
+            if(!reiniciando)
+             StartCoroutine(ReiniciarOso());
+            
            
         }
 	}
     public IEnumerator ReiniciarOso()
     {
+        reiniciando = true;
+        lineaPadre.ActivarTrampas();
         velocidadFinal = 0.55f;
-        
+       
         yield return new WaitForSeconds(0.1f);
         oso_anim.gameObject.SetActive(true);
         lineaPadre.conOso = false;
@@ -48,6 +54,7 @@ public class Oso_Control : MonoBehaviour
         lineaPadre.conOso = false;
         velocidadFinal = 0.0f;
         agente.isStopped = true;
+        
         oso_anim.gameObject.SetActive(false);
         Osos_Master._masterOsos.RestarOso();
         yield return new WaitForSeconds(0.5f);
@@ -58,8 +65,5 @@ public class Oso_Control : MonoBehaviour
        
     }
 
-    public void PlayPisada()
-    {
-       // pisada_sfx.Play();
-    }
+  
 }

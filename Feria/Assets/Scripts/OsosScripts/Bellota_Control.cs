@@ -22,13 +22,16 @@ public class Bellota_Control : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(rigid.angularVelocity.magnitude >= 7.0f)
+        if(rigid.velocity.magnitude >= 5.0f)
         {
+
             if(!swoosh_sfx.IsPlaying())
-              swoosh_sfx.Play();
+                 swoosh_sfx.Play();
+
         }
 		
 	}
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag =="manoVR")

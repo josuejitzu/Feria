@@ -7,6 +7,7 @@ public class Instrucciones_Lago : MonoBehaviour
     public static Instrucciones_Lago _instruccionesLago;
     public GameObject[] instrucciones;
     int num;
+    public FMODUnity.StudioEventEmitter menu_sfx, menuNo_sfx;
     // Use this for initialization
     void Start ()
     {
@@ -51,7 +52,7 @@ public class Instrucciones_Lago : MonoBehaviour
     }
     public void CambiarNivel(string n)
     {
-
+        menu_sfx.Play();
         Master._master.CambiarNivel(n,false);
 
     }
