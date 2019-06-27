@@ -99,7 +99,8 @@ public class OsosManada_Control : MonoBehaviour {
 
         ///Version de lineas
         int r = Random.Range(0, lineas.Length);
-        if (r == posPasada || lineas[r].conOso)//si se repitio o la linea ya tiene oso, se cambio de while a if
+       
+        if (r == posPasada || lineas[r].conOso)//esto esta raro
         {
             r = Random.Range(0, lineas.Length);
         }

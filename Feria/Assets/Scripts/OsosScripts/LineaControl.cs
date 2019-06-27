@@ -45,10 +45,10 @@ public class LineaControl : MonoBehaviour
         if (!jugando)
             return;
 
-        if (conOso)
-            return;
+        /* if (conOso)// si usamo esta linea empieza la escases de trampas
+             return;*/
 
-        int  rt = LoteriaTrampa();
+        int rt = LoteriaTrampa();
         for (int i = 0; i < trampas.Length; i++)
         {
              if (i == rt)
