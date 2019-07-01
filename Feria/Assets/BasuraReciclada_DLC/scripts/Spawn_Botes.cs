@@ -10,7 +10,7 @@ public class Spawn_Botes : MonoBehaviour
     public int cantidad;
     public Transform objetivo;
     public bool spawnear;
-    public float minRate, maxRate;
+    public float minRate= 1f, maxRate;
     float rate;
    
     public bote_control.Valor _valor;
@@ -35,7 +35,7 @@ public class Spawn_Botes : MonoBehaviour
             if(Time.time >= rate)
             {
                 ActivarBote();
-                rate = Time.time + maxRate;
+                rate = Time.time + RandomRate();
             }
         }
 	}
@@ -63,24 +63,32 @@ public class Spawn_Botes : MonoBehaviour
         }
     }
 
-    bote_control.TipoBote RandTipo()
+    basura_botes.TipoBasura RandTipo()
     {
         int r = Random.Range(0, 3);
-        bote_control.TipoBote t = bote_control.TipoBote.organica;
+        basura_botes.TipoBasura t = basura_botes.TipoBasura.organica;
 
 
 
         if(r == 0)
         {
-            t = bote_control.TipoBote.organica;
-        }else if(r == 1)
+            t = basura_botes.TipoBasura.organica;
+        }
+        else if(r == 1)
         {
-            t = bote_control.TipoBote.inorganico;
-        }else if(r == 2)
+            t = basura_botes.TipoBasura.inorganica;
+        }
+        else if(r == 2)
         {
-            t = bote_control.TipoBote.reciclable;
+            t = basura_botes.TipoBasura.reciclable;
         }
 
         return t;
+    }
+
+    float RandomRate()
+    {
+        float r = Random.Range(minRate, maxRate);
+        return r;
     }
 }

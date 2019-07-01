@@ -73,10 +73,7 @@ public class Master_Mapaches : MonoBehaviour
                 empezarConteo = false;
                 FinJuego();
 
-
             }
-
-
         }
 
 

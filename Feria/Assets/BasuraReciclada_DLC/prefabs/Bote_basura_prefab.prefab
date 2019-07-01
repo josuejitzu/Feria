@@ -758,4 +758,6 @@ MonoBehaviour:
   objetivo: {fileID: 0}
   velocidad: 2
   mover: 0
+  puntos: {fileID: 0}
   padre: {fileID: 0}
+  puntos_anim: {fileID: 0}
