@@ -68,8 +68,6 @@ public class Spawn_Botes : MonoBehaviour
         int r = Random.Range(0, 3);
         basura_botes.TipoBasura t = basura_botes.TipoBasura.organica;
 
-
-
         if(r == 0)
         {
             t = basura_botes.TipoBasura.organica;

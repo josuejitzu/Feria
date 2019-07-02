@@ -16,7 +16,8 @@ public class bote_control : MonoBehaviour
     public TMP_Text puntos;
     public GameObject padre;
 
-    public Animator puntos_anim;
+    public Animator puntos_anim,bote_anim;
+    public Color colorCorrecto;
 
     private void OnValidate()
     {
@@ -51,8 +52,11 @@ public class bote_control : MonoBehaviour
             {
                 Desactivar();
             }
+
         }
+
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag == "basura")
@@ -71,22 +75,24 @@ public class bote_control : MonoBehaviour
             if (_valor == Valor.a)
             {
                 Master_botes._masterbotes.Sumarpuntos(10);
-                puntos.text = "x10";
+                puntos.text = "+10";
                
             }
             else if (_valor == Valor.b)
             {
                 Master_botes._masterbotes.Sumarpuntos(20);
-                puntos.text = "x20";
+                puntos.text = "+20";
             
             }
             else if (_valor == Valor.c)
             {
                 Master_botes._masterbotes.Sumarpuntos(40);
-                puntos.text = "x40";
+                puntos.text = "+40";
            
             }
+            puntos.color = colorCorrecto;
             puntos_anim.gameObject.SetActive(true);
+
             Invoke("AnimacionPuntos", 0.9f);
         }
         else if (tipoB != _tipo)
@@ -94,13 +100,20 @@ public class bote_control : MonoBehaviour
             //fallo
             print("basura incorrecta");
             Master_botes._masterbotes.RestarPuntos();
+            puntos.text = "-10";
+            puntos.color = Color.red;
+            puntos_anim.gameObject.SetActive(true);
+            Invoke("AnimacionPuntos", 0.9f);
         }
         
+        bote_anim.SetTrigger("basura");
     }
+
     void AnimacionPuntos()
     {
         puntos_anim.gameObject.SetActive(false);
     }
+
     public void Activar(float vel, Transform obj,basura_botes.TipoBasura t,Valor _v)
     {
         Master_botes._masterbotes.RegistrarUpdate(this.gameObject, "bote");

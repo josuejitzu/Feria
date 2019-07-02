@@ -13,16 +13,15 @@ public class basura_botes : MonoBehaviour
     [Header("VFX")]
     public ParticleSystem humo_vfx;
     public SphereCollider trigger,colision;
+    public TrailRenderer trail;
+    public Material trailRojo, trailVerde, trailAzul;
+    public FMODUnity.StudioEventEmitter golpe_sfx;
     // Use this for initialization
     private void OnValidate()
     {
         CambiarMesh();
     }
-    void Start () {
-		
-	}
-	
-	
+
     
     private void OnCollisionEnter(Collision collision)
     {
@@ -31,8 +30,10 @@ public class basura_botes : MonoBehaviour
             StartCoroutine(Desactivar());
         }
     }
+
     public IEnumerator EnBote()
     {
+        golpe_sfx.Play();
         trigger.enabled = false;
         colision.enabled = false;
         //desactivar mesh
@@ -43,14 +44,16 @@ public class basura_botes : MonoBehaviour
         //VFX
         humo_vfx.Play();
         this.GetComponent<Rigidbody>().isKinematic = true;
+
         yield return new WaitForSeconds(1.0f);
-        Spawn_Basura._spawnBasura.DescontarBasura();
-       
+
+        Spawn_Basura._spawnBasura.DescontarBasura();    
         this.gameObject.SetActive(false);
     }
     public IEnumerator Desactivar()
     {
         yield return new WaitForSeconds(2.0f);
+        golpe_sfx.Play();
         Spawn_Basura._spawnBasura.DescontarBasura();
         this.GetComponent<Rigidbody>().isKinematic = true;
         this.gameObject.SetActive(false);
@@ -106,14 +109,12 @@ public class basura_botes : MonoBehaviour
             meshes[10].SetActive(true);
         }
     }
-
-
     public void SetearBasura(int n)
     {//bota,cd,jugo,lata,botellaVidrio,botellaPlastico,periodico,banana,huevo,manzana,pescado}
         if (n == 0)
         {
             _tipoBasura = TipoBasura.reciclable;
-          //  trail.material = trailAzul;
+            trail.material = trailAzul;
             RandomMeshAzul();
 
 
@@ -121,14 +122,14 @@ public class basura_botes : MonoBehaviour
         else if (n == 1)
         {
             _tipoBasura = TipoBasura.inorganica;
-          //  trail.material = trailRojo;
+           trail.material = trailRojo;
             RandomMeshRoja();
 
         }
         else if (n == 2)
         {
             _tipoBasura = TipoBasura.organica;
-            //trail.material = trailVerde;
+            trail.material = trailVerde;
             RandomMeshVerde();
 
         }
@@ -196,4 +197,6 @@ public class basura_botes : MonoBehaviour
             _mesh = MeshBasura.pescado;
         }
     }
+
+
 }

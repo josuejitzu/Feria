@@ -46,9 +46,10 @@ MonoBehaviour:
   - {fileID: 114148690312678918}
   - {fileID: 114878949074550250}
   - {fileID: 114790332353478410}
+  - {fileID: 114789826974143188}
   MasterBankRef: {fileID: 114012689651290398}
   StringsBankRef: {fileID: 114673293818106808}
-  stringsBankWriteTime: 636953328854908394
+  stringsBankWriteTime: 636976800121007971
   cacheVersion: 2
 --- !u!114 &114012689651290398
 MonoBehaviour:
@@ -62,11 +63,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Dopbox\Dropbox\Jitzu_2\FERIA 4 JUEGOS\FERIA FMOD\Build\Desktop\Master Bank.bank
-  lastModified: 636953328854858369
+  lastModified: 636976800120957989
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 19580256
+    Value: 22980960
   Exists: 1
 --- !u!114 &114015484550499680
 MonoBehaviour:
@@ -1064,11 +1065,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\Dopbox\Dropbox\Jitzu_2\FERIA 4 JUEGOS\FERIA FMOD\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636953328854908394
+  lastModified: 636976800121007971
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2130
+    Value: 2170
   Exists: 1
 --- !u!114 &114674495850095780
 MonoBehaviour:
@@ -1236,6 +1237,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114789826974143188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music_temp
+  guid: d605cb966cb12241a681a03e732b6be0
+  Banks:
+  - {fileID: 114012689651290398}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &114790332353478410
 MonoBehaviour:
   m_ObjectHideFlags: 0

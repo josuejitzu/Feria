@@ -18,7 +18,7 @@ public class ManoBasura_Control : MonoBehaviour
 
     public bool enBasura;
     public bool conBasura;
-
+    public float multiplicadorFuerza = 1.0f;
 
     public basura_botes basuraTemp;
     public basura_botes basuraEnMano;
@@ -27,8 +27,7 @@ public class ManoBasura_Control : MonoBehaviour
     bool enUI;
     public GameObject boton_seleccionado;
     public Color color_select, color_deselect;
-    public GameObject play_letrero;
-
+ 
     void Start ()
     {
 		
@@ -187,7 +186,7 @@ public class ManoBasura_Control : MonoBehaviour
             this.GetComponent<FixedJoint>().connectedBody = null;
             Destroy(this.GetComponent<FixedJoint>());
 
-            basuraEnMano.GetComponent<Rigidbody>().velocity = control.GetVelocity();
+            basuraEnMano.GetComponent<Rigidbody>().velocity = control.GetVelocity() * multiplicadorFuerza;
             basuraEnMano.GetComponent<Rigidbody>().angularVelocity = control.GetAngularVelocity();
         }
 
