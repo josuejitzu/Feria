@@ -21,7 +21,7 @@ public class Master_botes : MonoBehaviour
     public int highscore;
     public string jugador_high;
     public TMP_Text puntos_text,puntos_final_text,puntos_high_text;
-    public TMP_Text score_panel,jugadorHigh_text;
+    public TMP_Text score_panel,jugadorHigh_text,score_controlador;
     public TMP_InputField inputJugador;
     public GameObject panelInputJugador;
     [Space(10)]
@@ -135,6 +135,7 @@ public class Master_botes : MonoBehaviour
 
         score += puntos;
         puntos_text.text = score.ToString("000");
+        score_controlador.text = "Score: " + score.ToString("000");
         moneda_sfx.Play();
     }
 
@@ -146,6 +147,7 @@ public class Master_botes : MonoBehaviour
         if(score > 0)
             score -= 10;
         puntos_text.text = score.ToString("000");
+        score_controlador.text = "Score: " + score.ToString("000");
         incorrecto_sfx.Play();
 
     }
@@ -157,6 +159,7 @@ public class Master_botes : MonoBehaviour
         foreach (Spawn_Botes sp in spawners)
         {
             sp.spawnear = false;
+            sp.FinJuego();
         }
         Spawn_Basura._spawnBasura.spawnear = false;
         empezarConteo = false;
@@ -214,7 +217,8 @@ public class Master_botes : MonoBehaviour
 
         //Tablero Controlador
         score_panel.text = jugador_high + "  " + highscore.ToString("000");
-        
+        score_controlador.text = "Score: " + score.ToString("000");
+
     }
 
     void CompararScore()

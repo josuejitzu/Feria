@@ -13,7 +13,7 @@ public class Spawn_Botes : MonoBehaviour
     public float minRate= 1f, maxRate;
     public float minVel = 1.0f, maxVel;
     float rate;
-   
+    int anterior,repetida = 0;
     public bote_control.Valor _valor;
     // Use this for initialization
     private void OnDrawGizmos()
@@ -69,6 +69,19 @@ public class Spawn_Botes : MonoBehaviour
         int r = Random.Range(0, 3);
         basura_botes.TipoBasura t = basura_botes.TipoBasura.organica;
 
+        if(r == anterior)
+        {
+            repetida++;
+            if(repetida > 1)
+            {
+                while(r == anterior)
+                {
+                    r = Random.Range(0, 3);
+                }
+                repetida = 0;
+            }
+        }
+
         if(r == 0)
         {
             t = basura_botes.TipoBasura.organica;
@@ -81,6 +94,7 @@ public class Spawn_Botes : MonoBehaviour
         {
             t = basura_botes.TipoBasura.reciclable;
         }
+        anterior = r;
 
         return t;
     }
@@ -90,9 +104,21 @@ public class Spawn_Botes : MonoBehaviour
         float r = Random.Range(minRate, maxRate);
         return r;
     }
+
     float RandVelocidad()
     {
         float r = Random.Range(minVel, maxVel);
         return r;
+    }
+
+    public void FinJuego()
+    {
+        foreach(GameObject bote in botes)
+        {
+            if(bote.activeInHierarchy)
+            {
+                bote.GetComponent<bote_control>().velocidad = 10.0f;
+            }
+        }
     }
 }

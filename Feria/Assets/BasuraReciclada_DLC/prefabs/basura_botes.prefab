@@ -1211,7 +1211,7 @@ MonoBehaviour:
   trailVerde: {fileID: 2100000, guid: 1462cd0618617b541a73e0d6e51a9dee, type: 2}
   trailAzul: {fileID: 2100000, guid: c818a9c2249be3b479c0976804badfd3, type: 2}
   golpe_sfx: {fileID: 114869767527750270}
-  woosh_sfx: {fileID: 0}
+  woosh_sfx: {fileID: 114705289087642978}
 --- !u!114 &114705289087642978
 MonoBehaviour:
   m_ObjectHideFlags: 1
