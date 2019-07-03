@@ -15,7 +15,9 @@ public class basura_botes : MonoBehaviour
     public SphereCollider trigger,colision;
     public TrailRenderer trail;
     public Material trailRojo, trailVerde, trailAzul;
+    [Header("SFX")]
     public FMODUnity.StudioEventEmitter golpe_sfx;
+    public FMODUnity.StudioEventEmitter woosh_sfx;
     // Use this for initialization
     private void OnValidate()
     {

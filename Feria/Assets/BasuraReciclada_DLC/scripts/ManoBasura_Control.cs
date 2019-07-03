@@ -188,6 +188,7 @@ public class ManoBasura_Control : MonoBehaviour
 
             basuraEnMano.GetComponent<Rigidbody>().velocity = control.GetVelocity() * multiplicadorFuerza;
             basuraEnMano.GetComponent<Rigidbody>().angularVelocity = control.GetAngularVelocity();
+            basuraEnMano.GetComponent<basura_botes>().woosh_sfx.Play();
         }
 
         basuraEnMano = null;
