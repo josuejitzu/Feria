@@ -11,6 +11,7 @@ public class Spawn_Botes : MonoBehaviour
     public Transform objetivo;
     public bool spawnear;
     public float minRate= 1f, maxRate;
+    public float minVel = 1.0f, maxVel;
     float rate;
    
     public bote_control.Valor _valor;
@@ -46,7 +47,7 @@ public class Spawn_Botes : MonoBehaviour
             if(b.activeInHierarchy == false)
             {
                 b.SetActive(true);
-                b.GetComponent<bote_control>().Activar(2.0f, objetivo,RandTipo(),_valor);
+                b.GetComponent<bote_control>().Activar(RandVelocidad(), objetivo,RandTipo(),_valor);
                 break;
             }
         }
@@ -87,6 +88,11 @@ public class Spawn_Botes : MonoBehaviour
     float RandomRate()
     {
         float r = Random.Range(minRate, maxRate);
+        return r;
+    }
+    float RandVelocidad()
+    {
+        float r = Random.Range(minVel, maxVel);
         return r;
     }
 }
