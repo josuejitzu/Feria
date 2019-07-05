@@ -37,8 +37,8 @@ public class bote_control : MonoBehaviour
  //           if (dis.magnitude < 0.3f)
  //           {
  //               Desactivar();
- //           }
- //       }
+    //         }
+    //    }
 
        
 	//}

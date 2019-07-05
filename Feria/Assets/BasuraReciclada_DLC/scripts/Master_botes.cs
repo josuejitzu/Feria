@@ -22,11 +22,14 @@ public class Master_botes : MonoBehaviour
     public string jugador_high;
     public TMP_Text puntos_text,puntos_final_text,puntos_high_text;
     public TMP_Text score_panel,jugadorHigh_text,score_controlador;
+    public TMP_Text nuevoRecord;
     public TMP_InputField inputJugador;
     public GameObject panelInputJugador;
     [Space(10)]
     [Header("Keybinding")]
     public KeyCode iniciarJuego;
+    public GameObject panelMenu;
+    public GameObject botonMenu;
     [Space(10)]
     [Header("Tiempo")]
     public float tiempo;
@@ -64,7 +67,10 @@ public class Master_botes : MonoBehaviour
 
         Tiempo();
 
-
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         //UI
 
 	}
@@ -226,6 +232,7 @@ public class Master_botes : MonoBehaviour
         if(score > highscore)
         {
             highscore = score;
+            nuevoRecord.gameObject.SetActive(true);
             InputJugador();
         }
     }
@@ -240,6 +247,7 @@ public class Master_botes : MonoBehaviour
         {
             panelInputJugador.SetActive(false);
             jugador_high = inputJugador.text;
+            nuevoRecord.gameObject.SetActive(false);
             highscore = score;
             SalvarScore();
         }
@@ -248,6 +256,19 @@ public class Master_botes : MonoBehaviour
     public void ReiniciarNivel()
     {
         SceneManager.LoadScene(nivel);
+    }
+
+    public void AbrirMenu()
+    {
+        if(panelMenu.activeInHierarchy)
+        {
+            panelMenu.SetActive(false);
+            botonMenu.SetActive(true);
+        }else if(!panelMenu.activeInHierarchy)
+        {
+            panelMenu.SetActive(true);
+            botonMenu.SetActive(false);
+        }
     }
 
 }

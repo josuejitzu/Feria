@@ -4,7 +4,8 @@ using UnityEngine;
 using Valve.VR;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.VR;
+using OVR;
 public class ManoBasura_Control : MonoBehaviour
 {
         
@@ -15,7 +16,7 @@ public class ManoBasura_Control : MonoBehaviour
     public SteamVR_Action_Single squeezeAction;
     public SteamVR_Action_Vector2 touchPadAction;
     public SteamVR_Behaviour_Pose control;
-
+    public float triggerValueR,triggerValueL;
     public bool enBasura;
     public bool conBasura;
     public float multiplicadorFuerza = 1.0f;
@@ -27,7 +28,8 @@ public class ManoBasura_Control : MonoBehaviour
     bool enUI;
     public GameObject boton_seleccionado;
     public Color color_select, color_deselect;
- 
+
+    OVRManager ovrManager;
     void Start ()
     {
 		
@@ -36,6 +38,7 @@ public class ManoBasura_Control : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        OVRInput.Update();
         if (mano == ManoBasura.izquierda)
         {
 
@@ -53,7 +56,7 @@ public class ManoBasura_Control : MonoBehaviour
                 }
 
 
-                print("PresionandoTrigger");
+                print("PresionandoTrigger L");
             }
             if (SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.LeftHand))
             {
@@ -61,8 +64,15 @@ public class ManoBasura_Control : MonoBehaviour
                 if (basuraEnMano)
                 {
                     SoltarBasura();
+                   
                 }
+                print("Soltando Trigger L");
             }
+
+           // triggerValueL = squeezeAction.GetAxis(SteamVR_Input_Sources.LeftHand);
+           
+            triggerValueL = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
+            print(triggerValueL);
         }
 
         if (mano == ManoBasura.derecha)
@@ -80,7 +90,7 @@ public class ManoBasura_Control : MonoBehaviour
                     TomarBasura();
                 }
 
-                print("PresionandoTrigger");
+                print("PresionandoTrigger R");
             }
 
             if (SteamVR_Input._default.inActions.GrabPinch.GetStateUp(SteamVR_Input_Sources.RightHand))
@@ -90,7 +100,10 @@ public class ManoBasura_Control : MonoBehaviour
                 {
                     SoltarBasura();
                 }
+                print("Soltando Trigger R");
             }
+            triggerValueR = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, OVRInput.Controller.RTouch);
+            print(triggerValueR);
         }
 
 
