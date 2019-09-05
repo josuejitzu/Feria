@@ -19,6 +19,13 @@ public class Lobby_Control : MonoBehaviour
         StartCoroutine(CambiarScena(lobby));
         menu.Play();
     }
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
     IEnumerator CambiarScena(string n)
     {
         cambiandoNivel = true;

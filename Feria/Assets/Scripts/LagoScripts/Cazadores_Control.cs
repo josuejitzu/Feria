@@ -78,10 +78,11 @@ public class Cazadores_Control : MonoBehaviour
                  break;
              }
          }*/
-        int randCazador = Random.Range(0, cazador_A.Count-1);
+        int randCazador = Random.Range(0, cazador_A.Count);
+
         while(randCazador == puntoAnterior)
         {
-            randCazador = Random.Range(0, cazador_A.Count-1);
+            randCazador = Random.Range(0, cazador_A.Count);
         }
 
         if(cazador_A[randCazador].activeInHierarchy)

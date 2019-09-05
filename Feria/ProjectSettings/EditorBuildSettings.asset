@@ -5,37 +5,37 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/Titulo_01.unity
     guid: 17e15eaa2ebb0f14abdfc9852f4c3549
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/Lobby_02.unity
     guid: 6ed9a29cd486a06448e8374751b47667
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/Mina_02.unity
     guid: e6b831544efc0d341ad754fd46e088b8
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/Mina_Tutorial_01.unity
     guid: 57b88fb22926ee440b5ebcb57a6f2730
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/Lago_03.unity
     guid: 6f32c9248af2dee49a16b1f30e0ba03f
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/Lago_Tutorial_01.unity
     guid: 5237d4ce0cda8d645a65aa0466d6d6a2
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/Mapaches_03.unity
     guid: 930bdec06b2822a449aa969a04592324
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/Mapaches_Tutorial_01.unity
     guid: 817137ec506e5454a8ddb9c68bf6cb2f
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/BosqueOsos_02.unity
     guid: 3a8b9887c4608114fa3441922c811add
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Escenas/BosqueOsos_Tutorial_01.unity
     guid: e1b0a44d9a2c15c498ee1a94053a1658
-  - enabled: 1
+  - enabled: 0
     path: Assets/BasuraReciclada_DLC/botes_01.unity
     guid: b5e2219632d6bdf4881676a1ac63675b
   m_configObjects: {}

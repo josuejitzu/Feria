@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+
+
 public class Riel_Control : MonoBehaviour
 {
 
@@ -12,6 +14,8 @@ public class Riel_Control : MonoBehaviour
     public GameObject[] monedas;
 
     public Animator anim;
+
+    public bool reseteando;
     public void Activado()
     {
         //StartCoroutine(Reseteo(10.0f));
@@ -32,16 +36,21 @@ public class Riel_Control : MonoBehaviour
         if (other.transform.tag == "carro")
         {
             
-            StartCoroutine(Reseteo(7.0f));
+            StartCoroutine(Reseteo(3.0f));
           
           
+        }
+        else if (other.transform.tag == "barredora" && !reseteando)
+        {
+            
+            StartCoroutine(Reseteo(4.0f));
         }
 
     }
 
     public IEnumerator Reseteo(float t)
     {
-
+        reseteando = true;
         yield return new WaitForSeconds(t);
         foreach(GameObject m in murcielagos)
         {
@@ -51,7 +60,7 @@ public class Riel_Control : MonoBehaviour
         {
             moneda.SetActive(false);
         }
-
+        reseteando = false;
         this.gameObject.SetActive(false);
       
 

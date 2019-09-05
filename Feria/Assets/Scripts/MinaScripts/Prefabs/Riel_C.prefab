@@ -5342,6 +5342,7 @@ MonoBehaviour:
   - {fileID: 1914825483028442}
   - {fileID: 1605728860686482}
   anim: {fileID: 0}
+  reseteando: 0
 --- !u!114 &114259737562981720
 MonoBehaviour:
   m_ObjectHideFlags: 1

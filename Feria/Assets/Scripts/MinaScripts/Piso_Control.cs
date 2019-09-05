@@ -16,6 +16,10 @@ public class Piso_Control : MonoBehaviour
         {
             StartCoroutine(Reiniciar());
         }
+        else if (other.transform.tag == "barredora")
+        {
+            StartCoroutine(Reiniciar());
+        }
 
     }
     public IEnumerator Reiniciar()

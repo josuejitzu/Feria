@@ -24,6 +24,7 @@ TagManager:
   - raqueta
   - boteBasura
   - zonaMuerte
+  - barredora
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,7 @@ public class MunicionBellota_Control : MonoBehaviour
 
         if (Time.time >= sigSpawn)
         {
-            if (cantidadBellotas < cantidadLimite)
+            if (cantidadBellotas <= cantidadLimite)
                 SpawnBellota();
 
             sigSpawn = rateTiempo + Time.time;

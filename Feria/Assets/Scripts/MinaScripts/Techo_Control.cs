@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Techo_Control : MonoBehaviour {
+public class Techo_Control : MonoBehaviour
+{
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +16,15 @@ public class Techo_Control : MonoBehaviour {
         {
             StartCoroutine(Reiniciar());
         }
+        else if(other.transform.tag == "barredora")
+        {
+            StartCoroutine(Reiniciar());
+        }
 
     }
     public IEnumerator Reiniciar()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(2.0f);
         this.gameObject.SetActive(false);
     }
 }

@@ -176,8 +176,8 @@ public class ManoOsos_Control : MonoBehaviour
         bellotaTemp.BellotaSoltada();
         bellotaTemp.transform.parent = null;
         bellotaEnMano = false;
-        bellotaTemp.GetComponent<Rigidbody>().angularVelocity = control.GetAngularVelocity() * 1.5f;
-        bellotaTemp.GetComponent<Rigidbody>().velocity= control.GetVelocity() * 1.5f;
+        bellotaTemp.GetComponent<Rigidbody>().angularVelocity = control.GetAngularVelocity() * 1.7f;
+        bellotaTemp.GetComponent<Rigidbody>().velocity= control.GetVelocity() * 1.7f;
         enBellota = false;
         bellotaTemp = null;
 

@@ -18,15 +18,7 @@ public class Master_Lobby : MonoBehaviour
         _masterLobby = this;
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Master._master.NuevasSesion();
-        }
-		
-	}
+	
     public void CambiarNivel(string n)
     {
        

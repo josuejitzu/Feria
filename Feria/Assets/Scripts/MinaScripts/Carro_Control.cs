@@ -60,6 +60,10 @@ public class Carro_Control : MonoBehaviour
         {
             if(!rieles_sfx.IsPlaying())
                  rieles_sfx.Play();
+        }else if(velocidad < 0.1f)
+        {
+          
+                rieles_sfx.Stop();
         }
         this.transform.Translate(Vector3.forward * (Time.deltaTime * velocidad));
 
@@ -141,6 +145,7 @@ public class Carro_Control : MonoBehaviour
     {
         if(other.transform.tag == "spawnZona")
         {
+            other.GetComponent<BoxCollider>().enabled = false;
             Rieles_Control._rieles.ActivarTramo();
         }
         if(other.transform.tag =="trampa")

@@ -146,8 +146,9 @@ public class Master_Minas : MonoBehaviour
         monedas_final_txt.text = monedas_score.ToString();
         ActualizarTickets();
         scoreFinal_tablero.SetActive(true);
-       // trampas_final_txt =;
-       //Aparecer Score enfrente 
+        // trampas_final_txt =;
+        //Aparecer Score enfrente 
+        Carro_Control._carro.rieles_sfx.Stop();
        if(Master._master != null)
         {
             Master._master.monedasMinas = monedas_score;
@@ -158,7 +159,7 @@ public class Master_Minas : MonoBehaviour
             }
 
         }
-
+        empezarConteo = false;
 
      }
 
@@ -176,12 +177,13 @@ public class Master_Minas : MonoBehaviour
     }
     public void CambiarNivel(string n)
     {
-        
-            Master._master.CambiarNivel(n,false);
+        Carro_Control._carro.rieles_sfx.Stop();
+        Master._master.CambiarNivel(n,false);
         
     }
     public void RepetirJuego(string n)
     {
+        Carro_Control._carro.rieles_sfx.Stop();
         Master._master.CambiarNivel(n, true);
         menu_sfx.Play();
     }

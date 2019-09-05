@@ -12,13 +12,8 @@ public class Rieles_Control : MonoBehaviour
     public List<GameObject> rielesA = new List<GameObject>();
     public List<GameObject> rielesB = new List<GameObject>();
     public List<GameObject> rielesC = new List<GameObject>();
-    public List<GameObject> rielesD = new List<GameObject>();
-    public List<GameObject> rielesE = new List<GameObject>();
-    public List<GameObject> rielesF = new List<GameObject>();
-    public List<GameObject> rielesG = new List<GameObject>();
-    public List<GameObject> rielesH = new List<GameObject>();
-    public List<GameObject> rielesI = new List<GameObject>();
-    
+  
+
 
     int enPos  = 0;
     public int cantidad;
@@ -26,6 +21,7 @@ public class Rieles_Control : MonoBehaviour
     public int cantRielesSpawn;
     bool inicio = true;
     bool nuevoRiel = true;
+    int rielAnterior;
     Vector3 posicionPrevia;
 
 
@@ -35,10 +31,7 @@ public class Rieles_Control : MonoBehaviour
     public GameObject posParedes;
     public List<GameObject> paredesA = new List<GameObject>();
     public List<GameObject> paredesB = new List<GameObject>();
-    public List<GameObject> paredesC = new List<GameObject>();
-    public List<GameObject> paredesD = new List<GameObject>();
-    public List<GameObject> paredesE = new List<GameObject>();
-    public List<GameObject> paredesF = new List<GameObject>();
+  
     public int cantidadParedes;
     Vector3 posParedNueva;
     Vector3 posParedvieja;
@@ -146,34 +139,7 @@ public class Rieles_Control : MonoBehaviour
             pared.transform.name = "paredeB " + j;
             paredesB.Add(pared);
         }
-        for (int j = 0; j < cantidadParedes; j++)
-        {
-            GameObject pared = Instantiate(paredes_prefab[2], transform.position, Quaternion.identity) as GameObject;
-            pared.SetActive(false);
-            pared.transform.name = "paredeC " + j;
-            paredesC.Add(pared);
-        }
-        for (int j = 0; j < cantidadParedes; j++)
-        {
-            GameObject pared = Instantiate(paredes_prefab[3], transform.position, Quaternion.identity) as GameObject;
-            pared.SetActive(false);
-            pared.transform.name = "paredeD " + j;
-            paredesD.Add(pared);
-        }
-        for (int j = 0; j < cantidadParedes; j++)
-        {
-            GameObject pared = Instantiate(paredes_prefab[4], transform.position, Quaternion.identity) as GameObject;
-            pared.SetActive(false);
-            pared.transform.name = "paredeE " + j;
-            paredesE.Add(pared);
-        }
-        for (int j = 0; j < cantidadParedes; j++)
-        {
-            GameObject pared = Instantiate(paredes_prefab[5], transform.position, Quaternion.identity) as GameObject;
-            pared.SetActive(false);
-            pared.transform.name = "paredeF " + j;
-            paredesF.Add(pared);
-        }
+       
 
     }
 
@@ -255,50 +221,7 @@ public class Rieles_Control : MonoBehaviour
             riel.transform.name = "rielC " + k;
             rielesC.Add(riel);
         }
-        for (int k = 0; k < cantidad; k++)
-        {
-            GameObject riel = Instantiate(rieles_prefab[3], transform.position, Quaternion.identity) as GameObject;
-            riel.SetActive(false);
-            riel.transform.name = "rielD " + k;
-            rielesD.Add(riel);
-        }
-        for (int k = 0; k < cantidad; k++)
-        {
-            GameObject riel = Instantiate(rieles_prefab[4], transform.position, Quaternion.identity) as GameObject;
-            riel.SetActive(false);
-            riel.transform.name = "rielE " + k;
-            rielesE.Add(riel);
-        }
-        for (int k = 0; k < cantidad; k++)
-        {
-            GameObject riel = Instantiate(rieles_prefab[5], transform.position, Quaternion.identity) as GameObject;
-            riel.SetActive(false);
-            riel.transform.name = "rielF " + k;
-            rielesF.Add(riel);
-
-        }
-        for (int k = 0; k < cantidad; k++)
-        {
-            GameObject riel = Instantiate(rieles_prefab[6], transform.position, Quaternion.identity) as GameObject;
-            riel.SetActive(false);
-            riel.transform.name = "rielG " + k;
-            rielesG.Add(riel);
-        }
-        for (int k = 0; k < cantidad; k++)
-        {
-            GameObject riel = Instantiate(rieles_prefab[7], transform.position, Quaternion.identity) as GameObject;
-            riel.SetActive(false);
-            riel.transform.name = "rielH " + k;
-            rielesH.Add(riel);
-        }
-        for (int k = 0; k < cantidad; k++)
-        {
-            GameObject riel = Instantiate(rieles_prefab[8], transform.position, Quaternion.identity) as GameObject;
-            riel.SetActive(false);
-            riel.transform.name = "rielI " + k;
-            rielesI.Add(riel);
-        }
-        ////////
+       
 
         print("Se terminaron de cargar los rieles");
         if(inicio)
@@ -321,8 +244,8 @@ public class Rieles_Control : MonoBehaviour
             return;
         }
         DestruccionDeTramo();
-
-        for (int i = 0; i < 15; i++)
+        //Rieles
+        for (int i = 0; i < 20; i++)//antes 15
         {
             ActivarRiel();
 
@@ -336,7 +259,7 @@ public class Rieles_Control : MonoBehaviour
         nuevoRiel = false;
 
         //PAREDES
-        for (int i = 0; i < 19; i++)
+        for (int i = 0; i < 40; i++)
         {
 
             GameObject pared = ElegirPared();
@@ -352,18 +275,16 @@ public class Rieles_Control : MonoBehaviour
                 {
                     posParedNueva.z += 4.5f;
                     pared.transform.position = posParedNueva;
+                    pared.SetActive(true);
+                   // StopCoroutine(pared.GetComponent<Pared_Control>().Reiniciar());
+                    posParedNueva = pared.transform.position;
                 }
             }
-            
-            pared.SetActive(true);
-            StopCoroutine(pared.GetComponent<Pared_Control>().Reiniciar());
-            posParedNueva = pared.transform.position;
-          
 
         }
         
         //PISO
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 15; i++)
         {
             GameObject piso = ElegirPiso();
             if(nuevoPiso)
@@ -384,14 +305,14 @@ public class Rieles_Control : MonoBehaviour
 
             {
                 piso.SetActive(true);
-                StopCoroutine(piso.GetComponent<Piso_Control>().Reiniciar());
+               // StopCoroutine(piso.GetComponent<Piso_Control>().Reiniciar());
                 posPisoViejo = piso.transform.position;
             }
-        
+       
         }
 
         //TECHO
-        for (int j = 0; j < 8; j++)
+        for (int j = 0; j < 20; j++)
         {
             GameObject techo = ElegirTecho();
             if(nuevoTecho)
@@ -410,18 +331,21 @@ public class Rieles_Control : MonoBehaviour
             if(techo != null)
             {
                 techo.SetActive(true);
-                StopCoroutine(techo.GetComponent<Techo_Control>().Reiniciar());
+                //StopCoroutine(techo.GetComponent<Techo_Control>().Reiniciar());
                 posTechoViejo = techo.transform.position;
             }
-         
+           //// StopCoroutine(techo.GetComponent<Techo_Control>().Reiniciar());
+           // posTechoViejo = techo.transform.position;
+
         }
 
         //SOPORTE
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 10 ; i++)
         {
 
 
             GameObject soporte = ElegirSoporte();
+          
             if (nuevoSoporte)
             {
                 soporte.transform.position = posSoporte.position;
@@ -440,6 +364,8 @@ public class Rieles_Control : MonoBehaviour
                     posSoporteViejo = soporte.transform.position;
                 }
             }
+           // StopCoroutine(soporte.GetComponent<Soporte_Control>().Reiniciar());
+
         }
 
         
@@ -464,6 +390,10 @@ public class Rieles_Control : MonoBehaviour
             for (int i = 0; i < posiciones.Length; i++)
             {
                 riel = SeleccionRiel();
+                while (riel == null)
+                {
+                    riel = SeleccionRiel();
+                }
                 if (riel != null)
                 {
                     riel.transform.position = ElegirPos(i);
@@ -503,8 +433,8 @@ public class Rieles_Control : MonoBehaviour
                     }
 
                     riel.SetActive(true);
-                    StopCoroutine(riel.GetComponent<Riel_Control>().Reseteo(1));
-                   
+                    StopCoroutine(riel.GetComponent<Riel_Control>().Reseteo(0.5f));
+                    //posicionPrevia = riel.transform.position;
                 }
                
             }
@@ -568,12 +498,14 @@ public class Rieles_Control : MonoBehaviour
     {
         GameObject riel = null;
 
-        if (etapa1)
-        {
+
 
             int r = Random.Range(0, 3);
 
-           
+           while(r == rielAnterior)
+            {
+                r = Random.Range(0, 3);
+            }
 
             if (r == 0)
             {
@@ -583,7 +515,7 @@ public class Rieles_Control : MonoBehaviour
                     {
                         riel = ri;
 
-
+                    break;
 
                     }
                 }
@@ -595,7 +527,7 @@ public class Rieles_Control : MonoBehaviour
                     if (ri.activeInHierarchy == false)
                     {
                         riel = ri;
-
+                    break;
                     }
                 }
             }
@@ -606,95 +538,12 @@ public class Rieles_Control : MonoBehaviour
                     if (ri.activeInHierarchy == false)
                     {
                         riel = ri;
-
+                    break;
                     }
                 }
             }
-        }
-        if(etapa2)
-        {
-             int r = Random.Range(0, 3);
 
-           
-
-            if (r == 0)
-            {
-                foreach (GameObject ri in rielesD)
-                {
-                    if (ri.activeInHierarchy == false)
-                    {
-                        riel = ri;
-
-
-
-                    }
-                }
-            }
-            if (r == 1)
-            {
-                foreach (GameObject ri in rielesE)
-                {
-                    if (ri.activeInHierarchy == false)
-                    {
-                        riel = ri;
-
-                    }
-                }
-            }
-            if (r == 2)
-            {
-                foreach (GameObject ri in rielesF)
-                {
-                    if (ri.activeInHierarchy == false)
-                    {
-                        riel = ri;
-
-                    }
-                }
-            }
-        }
-        if(etapa3)
-        {
-            int r = Random.Range(0, 3);
-
-
-
-            if (r == 0)
-            {
-                foreach (GameObject ri in rielesG)
-                {
-                    if (ri.activeInHierarchy == false)
-                    {
-                        riel = ri;
-
-
-
-                    }
-                }
-            }
-            if (r == 1)
-            {
-                foreach (GameObject ri in rielesH)
-                {
-                    if (ri.activeInHierarchy == false)
-                    {
-                        riel = ri;
-
-                    }
-                }
-            }
-            if (r == 2)
-            {
-                foreach (GameObject ri in rielesI)
-                {
-                    if (ri.activeInHierarchy == false)
-                    {
-                        riel = ri;
-
-                    }
-                }
-            }
-        }
+        rielAnterior = r;
 
         return riel;
     }
@@ -711,80 +560,39 @@ public class Rieles_Control : MonoBehaviour
 
     GameObject ElegirPared()
     {
-        int rand = Random.Range(0, 2);
+        int rand = Random.Range(0,2);
         GameObject p = null;
-        if (etapa1)
+
+
+       
+      if (rand == 0)
+      {
+        foreach (GameObject pared in paredesA)
         {
-            if (rand == 0)
+            if (!pared.activeInHierarchy)
             {
-                foreach (GameObject pared in paredesA)
-                {
-                    if (!pared.activeInHierarchy)
-                    {
                         p = pared;
-                    }
-                }
+                        break;
             }
-            if (rand == 1)
+         }
+      }
+      else if (rand == 1)
             {
                 foreach (GameObject pared in paredesB)
                 {
                     if (!pared.activeInHierarchy)
                     {
                         p = pared;
+                         break;
                     }
                 }
-            }
-        }
+       }
 
-        if (etapa2)
-        {
-            if (rand == 0)
-            {
-                foreach (GameObject pared in paredesC)
-                {
-                    if (!pared.activeInHierarchy)
-                    {
-                        p = pared;
-                    }
-                }
-            }
-            if (rand == 1)
-            {
-                foreach (GameObject pared in paredesD)
-                {
-                    if (!pared.activeInHierarchy)
-                    {
-                        p = pared;
-                    }
-                }
-            }
-        }
 
-        if (etapa3)
-        {
-            if (rand == 0)
-            {
-                foreach (GameObject pared in paredesE)
-                {
-                    if (!pared.activeInHierarchy)
-                    {
-                        p = pared;
-                    }
-                }
-            }
-            if (rand == 1)
-            {
-                foreach (GameObject pared in paredesF)
-                {
-                    if (!pared.activeInHierarchy)
-                    {
-                        p = pared;
-                    }
-                }
-            }
 
-        }
+        if (p == null)
+            print("No se encontro pared");
+
 
         return p;
 
@@ -794,37 +602,20 @@ public class Rieles_Control : MonoBehaviour
     {
         GameObject piso = null;
 
-        if(etapa1)
+        foreach (GameObject p in pisosA)
         {
-            foreach(GameObject p in pisosA)
+            if (!p.activeInHierarchy)
             {
-                if(!p.activeInHierarchy)
-                {
-                    piso = p;
-                }
-            }
-        }
-        if (etapa2)
-        {
-            foreach (GameObject p in pisosB)
-            {
-                if (!p.activeInHierarchy)
-                {
-                    piso = p;
-                }
-            }
-        }
-        if (etapa3)
-        {
-            foreach (GameObject p in pisosC)
-            {
-                if (!p.activeInHierarchy)
-                {
-                    piso = p;
-                }
+                piso = p;
+                break;
             }
         }
 
+      
+        if(piso == null)
+        {
+            print("NO se encontro piso");
+        }
         return piso;
     }
 
@@ -832,44 +623,20 @@ public class Rieles_Control : MonoBehaviour
     {
         GameObject techo = null;
 
-        if(etapa1)
+        foreach (GameObject t in techoA)
         {
-            foreach(GameObject t in techoA)
+            if (!t.activeInHierarchy)
             {
-                if (!t.activeInHierarchy)
-                {
 
-                    techo = t;
-                }
-
+                techo = t;
+               // techo.GetComponent<Techo_Control>().StopAllCoroutines();
+             //   StopAllCoroutines(techo.GetComponent<Techo_Control>());
+                break;
             }
+
         }
-
-        if (etapa2)
-        {
-            foreach (GameObject t in techoB)
-            {
-                if (!t.activeInHierarchy)
-                {
-
-                    techo = t;
-                }
-
-            }
-        }
-
-        if (etapa3)
-        {
-            foreach (GameObject t in techoC)
-            {
-                if (!t.activeInHierarchy)
-                {
-
-                    techo = t;
-                }
-
-            }
-        }
+        if (techo == null)
+            print("No se encontro techo");
 
         return techo;
     }
@@ -883,6 +650,9 @@ public class Rieles_Control : MonoBehaviour
             if(!s.activeInHierarchy)
             {
                 soporte = s;
+               // soporte.GetComponent<Soporte_Control>().StopAllCoroutines();
+                soporte.gameObject.SetActive(false);
+                break;
             }
         }
         return soporte;
